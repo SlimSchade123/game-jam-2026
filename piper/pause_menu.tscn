@@ -2,20 +2,68 @@
 
 [ext_resource type="Script" uid="uid://bh6gjhnhqhqj" path="res://piper/pause_menu.gd" id="1_7i1vs"]
 [ext_resource type="FontFile" uid="uid://cykv7n1iol4wl" path="res://fonts/Jacquard12-Regular.ttf" id="1_b43jx"]
+[ext_resource type="Shader" uid="uid://jmx4rjld7o2b" path="res://piper/double_dither.gdshader" id="3_mb0u4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p7rlr"]
+shader = ExtResource("3_mb0u4")
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/radius = 0.0
+shader_parameter/pixel_size = 8.0
+shader_parameter/resolution = Vector2(1920, 1080)
+shader_parameter/dither_offset = Vector2(2, 0)
+shader_parameter/bayer_size = 2
+shader_parameter/interpolate = true
+shader_parameter/invert = true
+shader_parameter/falloff = 2.5
+shader_parameter/color = Color(0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_w1fw6"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bulla"]
+gradient = SubResource("Gradient_w1fw6")
+width = 1920
+height = 1080
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w1fw6"]
 
 [node name="Pause Menu" type="CanvasLayer" unique_id=1172234929]
 process_mode = 3
+visible = false
 script = ExtResource("1_7i1vs")
 
-[node name="Panel" type="Panel" parent="." unique_id=420725055]
-process_mode = 3
+[node name="Vis Root" type="Control" parent="." unique_id=1328870029]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=1609319358]
+[node name="Transition Shader" type="Sprite2D" parent="Vis Root" unique_id=1614562209]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_p7rlr")
+texture = SubResource("GradientTexture2D_bulla")
+centered = false
+
+[node name="Pause Info" type="Control" parent="Vis Root" unique_id=1687005667]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Vis Root/Pause Info" unique_id=420725055]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_w1fw6")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Vis Root/Pause Info/Panel" unique_id=1609319358]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0

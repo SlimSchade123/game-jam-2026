@@ -1,7 +1,13 @@
 [gd_scene format=3 uid="uid://bpjyrd7me7t8t"]
 
+[ext_resource type="Script" uid="uid://bd5r4w6am4tu6" path="res://piper/main_menu.gd" id="1_r0j6v"]
 [ext_resource type="FontFile" uid="uid://cykv7n1iol4wl" path="res://fonts/Jacquard12-Regular.ttf" id="2_bpore"]
+[ext_resource type="StyleBox" uid="uid://dhc7i1ag1r5ed" path="res://styles/button_hovered_1.tres" id="2_r0j6v"]
 [ext_resource type="Script" uid="uid://dkdqdc512ghvb" path="res://piper/infinite_scroll.gd" id="2_uogpq"]
+[ext_resource type="Script" uid="uid://bsv2qvbt2ya0h" path="res://piper/quit_game.gd" id="4_pdodv"]
+[ext_resource type="Script" uid="uid://dkkipe5p3t25y" path="res://piper/master_volume.gd" id="5_g3723"]
+[ext_resource type="Texture2D" uid="uid://c6yke5xhaamny" path="res://piper/slide_tab.png" id="6_w1fw6"]
+[ext_resource type="Shader" uid="uid://jmx4rjld7o2b" path="res://piper/double_dither.gdshader" id="8_8bfff"]
 
 [sub_resource type="Gradient" id="Gradient_uogpq"]
 
@@ -32,7 +38,47 @@ corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ss0k5"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ygfeb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xuhh7"]
+content_margin_top = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qlqem"]
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+anti_aliasing = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ygfeb"]
+shader = ExtResource("8_8bfff")
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/radius = 1.550000073625
+shader_parameter/pixel_size = 8.0
+shader_parameter/resolution = Vector2(1920, 1080)
+shader_parameter/dither_offset = Vector2(2, 0)
+shader_parameter/bayer_size = 2
+shader_parameter/interpolate = true
+shader_parameter/invert = true
+shader_parameter/falloff = 2.5
+shader_parameter/color = Color(0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_w1fw6"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xtnmv"]
+gradient = SubResource("Gradient_w1fw6")
+width = 1920
+height = 1080
 
 [node name="Main Menu" type="Control" unique_id=166469436]
 layout_mode = 3
@@ -145,12 +191,31 @@ scale = Vector2(2.159633, 7.5155225)
 texture = SubResource("GradientTexture2D_ygfeb")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1743119828]
+script = ExtResource("1_r0j6v")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=558677924]
+[node name="Offsetter" type="Control" parent="CanvasLayer" unique_id=771350093]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Main Menu Root" type="Control" parent="CanvasLayer/Offsetter" unique_id=275349716]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Offsetter/Main Menu Root" unique_id=558677924]
+layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_top = 67.0
-offset_bottom = 325.0
+offset_right = 1.0
+offset_bottom = 2131.0
 grow_horizontal = 2
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -165,89 +230,225 @@ fit_content = true
 scroll_active = false
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1039340841]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Offsetter/Main Menu Root" unique_id=1039340841]
 custom_minimum_size = Vector2(400, 320)
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -200.0
-offset_top = -93.0
+offset_top = -105.0
 offset_right = 200.0
-offset_bottom = 412.0
+offset_bottom = 424.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 59
 
-[node name="Panel" type="PanelContainer" parent="CanvasLayer/VBoxContainer" unique_id=580423863]
+[node name="Panel" type="PanelContainer" parent="CanvasLayer/Offsetter/Main Menu Root/VBoxContainer" unique_id=580423863]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ygfeb")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer/Panel" unique_id=406419013]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Offsetter/Main Menu Root/VBoxContainer/Panel" unique_id=406419013]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/Panel/MarginContainer" unique_id=632174396]
+[node name="Label" type="Label" parent="CanvasLayer/Offsetter/Main Menu Root/VBoxContainer/Panel/MarginContainer" unique_id=632174396]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_bpore")
 theme_override_font_sizes/font_size = 96
 text = "Play"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer/Panel" unique_id=1839673847]
+[node name="Button" type="Button" parent="CanvasLayer/Offsetter/Main Menu Root/VBoxContainer/Panel" unique_id=1839673847]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_ygfeb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ss0k5")
+theme_override_styles/hover = ExtResource("2_r0j6v")
 
-[node name="Panel2" type="PanelContainer" parent="CanvasLayer/VBoxContainer" unique_id=817821915]
+[node name="Panel2" type="PanelContainer" parent="CanvasLayer/Offsetter/Main Menu Root/VBoxContainer" unique_id=817821915]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ygfeb")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer/Panel2" unique_id=2062695104]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Offsetter/Main Menu Root/VBoxContainer/Panel2" unique_id=2062695104]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/Panel2/MarginContainer" unique_id=905287838]
+[node name="Label" type="Label" parent="CanvasLayer/Offsetter/Main Menu Root/VBoxContainer/Panel2/MarginContainer" unique_id=905287838]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_bpore")
 theme_override_font_sizes/font_size = 96
 text = "Options"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer/Panel2" unique_id=1964370216]
+[node name="Button" type="Button" parent="CanvasLayer/Offsetter/Main Menu Root/VBoxContainer/Panel2" unique_id=1964370216]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ygfeb")
+theme_override_styles/hover = ExtResource("2_r0j6v")
 
-[node name="Panel3" type="PanelContainer" parent="CanvasLayer/VBoxContainer" unique_id=880129010]
+[node name="Panel3" type="PanelContainer" parent="CanvasLayer/Offsetter/Main Menu Root/VBoxContainer" unique_id=880129010]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ygfeb")
+script = ExtResource("4_pdodv")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer/Panel3" unique_id=509427424]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Offsetter/Main Menu Root/VBoxContainer/Panel3" unique_id=509427424]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/Panel3/MarginContainer" unique_id=181415686]
+[node name="Label" type="Label" parent="CanvasLayer/Offsetter/Main Menu Root/VBoxContainer/Panel3/MarginContainer" unique_id=181415686]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_bpore")
 theme_override_font_sizes/font_size = 96
 text = "Quit"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer/Panel3" unique_id=2055471130]
+[node name="Button" type="Button" parent="CanvasLayer/Offsetter/Main Menu Root/VBoxContainer/Panel3" unique_id=2055471130]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ygfeb")
+theme_override_styles/hover = ExtResource("2_r0j6v")
+
+[node name="Options Root" type="Control" parent="CanvasLayer/Offsetter" unique_id=1094885833]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1920.0
+offset_right = -1920.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Offsetter/Options Root" unique_id=421261002]
+custom_minimum_size = Vector2(400, 320)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -105.0
+offset_right = 200.0
+offset_bottom = 424.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 59
+
+[node name="Panel3" type="PanelContainer" parent="CanvasLayer/Offsetter/Options Root" unique_id=1356098073]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 55.0
+offset_right = 458.0
+offset_bottom = 192.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ygfeb")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Offsetter/Options Root/Panel3" unique_id=47587341]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Label" type="Label" parent="CanvasLayer/Offsetter/Options Root/Panel3/MarginContainer" unique_id=633741259]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bpore")
+theme_override_font_sizes/font_size = 96
+text = "Return"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/Offsetter/Options Root/Panel3" unique_id=1909306604]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ygfeb")
+theme_override_styles/hover = ExtResource("2_r0j6v")
+
+[node name="Master Volume" type="Control" parent="CanvasLayer/Offsetter/Options Root" unique_id=263512049]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("5_g3723")
+
+[node name="Panel3" type="PanelContainer" parent="CanvasLayer/Offsetter/Options Root/Master Volume" unique_id=543892967]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 271.0
+offset_right = 1178.0
+offset_bottom = 444.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ygfeb")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Offsetter/Options Root/Master Volume/Panel3" unique_id=1568435293]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Offsetter/Options Root/Master Volume/Panel3/MarginContainer" unique_id=435470265]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/Offsetter/Options Root/Master Volume/Panel3/MarginContainer/VBoxContainer" unique_id=635092881]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Offsetter/Options Root/Master Volume/Panel3/MarginContainer/VBoxContainer/HSplitContainer" unique_id=281313185]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bpore")
+theme_override_font_sizes/font_size = 96
+text = "Master Volume"
+
+[node name="Percentage" type="Label" parent="CanvasLayer/Offsetter/Options Root/Master Volume/Panel3/MarginContainer/VBoxContainer/HSplitContainer" unique_id=1723367241]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bpore")
+theme_override_font_sizes/font_size = 96
+text = "50%"
+horizontal_alignment = 1
+
+[node name="Master Slider" type="HSlider" parent="CanvasLayer/Offsetter/Options Root/Master Volume/Panel3/MarginContainer/VBoxContainer" unique_id=1286895967]
+texture_filter = 1
+custom_minimum_size = Vector2(1080, 0)
+layout_mode = 2
+theme_override_icons/grabber = ExtResource("6_w1fw6")
+theme_override_icons/grabber_highlight = ExtResource("6_w1fw6")
+theme_override_styles/slider = SubResource("StyleBoxFlat_xuhh7")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_xuhh7")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_qlqem")
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Button" type="Button" parent="CanvasLayer/Offsetter/Options Root/Master Volume/Panel3" unique_id=691172281]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ygfeb")
+theme_override_styles/hover = ExtResource("2_r0j6v")
+
+[node name="Transition Shader" type="Sprite2D" parent="CanvasLayer" unique_id=24905587]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_ygfeb")
+texture = SubResource("GradientTexture2D_xtnmv")
+centered = false
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Transition Shader" unique_id=2051788480]
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1280881561]
 position = Vector2(0, 542)
 script = ExtResource("2_uogpq")
 
 [node name="Camera2D" type="Camera2D" parent="Node2D" unique_id=823316661]
+
+[connection signal="pressed" from="CanvasLayer/Offsetter/Main Menu Root/VBoxContainer/Panel/Button" to="CanvasLayer" method="_on_play_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Offsetter/Main Menu Root/VBoxContainer/Panel2/Button" to="CanvasLayer" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Offsetter/Main Menu Root/VBoxContainer/Panel3/Button" to="CanvasLayer/Offsetter/Main Menu Root/VBoxContainer/Panel3" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Offsetter/Options Root/Panel3/Button" to="CanvasLayer" method="_on_button_pressed"]
+[connection signal="drag_ended" from="CanvasLayer/Offsetter/Options Root/Master Volume/Panel3/MarginContainer/VBoxContainer/Master Slider" to="CanvasLayer/Offsetter/Options Root/Master Volume" method="_on_master_slider_drag_ended"]
