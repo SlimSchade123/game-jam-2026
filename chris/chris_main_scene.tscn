@@ -98,7 +98,7 @@ script = ExtResource("9_thobl")
 [node name="Enemy" parent="Enemy Spawner" unique_id=796674970 instance=ExtResource("9_fqpc4")]
 position = Vector2(4000, 650)
 
-[node name="Timer" type="Timer" parent="Enemy Spawner" unique_id=1333893468]
+[node name="Spawn Timer" type="Timer" parent="Enemy Spawner" unique_id=1333893468]
 autostart = true
 
-[connection signal="timeout" from="Enemy Spawner/Timer" to="Enemy Spawner" method="_on_timer_timeout"]
+[connection signal="timeout" from="Enemy Spawner/Spawn Timer" to="Enemy Spawner" method="_on_timer_timeout"]
