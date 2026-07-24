@@ -7,7 +7,8 @@ radius = 33.0
 height = 76.0
 
 [sub_resource type="Gradient" id="Gradient_2lwh2"]
-colors = PackedColorArray(0, 0, 0, 1, 0.73467994, 0.73467994, 0.7346799, 1)
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.76, 0.936, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_xuhh7"]
 gradient = SubResource("Gradient_2lwh2")
@@ -29,4 +30,8 @@ texture = SubResource("GradientTexture2D_xuhh7")
 wait_time = 0.2
 one_shot = true
 
+[node name="Fall_Delay_Timer" type="Timer" parent="." unique_id=1358787671]
+one_shot = true
+
 [connection signal="timeout" from="Dash_Timer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="Fall_Delay_Timer" to="." method="_on_fall_delay_timer_timeout"]

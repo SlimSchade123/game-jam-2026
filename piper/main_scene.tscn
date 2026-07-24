@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_2lwh2"]
 [ext_resource type="PackedScene" uid="uid://4rscnq415aft" path="res://piper/Player Character.tscn" id="3_duolu"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_we7aq"]
+[ext_resource type="Script" uid="uid://dy54m75y5087d" path="res://piper/cam_controls.gd" id="5_duolu"]
 [ext_resource type="PackedScene" uid="uid://ct1ep45qasr1h" path="res://piper/pause_menu.tscn" id="7_riw4a"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ygfeb"]
@@ -57,15 +58,23 @@ process_physics_priority = 300
 script = ExtResource("2_ny3h3")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="PhantomCamera2D" type="Node2D" parent="." unique_id=944693704 node_paths=PackedStringArray("follow_target", "follow_path")]
+[node name="Cam Controller" type="Node2D" parent="." unique_id=325723196 node_paths=PackedStringArray("current_pcam")]
+script = ExtResource("5_duolu")
+current_pcam = NodePath("Run Camera")
+
+[node name="Run Camera" type="Node2D" parent="Cam Controller" unique_id=944693704 node_paths=PackedStringArray("follow_target", "follow_path")]
 top_level = true
 position = Vector2(874, 540)
 script = ExtResource("3_2lwh2")
+priority = 1
 follow_mode = 4
-follow_target = NodePath("../CharacterBody2D")
-follow_path = NodePath("../Path2D")
+follow_target = NodePath("../../CharacterBody2D")
+follow_path = NodePath("../../Path2D")
 tween_resource = SubResource("Resource_riw4a")
 follow_offset = Vector2(800, 0)
+lookahead_time = Vector2(0.01, 0.01)
+lookahead_acceleration = 0.0
+lookahead_deceleration = 0.0
 dead_zone_width = 0.05
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
