@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 const max_speed : float = 1200.0
-const jump_velocity : float = -400.0
+const jump_velocity : float = -400
 
 # basic physics junk
 const acceleration : float = 12.5
@@ -16,6 +16,7 @@ func _physics_process(delta: float) -> void:
 
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	print(get_gravity())
 	
 	var x_input : float = Input.get_action_strength("right") - Input.get_action_strength("left")
 	var velocity_weight : float = delta * (acceleration if x_input else friction)

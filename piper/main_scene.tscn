@@ -1,45 +1,17 @@
 [gd_scene format=3 uid="uid://bn62q6coy8es0"]
 
-[ext_resource type="Script" uid="uid://cdp78wb7wfav8" path="res://piper/test_guy.gd" id="1_7aq22"]
+[ext_resource type="PackedScene" uid="uid://b0e8d70lbcvjr" path="res://piper/screen_effects.tscn" id="1_we7aq"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_ny3h3"]
+[ext_resource type="PackedScene" uid="uid://cd4btkjx7mi8t" path="res://piper/parallax_background.tscn" id="2_riw4a"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_2lwh2"]
+[ext_resource type="PackedScene" uid="uid://4rscnq415aft" path="res://piper/Player Character.tscn" id="3_duolu"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_we7aq"]
-
-[sub_resource type="Gradient" id="Gradient_7aq22"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.37413925, 0.37413928, 0.37413922, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ygfeb"]
-gradient = SubResource("Gradient_7aq22")
-fill_to = Vector2(1, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ll7g7"]
-bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ygfeb"]
 
-[sub_resource type="Gradient" id="Gradient_ny3h3"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_gq0y6"]
-gradient = SubResource("Gradient_ny3h3")
-width = 1080
-height = 8
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ygfeb"]
-radius = 33.0
-height = 76.0
-
-[sub_resource type="Gradient" id="Gradient_2lwh2"]
-colors = PackedColorArray(0, 0, 0, 1, 0.73467994, 0.73467994, 0.7346799, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_xuhh7"]
-gradient = SubResource("Gradient_2lwh2")
-fill_to = Vector2(0, 1)
-
 [sub_resource type="Resource" id="Resource_riw4a"]
 script = ExtResource("4_we7aq")
+duration = 0.0
 
 [sub_resource type="Curve2D" id="Curve2D_ny3h3"]
 _data = {
@@ -47,115 +19,22 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="Gradient" id="Gradient_ny3h3"]
+offsets = PackedFloat32Array(0.003633721)
+colors = PackedColorArray(0.61908174, 0.6190819, 0.6190816, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xtnmv"]
+gradient = SubResource("Gradient_ny3h3")
+width = 1920
+height = 256
+fill_to = Vector2(1, 1)
+repeat = 1
+
 [node name="Main Scene" type="Node2D" unique_id=13203674]
 
-[node name="Parallax Layers" type="Node2D" parent="." unique_id=772403693]
+[node name="Screen Effects" parent="." unique_id=129136169 instance=ExtResource("1_we7aq")]
 
-[node name="Far Bg" type="Parallax2D" parent="Parallax Layers" unique_id=1163501871]
-modulate = Color(0.24985075, 0.24985075, 0.24985075, 1)
-scroll_scale = Vector2(0.2, 0.2)
-scroll_offset = Vector2(540, 720)
-repeat_size = Vector2(1080, 0)
-repeat_times = 3
-
-[node name="Sprite2D" type="Sprite2D" parent="Parallax Layers/Far Bg" unique_id=296302591]
-position = Vector2(0, -238.99998)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
-
-[node name="Sprite2D3" type="Sprite2D" parent="Parallax Layers/Far Bg" unique_id=1121104096]
-position = Vector2(293.99997, -238.99998)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
-
-[node name="Sprite2D4" type="Sprite2D" parent="Parallax Layers/Far Bg" unique_id=1657620473]
-position = Vector2(592, -238.99998)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
-
-[node name="Sprite2D5" type="Sprite2D" parent="Parallax Layers/Far Bg" unique_id=1788531666]
-position = Vector2(842, -238.99998)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
-
-[node name="Mid Bg" type="Parallax2D" parent="Parallax Layers" unique_id=68433258]
-scale = Vector2(2.5600007, 1)
-scroll_scale = Vector2(0.4, 0.4)
-scroll_offset = Vector2(77, 798)
-
-[node name="Sprite2D" type="Sprite2D" parent="Parallax Layers/Mid Bg" unique_id=2049963402]
-position = Vector2(0, -238.99998)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Parallax Layers/Mid Bg" unique_id=242849819]
-position = Vector2(287.99997, -238.99998)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
-
-[node name="Sprite2D3" type="Sprite2D" parent="Parallax Layers/Mid Bg" unique_id=1525043606]
-position = Vector2(641, -238.99998)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
-
-[node name="Sprite2D4" type="Sprite2D" parent="Parallax Layers/Mid Bg" unique_id=1040814762]
-position = Vector2(1037, -238.99998)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
-
-[node name="Sprite2D5" type="Sprite2D" parent="Parallax Layers/Mid Bg" unique_id=1430017447]
-position = Vector2(1503, -212.99995)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
-
-[node name="Close Bg" type="Parallax2D" parent="Parallax Layers" unique_id=1882496936]
-modulate = Color(0.5802277, 0.58022773, 0.58022773, 1)
-scroll_scale = Vector2(0.6, 0.6)
-scroll_offset = Vector2(128.415, 866)
-
-[node name="Sprite2D" type="Sprite2D" parent="Parallax Layers/Close Bg" unique_id=434165303]
-position = Vector2(0, -238.99998)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Parallax Layers/Close Bg" unique_id=330305188]
-position = Vector2(287.99997, -238.99998)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
-
-[node name="Sprite2D3" type="Sprite2D" parent="Parallax Layers/Close Bg" unique_id=1014642644]
-position = Vector2(641, -238.99998)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
-
-[node name="Sprite2D4" type="Sprite2D" parent="Parallax Layers/Close Bg" unique_id=1758308136]
-position = Vector2(1037, -238.99998)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
-
-[node name="Sprite2D5" type="Sprite2D" parent="Parallax Layers/Close Bg" unique_id=1852169967]
-position = Vector2(1503, -212.99995)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
-
-[node name="Screen Effects" type="CanvasLayer" parent="." unique_id=830390732]
-
-[node name="Header Border" type="Panel" parent="Screen Effects" unique_id=1865945222]
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 360.0
-grow_horizontal = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ll7g7")
-
-[node name="Footer Border" type="Panel" parent="Screen Effects" unique_id=594777679]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -360.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_ll7g7")
+[node name="Parallax Background" parent="." unique_id=1412724324 instance=ExtResource("2_riw4a")]
 
 [node name="Floor Collision" type="StaticBody2D" parent="." unique_id=257303055]
 position = Vector2(0, 722)
@@ -163,28 +42,13 @@ position = Vector2(0, 722)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor Collision" unique_id=512389613]
 shape = SubResource("WorldBoundaryShape2D_ygfeb")
 
-[node name="Sprite2D" type="Sprite2D" parent="Floor Collision" unique_id=1466681307]
-position = Vector2(0, 2)
-texture = SubResource("GradientTexture2D_gq0y6")
-offset = Vector2(540, 0)
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=356617602]
+[node name="CharacterBody2D" parent="." unique_id=207930097 instance=ExtResource("3_duolu")]
 position = Vector2(74, 603)
-script = ExtResource("1_7aq22")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1487797370]
-position = Vector2(0, -38)
-shape = SubResource("CapsuleShape2D_ygfeb")
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1272451966]
-position = Vector2(0, -38)
-scale = Vector2(1.0984263, 1.1908623)
-texture = SubResource("GradientTexture2D_xuhh7")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=971042345]
 physics_interpolation_mode = 1
 top_level = true
-position = Vector2(74, 603)
+position = Vector2(874, 603)
 
 [node name="PhantomCameraHost2" type="Node" parent="Camera2D" unique_id=677974093]
 process_priority = 300
@@ -194,14 +58,29 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera2D" type="Node2D" parent="." unique_id=944693704 node_paths=PackedStringArray("follow_target", "follow_path")]
 top_level = true
-position = Vector2(74, 603)
+position = Vector2(874, 603)
 script = ExtResource("3_2lwh2")
-follow_mode = 2
-follow_target = NodePath("../CharacterBody2D")
+follow_mode = 5
+follow_target = NodePath("")
 follow_path = NodePath("../Path2D")
 tween_resource = SubResource("Resource_riw4a")
+follow_offset = Vector2(800, 0)
+dead_zone_width = 0.05
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="Path2D" type="Path2D" parent="." unique_id=1153276700]
 position = Vector2(0, 540)
 curve = SubResource("Curve2D_ny3h3")
+
+[node name="Foreground" type="Node2D" parent="." unique_id=455646271]
+visible = false
+position = Vector2(0, -40)
+
+[node name="Parallax2D" type="Parallax2D" parent="Foreground" unique_id=1561275141]
+scroll_scale = Vector2(1, 0)
+repeat_size = Vector2(1080, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Foreground/Parallax2D" unique_id=1720978100]
+position = Vector2(270, 843)
+texture = SubResource("GradientTexture2D_xtnmv")

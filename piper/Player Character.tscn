@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://4rscnq415aft"]
+
+[ext_resource type="Script" uid="uid://cdp78wb7wfav8" path="res://piper/test_guy.gd" id="1_py502"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ygfeb"]
+radius = 33.0
+height = 76.0
+
+[sub_resource type="Gradient" id="Gradient_2lwh2"]
+colors = PackedColorArray(0, 0, 0, 1, 0.73467994, 0.73467994, 0.7346799, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xuhh7"]
+gradient = SubResource("Gradient_2lwh2")
+fill_to = Vector2(0, 1)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=207930097]
+script = ExtResource("1_py502")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=975430459]
+position = Vector2(0, -38)
+shape = SubResource("CapsuleShape2D_ygfeb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=79177287]
+position = Vector2(0, -38)
+scale = Vector2(1.0984263, 1.1908623)
+texture = SubResource("GradientTexture2D_xuhh7")
