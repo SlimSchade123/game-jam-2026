@@ -57,9 +57,11 @@ func _physics_process(delta: float) -> void:
 	
 	falling(delta)
 	
+	## jump input check
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		current_state_update(Player_State.jump_one)
 	
+	# dash input check
 	if Input.is_action_just_pressed("dash") and !dash_on_cooldown:
 		current_state_update(Player_State.dashed)
 	

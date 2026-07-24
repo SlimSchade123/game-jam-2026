@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dkkipe5p3t25y" path="res://piper/master_volume.gd" id="5_g3723"]
 [ext_resource type="Texture2D" uid="uid://c6yke5xhaamny" path="res://piper/slide_tab.png" id="6_w1fw6"]
 [ext_resource type="Shader" uid="uid://jmx4rjld7o2b" path="res://piper/double_dither.gdshader" id="8_8bfff"]
+[ext_resource type="Script" uid="uid://ce80e2mo8os05" path="res://piper/test_liftoff_bar.gd" id="8_t3bix"]
 
 [sub_resource type="Gradient" id="Gradient_uogpq"]
 
@@ -440,6 +441,22 @@ texture = SubResource("GradientTexture2D_xtnmv")
 centered = false
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Transition Shader" unique_id=2051788480]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=304487370]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control" unique_id=1914577731]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 0
+offset_left = 194.0
+offset_top = 600.0
+offset_right = 694.0
+offset_bottom = 627.0
+rotation = -1.5707964
+script = ExtResource("8_t3bix")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1280881561]
 position = Vector2(0, 542)

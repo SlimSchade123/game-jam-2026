@@ -28,7 +28,6 @@ height = 1080
 
 [node name="Pause Menu" type="CanvasLayer" unique_id=1172234929]
 process_mode = 3
-visible = false
 script = ExtResource("1_7i1vs")
 
 [node name="Vis Root" type="Control" parent="." unique_id=1328870029]
@@ -38,6 +37,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Transition Shader" type="Sprite2D" parent="Vis Root" unique_id=1614562209]
 unique_name_in_owner = true
