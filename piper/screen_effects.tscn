@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b0e8d70lbcvjr"]
 
 [ext_resource type="Script" uid="uid://dtmm7hg2hmt18" path="res://piper/time_debugger.gd" id="1_cngij"]
+[ext_resource type="Script" uid="uid://c1pc8qq2wvciq" path="res://piper/distance.gd" id="2_62pxu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ll7g7"]
 bg_color = Color(0, 0, 0, 1)
@@ -33,3 +34,19 @@ theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 48
 text = "Time: 0"
 script = ExtResource("1_cngij")
+
+[node name="Label2" type="Label" parent="." unique_id=1234187321]
+offset_top = 56.0
+offset_right = 167.0
+offset_bottom = 123.0
+theme_override_colors/font_color = Color(1, 0.77254903, 0.29803923, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 48
+text = "Time: 0"
+script = ExtResource("2_62pxu")
+
+[node name="Timer" type="Timer" parent="Label2" unique_id=2146983379]
+autostart = true
+
+[connection signal="timeout" from="Label2/Timer" to="Label2" method="_on_timer_timeout"]

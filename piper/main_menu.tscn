@@ -1,0 +1,252 @@
+[gd_scene format=3 uid="uid://bpjyrd7me7t8t"]
+
+[ext_resource type="FontFile" uid="uid://cykv7n1iol4wl" path="res://fonts/Jacquard12-Regular.ttf" id="2_bpore"]
+[ext_resource type="Script" uid="uid://dkdqdc512ghvb" path="res://piper/infinite_scroll.gd" id="2_uogpq"]
+
+[sub_resource type="Gradient" id="Gradient_uogpq"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gq0y6"]
+gradient = SubResource("Gradient_uogpq")
+width = 1920
+height = 1080
+fill_from = Vector2(0.5, 0.6000001)
+fill_to = Vector2(0.5, 0.8)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_7aq22"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.37413925, 0.37413928, 0.37413922, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ygfeb"]
+gradient = SubResource("Gradient_7aq22")
+fill_to = Vector2(1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ygfeb"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ygfeb"]
+
+[node name="Main Menu" type="Control" unique_id=166469436]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Parallax Background" type="Node2D" parent="." unique_id=1412724324]
+
+[node name="Parallax2D" type="Parallax2D" parent="Parallax Background" unique_id=1614058585]
+scroll_scale = Vector2(0.2, 0.2)
+scroll_offset = Vector2(1920, 540)
+repeat_size = Vector2(1920, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax Background/Parallax2D" unique_id=316621993]
+texture = SubResource("GradientTexture2D_gq0y6")
+
+[node name="Far Bg" type="Parallax2D" parent="Parallax Background" unique_id=1605011196]
+modulate = Color(0.24985075, 0.24985075, 0.24985075, 1)
+scroll_scale = Vector2(0.2, 0.2)
+scroll_offset = Vector2(-540, 813)
+repeat_size = Vector2(1080, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax Background/Far Bg" unique_id=1232785631]
+position = Vector2(0, -184.50327)
+scale = Vector2(2.159633, 7.5155225)
+texture = SubResource("GradientTexture2D_ygfeb")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Parallax Background/Far Bg" unique_id=1068939874]
+position = Vector2(293.99997, -184.50327)
+scale = Vector2(2.159633, 7.5155225)
+texture = SubResource("GradientTexture2D_ygfeb")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Parallax Background/Far Bg" unique_id=86439867]
+position = Vector2(592, -184.50327)
+scale = Vector2(2.159633, 7.5155225)
+texture = SubResource("GradientTexture2D_ygfeb")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Parallax Background/Far Bg" unique_id=494845985]
+position = Vector2(842, -184.50327)
+scale = Vector2(2.159633, 7.5155225)
+texture = SubResource("GradientTexture2D_ygfeb")
+
+[node name="Close Bg" type="Parallax2D" parent="Parallax Background" unique_id=993371309]
+modulate = Color(0.5802277, 0.58022773, 0.58022773, 1)
+scroll_scale = Vector2(0.4, 0.4)
+scroll_offset = Vector2(-540, 968)
+repeat_size = Vector2(1080, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax Background/Close Bg" unique_id=1317178349]
+position = Vector2(0, -238.99998)
+scale = Vector2(2.159633, 7.5155225)
+texture = SubResource("GradientTexture2D_ygfeb")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Parallax Background/Close Bg" unique_id=1465775656]
+position = Vector2(287.99997, -238.99998)
+scale = Vector2(2.159633, 7.5155225)
+texture = SubResource("GradientTexture2D_ygfeb")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Parallax Background/Close Bg" unique_id=2017782114]
+position = Vector2(641, -238.99998)
+scale = Vector2(2.159633, 7.5155225)
+texture = SubResource("GradientTexture2D_ygfeb")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Parallax Background/Close Bg" unique_id=414559484]
+position = Vector2(1037, -238.99998)
+scale = Vector2(2.159633, 7.5155225)
+texture = SubResource("GradientTexture2D_ygfeb")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Parallax Background/Close Bg" unique_id=1572245718]
+position = Vector2(1503, -212.99995)
+scale = Vector2(2.159633, 7.5155225)
+texture = SubResource("GradientTexture2D_ygfeb")
+
+[node name="Mid Bg" type="Parallax2D" parent="Parallax Background" unique_id=71576020]
+scale = Vector2(2.5600007, 1)
+scroll_scale = Vector2(0.6, 0.6)
+scroll_offset = Vector2(-2224.8008, 1087)
+repeat_size = Vector2(1080, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax Background/Mid Bg" unique_id=347367033]
+position = Vector2(0, -238.99998)
+scale = Vector2(2.159633, 7.5155225)
+texture = SubResource("GradientTexture2D_ygfeb")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Parallax Background/Mid Bg" unique_id=2085861205]
+position = Vector2(287.99997, -238.99998)
+scale = Vector2(2.159633, 7.5155225)
+texture = SubResource("GradientTexture2D_ygfeb")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Parallax Background/Mid Bg" unique_id=1264503123]
+position = Vector2(641, -238.99998)
+scale = Vector2(2.159633, 7.5155225)
+texture = SubResource("GradientTexture2D_ygfeb")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Parallax Background/Mid Bg" unique_id=152352602]
+position = Vector2(1037, -238.99998)
+scale = Vector2(2.159633, 7.5155225)
+texture = SubResource("GradientTexture2D_ygfeb")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Parallax Background/Mid Bg" unique_id=466596425]
+position = Vector2(1503, -212.99995)
+scale = Vector2(2.159633, 7.5155225)
+texture = SubResource("GradientTexture2D_ygfeb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1743119828]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=558677924]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 67.0
+offset_bottom = 325.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/normal_font = ExtResource("2_bpore")
+theme_override_font_sizes/normal_font_size = 128
+bbcode_enabled = true
+text = "Momentum
+Mortis"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1039340841]
+custom_minimum_size = Vector2(400, 320)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -93.0
+offset_right = 200.0
+offset_bottom = 412.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 59
+
+[node name="Panel" type="PanelContainer" parent="CanvasLayer/VBoxContainer" unique_id=580423863]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ygfeb")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer/Panel" unique_id=406419013]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/Panel/MarginContainer" unique_id=632174396]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bpore")
+theme_override_font_sizes/font_size = 96
+text = "Play"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer/Panel" unique_id=1839673847]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ygfeb")
+
+[node name="Panel2" type="PanelContainer" parent="CanvasLayer/VBoxContainer" unique_id=817821915]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ygfeb")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer/Panel2" unique_id=2062695104]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/Panel2/MarginContainer" unique_id=905287838]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bpore")
+theme_override_font_sizes/font_size = 96
+text = "Options"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer/Panel2" unique_id=1964370216]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ygfeb")
+
+[node name="Panel3" type="PanelContainer" parent="CanvasLayer/VBoxContainer" unique_id=880129010]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ygfeb")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer/Panel3" unique_id=509427424]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/Panel3/MarginContainer" unique_id=181415686]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_bpore")
+theme_override_font_sizes/font_size = 96
+text = "Quit"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer/Panel3" unique_id=2055471130]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ygfeb")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1280881561]
+position = Vector2(0, 542)
+script = ExtResource("2_uogpq")
+
+[node name="Camera2D" type="Camera2D" parent="Node2D" unique_id=823316661]
