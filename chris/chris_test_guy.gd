@@ -54,8 +54,11 @@ func enemy_collided(info: enemy_collision_info) -> void:
 	elif is_dashing:
 		info.collision_object.queue_free()
 	
-	
-	
+
+# Added to ensure signal gets emitted
+func change_max_speed(max_speed_multiplier: float):
+	max_speed *= max_speed_multiplier
+	Chris_Singleton.max_speed_changed.emit(max_speed)
 	
 func _physics_process(delta: float) -> void:
 	Stats.total_distance = absf(start_position.x - position.x) 
@@ -102,7 +105,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func dash():
-	max_speed = max_speed * 1.2
+	change_max_speed(1.2)
+	#max_speed = max_speed * 1.2
 	dash_on_cooldown = true
 	is_dashing = true
 	dash_timer.start(dash_length)
