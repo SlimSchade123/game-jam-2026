@@ -9,3 +9,9 @@ class_name enemy_collision_info
 
 var contact_point : Vector2
 var collision_object : Node2D
+
+
+# Basic Enemy : Jump & Dash OK
+# Mob Enemy : Dash OK
+# Fire Hydrant : Jump OK
+# Barbed Wire : Nothing OK (possibly stun??)

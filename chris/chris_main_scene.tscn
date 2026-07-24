@@ -8,9 +8,8 @@
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_kkejl"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_6nxg0"]
 [ext_resource type="PackedScene" uid="uid://ct1ep45qasr1h" path="res://piper/pause_menu.tscn" id="7_kyulc"]
-[ext_resource type="Script" uid="uid://brljcdwlnhd4u" path="res://chris/enemy.gd" id="8_fqpc4"]
-[ext_resource type="Texture2D" uid="uid://cshsxgop68dvk" path="res://piper/icon1.png" id="8_ks2rx"]
-[ext_resource type="Resource" uid="uid://wph53uktr1pf" path="res://chris/Resources/basic_enemy_collision_info.tres" id="9_thobl"]
+[ext_resource type="PackedScene" uid="uid://dnldprixlxbe" path="res://chris/enemy.tscn" id="9_fqpc4"]
+[ext_resource type="Script" uid="uid://4ibqycwm6mna" path="res://enemy_spawner.gd" id="9_thobl"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ygfeb"]
 
@@ -34,9 +33,6 @@ width = 1920
 height = 256
 fill_to = Vector2(1, 1)
 repeat = 1
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fqpc4"]
-size = Vector2(64, 65)
 
 [node name="Main Scene" type="Node2D" unique_id=13203674]
 
@@ -96,20 +92,13 @@ texture = SubResource("GradientTexture2D_xtnmv")
 
 [node name="Pause Menu" parent="." unique_id=1172234929 instance=ExtResource("7_kyulc")]
 
-[node name="Enemy" type="Node2D" parent="." unique_id=189231220]
+[node name="Enemy Spawner" type="Node2D" parent="." unique_id=170221083]
+script = ExtResource("9_thobl")
+
+[node name="Enemy" parent="Enemy Spawner" unique_id=796674970 instance=ExtResource("9_fqpc4")]
 position = Vector2(4000, 650)
-scale = Vector2(3, 3)
-script = ExtResource("8_fqpc4")
-collision_info = ExtResource("9_thobl")
 
-[node name="Sprite2D" type="Sprite2D" parent="Enemy" unique_id=845450141]
-texture = ExtResource("8_ks2rx")
+[node name="Timer" type="Timer" parent="Enemy Spawner" unique_id=1333893468]
+autostart = true
 
-[node name="Area2D" type="Area2D" parent="Enemy" unique_id=929830757]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Area2D" unique_id=1212396208]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_fqpc4")
-
-[connection signal="area_entered" from="Enemy/Area2D" to="Enemy" method="_on_area_2d_area_entered"]
-[connection signal="body_entered" from="Enemy/Area2D" to="Enemy" method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Enemy Spawner/Timer" to="Enemy Spawner" method="_on_timer_timeout"]

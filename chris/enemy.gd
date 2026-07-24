@@ -1,4 +1,5 @@
 extends Node2D
+class_name Enemy
 
 @export var collision_info : enemy_collision_info
 
