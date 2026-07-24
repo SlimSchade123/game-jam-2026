@@ -11,7 +11,8 @@ func _process(delta: float) -> void:
 func _on_pressed() -> void:
 	print(\"OMG\")
 	Chris_Singleton.text_test.emit(\"wowie\")
-	"
+	
+"
 
 [sub_resource type="GDScript" id="GDScript_o3dvo"]
 script/source = "extends Label

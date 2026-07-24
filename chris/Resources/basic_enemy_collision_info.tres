@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="enemy_collision_info" format=3 uid="uid://wph53uktr1pf"]
+
+[ext_resource type="Script" uid="uid://cyfru73cwhd8w" path="res://chris/Resources/enemy_collision_info.gd" id="1_b1vm2"]
+
+[resource]
+script = ExtResource("1_b1vm2")
+coins_dropped = 5
+speed_tier = 1
+metadata/_custom_type_script = "uid://cyfru73cwhd8w"

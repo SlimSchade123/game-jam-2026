@@ -1,0 +1,6 @@
+[gd_resource type="Resource" format=3 uid="uid://wetdof7oyedb"]
+
+[ext_resource type="Script" uid="uid://cyfru73cwhd8w" path="res://chris/Resources/enemy_collision_info.gd" id="1_f7u3t"]
+
+[resource]
+script = ExtResource("1_f7u3t")
