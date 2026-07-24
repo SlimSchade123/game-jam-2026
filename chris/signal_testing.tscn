@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://5fu5t3x5dnok"]
+
+[ext_resource type="Script" uid="uid://bwdfg444mkdc8" path="res://chris/button.gd" id="1_o3dvo"]
+[ext_resource type="Script" uid="uid://dfmn0oru4yyn6" path="res://chris/label.gd" id="2_5ldp4"]
+
+[node name="SignalTesting" type="Control" unique_id=731616730]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="." unique_id=1446031564]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 164.0
+offset_right = 474.0
+offset_bottom = 201.0
+script = ExtResource("1_o3dvo")
+
+[node name="Label" type="Label" parent="." unique_id=95463330]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 125.0
+offset_right = 258.0
+offset_bottom = 148.0
+text = "placeholder"
+script = ExtResource("2_5ldp4")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
