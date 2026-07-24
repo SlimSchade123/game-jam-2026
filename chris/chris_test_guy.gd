@@ -35,10 +35,6 @@ var dash_cooldown : float = 1.5
 
 func _ready() -> void:
 	start_position = position
-	Chris_Singleton.enemy_collided.connect(enemy_collided)
-
-func enemy_collided(info : enemy_collision_info) -> void:
-	print("Coming to you soon...")
 
 func _physics_process(delta: float) -> void:
 	Stats.total_distance = absf(start_position.x - position.x) 

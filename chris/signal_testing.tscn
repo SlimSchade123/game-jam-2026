@@ -9,7 +9,6 @@ func _process(delta: float) -> void:
 
 
 func _on_pressed() -> void:
-	print(\"OMG\")
 	Chris_Singleton.text_test.emit(\"wowie\")
 	
 "
