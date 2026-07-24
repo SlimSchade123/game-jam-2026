@@ -1,17 +1,18 @@
-[gd_scene format=3 uid="uid://bn62q6coy8es0"]
+[gd_scene format=3 uid="uid://c8uhnitokeyjs"]
 
-[ext_resource type="PackedScene" uid="uid://b0e8d70lbcvjr" path="res://piper/screen_effects.tscn" id="1_we7aq"]
-[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_ny3h3"]
-[ext_resource type="PackedScene" uid="uid://cd4btkjx7mi8t" path="res://piper/parallax_background.tscn" id="2_riw4a"]
-[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_2lwh2"]
-[ext_resource type="PackedScene" uid="uid://4rscnq415aft" path="res://piper/Player Character.tscn" id="3_duolu"]
-[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_we7aq"]
-[ext_resource type="PackedScene" uid="uid://ct1ep45qasr1h" path="res://piper/pause_menu.tscn" id="7_riw4a"]
+[ext_resource type="PackedScene" uid="uid://b0e8d70lbcvjr" path="res://piper/screen_effects.tscn" id="1_odty7"]
+[ext_resource type="PackedScene" uid="uid://cd4btkjx7mi8t" path="res://piper/parallax_background.tscn" id="2_51sbt"]
+[ext_resource type="PackedScene" uid="uid://4rscnq415aft" path="res://piper/Player Character.tscn" id="3_07137"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_opyoo"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_kkejl"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_6nxg0"]
+[ext_resource type="PackedScene" uid="uid://ct1ep45qasr1h" path="res://piper/pause_menu.tscn" id="7_kyulc"]
+[ext_resource type="Texture2D" uid="uid://cshsxgop68dvk" path="res://piper/icon1.png" id="8_ks2rx"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ygfeb"]
 
 [sub_resource type="Resource" id="Resource_riw4a"]
-script = ExtResource("4_we7aq")
+script = ExtResource("6_6nxg0")
 duration = 0.0
 
 [sub_resource type="Curve2D" id="Curve2D_ny3h3"]
@@ -31,11 +32,13 @@ height = 256
 fill_to = Vector2(1, 1)
 repeat = 1
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fqpc4"]
+
 [node name="Main Scene" type="Node2D" unique_id=13203674]
 
-[node name="Screen Effects" parent="." unique_id=129136169 instance=ExtResource("1_we7aq")]
+[node name="Screen Effects" parent="." unique_id=129136169 instance=ExtResource("1_odty7")]
 
-[node name="Parallax Background" parent="." unique_id=1412724324 instance=ExtResource("2_riw4a")]
+[node name="Parallax Background" parent="." unique_id=1412724324 instance=ExtResource("2_51sbt")]
 
 [node name="Floor Collision" type="StaticBody2D" parent="." unique_id=257303055]
 position = Vector2(0, 722)
@@ -43,7 +46,7 @@ position = Vector2(0, 722)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor Collision" unique_id=512389613]
 shape = SubResource("WorldBoundaryShape2D_ygfeb")
 
-[node name="CharacterBody2D" parent="." unique_id=207930097 instance=ExtResource("3_duolu")]
+[node name="CharacterBody2D" parent="." unique_id=207930097 instance=ExtResource("3_07137")]
 position = Vector2(74, 603)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=971042345]
@@ -54,13 +57,13 @@ position = Vector2(874, 540)
 [node name="PhantomCameraHost2" type="Node" parent="Camera2D" unique_id=677974093]
 process_priority = 300
 process_physics_priority = 300
-script = ExtResource("2_ny3h3")
+script = ExtResource("4_opyoo")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera2D" type="Node2D" parent="." unique_id=944693704 node_paths=PackedStringArray("follow_target", "follow_path")]
 top_level = true
 position = Vector2(874, 540)
-script = ExtResource("3_2lwh2")
+script = ExtResource("5_kkejl")
 follow_mode = 4
 follow_target = NodePath("../CharacterBody2D")
 follow_path = NodePath("../Path2D")
@@ -86,4 +89,14 @@ repeat_times = 3
 position = Vector2(270, 843)
 texture = SubResource("GradientTexture2D_xtnmv")
 
-[node name="Pause Menu" parent="." unique_id=1172234929 instance=ExtResource("7_riw4a")]
+[node name="Pause Menu" parent="." unique_id=1172234929 instance=ExtResource("7_kyulc")]
+
+[node name="Enemy" type="Node2D" parent="." unique_id=189231220]
+
+[node name="Area2D" type="Area2D" parent="Enemy" unique_id=929830757]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Area2D" unique_id=1212396208]
+shape = SubResource("RectangleShape2D_fqpc4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy" unique_id=845450141]
+texture = ExtResource("8_ks2rx")

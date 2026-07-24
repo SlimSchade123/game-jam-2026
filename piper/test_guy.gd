@@ -7,6 +7,7 @@ extends CharacterBody2D
 ## Each area should act as a 'reset'
 ## Where you're put back to your normal speed
 ## Afterwards you can build up to the individual tier of max_speed
+
 @export var true_max_speed : Array[float]
 ## goes from 1, 2, then 3. maybe 4 at the end of 3 for a cool moment?
 var current_speed_tier : int = 1
