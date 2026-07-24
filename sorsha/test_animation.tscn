@@ -63,34 +63,35 @@ offset = Vector2(7.6293945e-06, 3)
 [node name="LeftLeg" type="Sprite2D" parent="CharacterContainer/Body" unique_id=116339832]
 texture_filter = 1
 position = Vector2(82, 11)
-scale = Vector2(0.9999997, 0.9999997)
+scale = Vector2(0.99999964, 0.99998593)
 texture = SubResource("CompressedTexture2D_1fnwl")
 offset = Vector2(0, 3)
 
 [node name="Torso" type="Sprite2D" parent="CharacterContainer/Body" unique_id=1934273497]
 texture_filter = 1
-position = Vector2(85, 10)
+position = Vector2(87, 4)
+scale = Vector2(0.9999997, 0.9999997)
 texture = SubResource("CompressedTexture2D_cqb31")
-offset = Vector2(1, -9)
+offset = Vector2(-1, -3)
 
 [node name="FALeft2" type="Sprite2D" parent="CharacterContainer/Body" unique_id=694182338]
 texture_filter = 1
 position = Vector2(74, 2.999999)
-scale = Vector2(0.99999905, 0.99999905)
+scale = Vector2(0.9999991, 0.9999991)
 texture = SubResource("CompressedTexture2D_kv0a4")
 offset = Vector2(3, 2)
 
 [node name="LeftSholder" type="Sprite2D" parent="CharacterContainer/Body" unique_id=1030914220]
 texture_filter = 1
 position = Vector2(77, -8)
-scale = Vector2(0.99999905, 0.99999905)
+scale = Vector2(0.9999991, 0.9999991)
 texture = ExtResource("1_tskuy")
 offset = Vector2(-4, 5)
 
 [node name="LeftHand" type="Sprite2D" parent="CharacterContainer/Body" unique_id=1165837002]
 texture_filter = 1
 position = Vector2(80, 7.999999)
-scale = Vector2(0.99999905, 0.99999905)
+scale = Vector2(0.9999991, 0.9999991)
 texture = SubResource("CompressedTexture2D_y7ih5")
 offset = Vector2(5.0000153, -2.0000005)
 
@@ -110,6 +111,7 @@ offset = Vector2(1.0000076, 1.9073486e-06)
 [node name="RightHand" type="Sprite2D" parent="CharacterContainer/Body" unique_id=625322490]
 texture_filter = 1
 position = Vector2(100, 6.999998)
+scale = Vector2(0.9999997, 0.9999997)
 texture = SubResource("CompressedTexture2D_1wyer")
 offset = Vector2(4, 0)
 
@@ -125,10 +127,12 @@ position = Vector2(309.99997, -240)
 rest = Transform2D(1, 0, 0, 1, 309.99997, -240)
 
 [node name="LeftLeg" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Torso" unique_id=897409376]
+visible = false
 position = Vector2(-50.00003, 69.99999)
 rest = Transform2D(1, 0, 0, 1, -50.00003, 69.99999)
 
 [node name="LeftFoot" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Torso/LeftLeg" unique_id=1030711904]
+visible = false
 position = Vector2(-3.8146973e-05, 80.00001)
 rest = Transform2D(1, 0, 0, 1, -3.8146973e-05, 80.00001)
 auto_calculate_length_and_angle = false
@@ -140,11 +144,13 @@ remote_path = NodePath("../../../../../../Body/LeftFoot")
 update_scale = false
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Torso/LeftLeg" unique_id=1917521727]
+visible = false
 scale = Vector2(1.2656661, 0.9782596)
 remote_path = NodePath("../../../../../Body/LeftLeg")
 update_scale = false
 
 [node name="RightLeg" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Torso" unique_id=1841549405]
+visible = false
 position = Vector2(19.999998, 69.99998)
 rest = Transform2D(1, 0, 0, 1, 19.999998, 69.99998)
 
@@ -164,6 +170,7 @@ remote_path = NodePath("../../../../../Body/RightLeg")
 update_scale = false
 
 [node name="Head" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Torso" unique_id=556706199]
+visible = false
 position = Vector2(30.00003, -140)
 scale = Vector2(9.999999, 9.999999)
 rest = Transform2D(9.999999, 0, 0, 9.999999, 30.00003, -140)
@@ -176,6 +183,7 @@ remote_path = NodePath("../../../../../Body/Head")
 update_scale = false
 
 [node name="LeftArm" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Torso" unique_id=729658182]
+visible = false
 position = Vector2(-99.99999, -120)
 rest = Transform2D(1, 0, 0, 1, -99.99999, -120)
 
@@ -203,6 +211,7 @@ remote_path = NodePath("../../../../../Body/LeftSholder")
 update_scale = false
 
 [node name="RightArm" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Torso" unique_id=1193536657]
+visible = false
 position = Vector2(79.99999, -40)
 rest = Transform2D(1, 0, 0, 1, 79.99999, -40)
 
@@ -224,6 +233,10 @@ update_scale = false
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Torso/RightArm/RightFA" unique_id=1635416297]
 remote_path = NodePath("../../../../../../Body/FARight")
+update_scale = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Torso" unique_id=1960668021]
+remote_path = NodePath("../../../../Body/Torso")
 update_scale = false
 
 [node name="IK Targets" type="Node2D" parent="." unique_id=1392801483]
