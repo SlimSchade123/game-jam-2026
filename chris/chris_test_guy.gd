@@ -35,7 +35,28 @@ var dash_cooldown : float = 1.5
 
 func _ready() -> void:
 	start_position = position
+	Chris_Singleton.enemy_collided.connect(enemy_collided)
 
+func enemy_collided(info: enemy_collision_info) -> void:
+	var dir = info.contact_point - position
+	if dir.y > 0:
+		max_speed *= 1.2
+		print("im jumping it")
+		info.collision_object.queue_free()
+		return
+	
+	if not is_dashing:
+		velocity.x *= -1.5
+	
+	if is_dashing and not info.can_dash:
+		max_speed /= 1.2
+		velocity.x *= -1.5
+	elif is_dashing:
+		info.collision_object.queue_free()
+	
+	
+	
+	
 func _physics_process(delta: float) -> void:
 	Stats.total_distance = absf(start_position.x - position.x) 
 	

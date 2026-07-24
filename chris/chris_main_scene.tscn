@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cd4btkjx7mi8t" path="res://piper/parallax_background.tscn" id="2_51sbt"]
 [ext_resource type="PackedScene" uid="uid://4rscnq415aft" path="res://piper/Player Character.tscn" id="3_07137"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_opyoo"]
+[ext_resource type="Script" uid="uid://rtuw1qgftout" path="res://chris/chris_test_guy.gd" id="4_v40qf"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_kkejl"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_6nxg0"]
 [ext_resource type="PackedScene" uid="uid://ct1ep45qasr1h" path="res://piper/pause_menu.tscn" id="7_kyulc"]
@@ -35,7 +36,7 @@ fill_to = Vector2(1, 1)
 repeat = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fqpc4"]
-size = Vector2(64, 52)
+size = Vector2(64, 65)
 
 [node name="Main Scene" type="Node2D" unique_id=13203674]
 
@@ -51,6 +52,7 @@ shape = SubResource("WorldBoundaryShape2D_ygfeb")
 
 [node name="CharacterBody2D" parent="." unique_id=207930097 instance=ExtResource("3_07137")]
 position = Vector2(74, 603)
+script = ExtResource("4_v40qf")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=971042345]
 physics_interpolation_mode = 1
@@ -95,7 +97,8 @@ texture = SubResource("GradientTexture2D_xtnmv")
 [node name="Pause Menu" parent="." unique_id=1172234929 instance=ExtResource("7_kyulc")]
 
 [node name="Enemy" type="Node2D" parent="." unique_id=189231220]
-position = Vector2(800, 700)
+position = Vector2(4000, 650)
+scale = Vector2(3, 3)
 script = ExtResource("8_fqpc4")
 collision_info = ExtResource("9_thobl")
 
@@ -105,7 +108,7 @@ texture = ExtResource("8_ks2rx")
 [node name="Area2D" type="Area2D" parent="Enemy" unique_id=929830757]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Area2D" unique_id=1212396208]
-position = Vector2(0, -6)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_fqpc4")
 
 [connection signal="area_entered" from="Enemy/Area2D" to="Enemy" method="_on_area_2d_area_entered"]

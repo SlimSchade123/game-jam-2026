@@ -12,5 +12,10 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.name != "CharacterBody2D":
+		return
+		
+	collision_info.contact_point = position
+	collision_info.collision_object = self
 	Chris_Singleton.enemy_collided.emit(collision_info)
 	print("OMG")
