@@ -15,6 +15,7 @@ modulate = Color(0.24985075, 0.24985075, 0.24985075, 1)
 scroll_scale = Vector2(0.2, 0.2)
 scroll_offset = Vector2(-540, 813)
 repeat_size = Vector2(1080, 0)
+repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Far Bg" unique_id=1232785631]
 position = Vector2(0, -184.50327)
