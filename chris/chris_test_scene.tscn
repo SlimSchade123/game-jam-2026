@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_ny3h3"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_2lwh2"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_we7aq"]
+[ext_resource type="Script" uid="uid://brcuomrnk5sih" path="res://chris/enemy.gd" id="5_2ppbe"]
+[ext_resource type="Texture2D" uid="uid://iud5lfp5pv3n" path="res://icon.svg" id="5_747tb"]
 
 [sub_resource type="Gradient" id="Gradient_7aq22"]
 offsets = PackedFloat32Array(0)
@@ -47,7 +49,7 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4b7j8"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ppbe"]
 
 [node name="Main Scene" type="Node2D" unique_id=13203674]
 
@@ -209,6 +211,12 @@ position = Vector2(0, 540)
 curve = SubResource("Curve2D_ny3h3")
 
 [node name="Enemy" type="CharacterBody2D" parent="." unique_id=411509072]
+script = ExtResource("5_2ppbe")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy" unique_id=1775033507]
+position = Vector2(1526, 657)
+texture = ExtResource("5_747tb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy" unique_id=1278122241]
-shape = SubResource("CapsuleShape2D_4b7j8")
+shape = SubResource("RectangleShape2D_2ppbe")
+debug_color = Color(3.5616756e-06, 0.59551626, 0.6967792, 0.41960785)
