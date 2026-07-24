@@ -5,7 +5,7 @@ extends Node
 var total_time : float = 0.0
 var total_distance : float = 0.0
 var volume : float = 0.5
-
+var coins_collected : int = 0
 
 signal dashing(is_dashing : bool)
 

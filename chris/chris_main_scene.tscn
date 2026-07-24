@@ -34,6 +34,9 @@ height = 256
 fill_to = Vector2(1, 1)
 repeat = 1
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4b7j8"]
+size = Vector2(28, 569)
+
 [node name="Main Scene" type="Node2D" unique_id=13203674]
 
 [node name="Screen Effects" parent="." unique_id=129136169 instance=ExtResource("1_odty7")]
@@ -100,5 +103,14 @@ position = Vector2(4000, 650)
 
 [node name="Spawn Timer" type="Timer" parent="Enemy Spawner" unique_id=1333893468]
 autostart = true
+
+[node name="Bar" type="Node2D" parent="." unique_id=153212781]
+position = Vector2(3000, 650)
+
+[node name="Area2D" type="Area2D" parent="Bar" unique_id=1427812131]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bar/Area2D" unique_id=17661291]
+position = Vector2(-4, -217.5)
+shape = SubResource("RectangleShape2D_4b7j8")
 
 [connection signal="timeout" from="Enemy Spawner/Spawn Timer" to="Enemy Spawner" method="_on_timer_timeout"]
