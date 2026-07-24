@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://ct1ep45qasr1h"]
+
+[ext_resource type="Script" uid="uid://bh6gjhnhqhqj" path="res://piper/pause_menu.gd" id="1_7i1vs"]
+[ext_resource type="FontFile" uid="uid://cykv7n1iol4wl" path="res://fonts/Jacquard12-Regular.ttf" id="1_b43jx"]
+
+[node name="Pause Menu" type="CanvasLayer" unique_id=1172234929]
+process_mode = 3
+script = ExtResource("1_7i1vs")
+
+[node name="Panel" type="Panel" parent="." unique_id=420725055]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=1609319358]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 67.0
+offset_bottom = 325.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/normal_font = ExtResource("1_b43jx")
+theme_override_font_sizes/normal_font_size = 128
+bbcode_enabled = true
+text = "Paused"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1

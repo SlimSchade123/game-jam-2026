@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_2lwh2"]
 [ext_resource type="PackedScene" uid="uid://4rscnq415aft" path="res://piper/Player Character.tscn" id="3_duolu"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_we7aq"]
+[ext_resource type="PackedScene" uid="uid://ct1ep45qasr1h" path="res://piper/pause_menu.tscn" id="7_riw4a"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ygfeb"]
 
@@ -84,3 +85,5 @@ repeat_times = 3
 [node name="Sprite2D" type="Sprite2D" parent="Foreground/Parallax2D" unique_id=1720978100]
 position = Vector2(270, 843)
 texture = SubResource("GradientTexture2D_xtnmv")
+
+[node name="Pause Menu" parent="." unique_id=1172234929 instance=ExtResource("7_riw4a")]

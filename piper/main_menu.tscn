@@ -158,8 +158,9 @@ theme_override_constants/outline_size = 16
 theme_override_fonts/normal_font = ExtResource("2_bpore")
 theme_override_font_sizes/normal_font_size = 128
 bbcode_enabled = true
-text = "Momentum
-Mortis"
+text = "[shake rate=20.0 level=5 connected=1]Momentum
+Mortis[/shake]
+"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
