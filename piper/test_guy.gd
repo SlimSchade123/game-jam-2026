@@ -12,7 +12,7 @@ extends CharacterBody2D
 @export var true_max_speed : Array[float]
 ## goes from 1, 2, then 3. maybe 4 at the end of 3 for a cool moment?
 var current_speed_tier : int = 1
-var max_speed : float = 1200.0
+var max_speed : float = 400.0
 const cust_grav : Vector2 =  Vector2(0, 3000.0)
 # basic physics junk
 const acceleration : float = 12.5
@@ -45,12 +45,17 @@ var x_input : float = 1
 var jumped : bool = false
 const jump_velocity : float = -1150
 
+# speed meter info
+# variants for upgrades
+var current_meter_duration : = 20
+var meter_duration : float = 20
+
 func _ready() -> void:
 	start_position = position
 	Chris_Singleton.enemy_collided.connect(enemy_collided)
 
-func enemy_collided(_info : enemy_collision_info) -> void:
-	print("Coming to you soon...")
+func enemy_collided(info : enemy_collision_info) -> void:
+	enemy_dashed(info.enemy_instance)
 
 func _physics_process(delta: float) -> void:
 	Stats.total_distance = absf(start_position.x - position.x) 
@@ -189,3 +194,15 @@ func falling(delta: float):
 			jumped = false
 
 #endregion Jumping
+
+
+#region Enemy_Interactions
+
+func enemy_dashed(enemy : Enemy2):
+	if is_dashing:
+		print("Enemy instance: ", enemy)
+		Chris_Singleton.enemy_killed.emit(enemy)
+		pass
+	pass
+
+#endregion Enemy_Interactions

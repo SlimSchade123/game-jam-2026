@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_kkejl"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_6nxg0"]
 [ext_resource type="PackedScene" uid="uid://ct1ep45qasr1h" path="res://piper/pause_menu.tscn" id="7_kyulc"]
-[ext_resource type="PackedScene" uid="uid://dnldprixlxbe" path="res://chris/enemy.tscn" id="9_fqpc4"]
 [ext_resource type="Script" uid="uid://4ibqycwm6mna" path="res://enemy_spawner.gd" id="9_thobl"]
 [ext_resource type="Script" uid="uid://bisyaorgyk8cj" path="res://chris/bar.gd" id="11_v40qf"]
 
@@ -98,9 +97,6 @@ texture = SubResource("GradientTexture2D_xtnmv")
 
 [node name="Enemy Spawner" type="Node2D" parent="." unique_id=170221083]
 script = ExtResource("9_thobl")
-
-[node name="Enemy" parent="Enemy Spawner" unique_id=796674970 instance=ExtResource("9_fqpc4")]
-position = Vector2(4000, 650)
 
 [node name="Spawn Timer" type="Timer" parent="Enemy Spawner" unique_id=1333893468]
 autostart = true

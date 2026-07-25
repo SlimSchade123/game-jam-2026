@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="enemy_collision_info" format=3 uid="uid://c6owfq67qc7n4"]
+
+[ext_resource type="Script" uid="uid://cyfru73cwhd8w" path="res://chris/Resources/enemy_collision_info.gd" id="1_krtax"]
+
+[resource]
+script = ExtResource("1_krtax")
+metadata/_custom_type_script = "uid://cyfru73cwhd8w"

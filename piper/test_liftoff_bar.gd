@@ -9,7 +9,7 @@ var alternating : bool = false
 var initial_press : bool = false
 var value_increase : float = 5
 var input_dir : Vector2 
-var charging : bool = false
+var charging : bool = true
 
 ##left is false right is true
 func _input(event: InputEvent) -> void:

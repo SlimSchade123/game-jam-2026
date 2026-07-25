@@ -8,6 +8,10 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_we7aq"]
 [ext_resource type="Script" uid="uid://dy54m75y5087d" path="res://piper/cam_controls.gd" id="5_duolu"]
 [ext_resource type="PackedScene" uid="uid://ct1ep45qasr1h" path="res://piper/pause_menu.tscn" id="7_riw4a"]
+[ext_resource type="Script" uid="uid://dvn8wanqm3smv" path="res://enemy_spawner_main.gd" id="9_acxxj"]
+[ext_resource type="Script" uid="uid://cyfru73cwhd8w" path="res://chris/Resources/enemy_collision_info.gd" id="10_ewouk"]
+[ext_resource type="PackedScene" uid="uid://d3owb20tf278i" path="res://piper/enemy_v2.tscn" id="11_u1jhx"]
+[ext_resource type="Resource" uid="uid://c6owfq67qc7n4" path="res://resources/enemy_collision_debug.tres" id="12_pn3pg"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ygfeb"]
 
@@ -31,6 +35,22 @@ width = 1920
 height = 256
 fill_to = Vector2(1, 1)
 repeat = 1
+
+[sub_resource type="Resource" id="Resource_acxxj"]
+script = ExtResource("10_ewouk")
+metadata/_custom_type_script = "uid://cyfru73cwhd8w"
+
+[sub_resource type="Resource" id="Resource_ewouk"]
+script = ExtResource("10_ewouk")
+metadata/_custom_type_script = "uid://cyfru73cwhd8w"
+
+[sub_resource type="Resource" id="Resource_u1jhx"]
+script = ExtResource("10_ewouk")
+metadata/_custom_type_script = "uid://cyfru73cwhd8w"
+
+[sub_resource type="Resource" id="Resource_pn3pg"]
+script = ExtResource("10_ewouk")
+metadata/_custom_type_script = "uid://cyfru73cwhd8w"
 
 [node name="Main Scene" type="Node2D" unique_id=13203674]
 
@@ -96,3 +116,22 @@ position = Vector2(270, 843)
 texture = SubResource("GradientTexture2D_xtnmv")
 
 [node name="Pause Menu" parent="." unique_id=1172234929 instance=ExtResource("7_riw4a")]
+visible = false
+
+[node name="Enemy Spawner" type="Node2D" parent="." unique_id=1881632308]
+script = ExtResource("9_acxxj")
+enemy_info = Array[ExtResource("10_ewouk")]([SubResource("Resource_acxxj"), SubResource("Resource_ewouk"), SubResource("Resource_u1jhx"), SubResource("Resource_pn3pg")])
+
+[node name="Spawn Timer" type="Timer" parent="Enemy Spawner" unique_id=1937430127]
+autostart = true
+
+[node name="Node2D" type="Node2D" parent="." unique_id=704087291]
+position = Vector2(2710, -365)
+
+[node name="Area2D" parent="Node2D" unique_id=2079184939 instance=ExtResource("11_u1jhx")]
+
+[node name="Area2D2" parent="Node2D" unique_id=1720025548 instance=ExtResource("11_u1jhx")]
+position = Vector2(1893, 0)
+collision_info = ExtResource("12_pn3pg")
+
+[connection signal="timeout" from="Enemy Spawner/Spawn Timer" to="Enemy Spawner" method="_on_timer_timeout"]

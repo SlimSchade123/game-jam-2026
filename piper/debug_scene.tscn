@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://do3oqsnp5u6up"]
+
+[ext_resource type="PackedScene" uid="uid://d3owb20tf278i" path="res://piper/enemy_v2.tscn" id="1_uulk2"]
+
+[node name="Debug Scene" type="Node2D" unique_id=197729779]
+
+[node name="Area2D" parent="." unique_id=2079184939 instance=ExtResource("1_uulk2")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=685578209]
