@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ct1ep45qasr1h" path="res://piper/pause_menu.tscn" id="7_kyulc"]
 [ext_resource type="PackedScene" uid="uid://dnldprixlxbe" path="res://chris/enemy.tscn" id="9_fqpc4"]
 [ext_resource type="Script" uid="uid://4ibqycwm6mna" path="res://enemy_spawner.gd" id="9_thobl"]
+[ext_resource type="Script" uid="uid://bisyaorgyk8cj" path="res://chris/bar.gd" id="11_v40qf"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ygfeb"]
 
@@ -106,6 +107,7 @@ autostart = true
 
 [node name="Bar" type="Node2D" parent="." unique_id=153212781]
 position = Vector2(3000, 650)
+script = ExtResource("11_v40qf")
 
 [node name="Area2D" type="Area2D" parent="Bar" unique_id=1427812131]
 
@@ -114,3 +116,4 @@ position = Vector2(-4, -217.5)
 shape = SubResource("RectangleShape2D_4b7j8")
 
 [connection signal="timeout" from="Enemy Spawner/Spawn Timer" to="Enemy Spawner" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Bar/Area2D" to="Bar" method="_on_area_2d_body_entered"]
