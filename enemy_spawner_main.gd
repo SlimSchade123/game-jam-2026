@@ -6,11 +6,10 @@ extends Node
 ## basic array logic int
 var enemy_index : int = 0
 
-#	text = str(time_text, Stats.total_distance - stored_dist)
-#	stored_dist = Stats.total_distance
-
 var enemy_ref = preload("res://piper/enemy_v2.tscn")
 var spawn_position : float = 4500
+
+var stored_offset : float = 0
 var spawn_offset : float = 1200
 
 ## scalar for interval between enemies per layer
@@ -22,9 +21,17 @@ func _ready() -> void:
 	Chris_Singleton.enemy_collided.connect(update_offset)
 	Chris_Singleton.max_speed_changed.connect(update_offset)
 
-func update_offset(max_speed: float):
-	spawn_offset = max_speed
-	print("Spawn Offset: ", spawn_offset)
+func update_offset(_enemy_stats: enemy_collision_info):
+	## need to parse max speed from enemy info
+	## default offset is 1200, use that as lower bounds potentially
+	## upper bounds should be double 1200, so 2400
+	
+	#	text = str(time_text, Stats.total_distance - stored_dist)
+	#	stored_dist = Stats.total_distance
+	spawn_offset = Stats.total_distance - stored_offset
+	stored_offset = Stats.total_distance
+	spawn_offset = maxf(stored_offset, 1200) ## either every 1200, minimum, or whatever the current max speed is
+	#print("Spawn Offset: ", spawn_offset)
 
 func spawn_enemy(position: Vector2) -> void:
 	Chris_Singleton.new_enemy()

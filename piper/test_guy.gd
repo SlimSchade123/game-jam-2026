@@ -4,6 +4,10 @@ extends CharacterBody2D
 @onready var fall_delay_timer: Timer = $Fall_Delay_Timer
 
 
+var life_tween : Tween
+var target_life_time : float = 20
+var current_life_time : float = 20
+
 ## Speed max should come in tiers
 ## Each area should act as a 'reset'
 ## Where you're put back to your normal speed
@@ -12,7 +16,9 @@ extends CharacterBody2D
 @export var true_max_speed : Array[float]
 ## goes from 1, 2, then 3. maybe 4 at the end of 3 for a cool moment?
 var current_speed_tier : int = 1
-var max_speed : float = 400.0
+var max_speed_cap : float = 2400
+var min_speed_cap : float = 800
+var max_speed : float = 1200.0
 const cust_grav : Vector2 =  Vector2(0, 3000.0)
 # basic physics junk
 const acceleration : float = 12.5
@@ -24,7 +30,7 @@ var stored_velocity : Vector2
 var start_position : Vector2 = Vector2.ZERO
 
 enum Player_State { neutral = 0, run_one = 1, run_two = 2, jump_one = 3, jump_two = 4, strapped = 5, launched = 6, cutscene = 7, dashed = 8}
-var current_state : Player_State = Player_State.strapped
+@export var current_state : Player_State = Player_State.strapped
 
 ## anything pertaining to the dash
 var dash_on_cooldown : bool = false
@@ -37,9 +43,6 @@ var dash_cooldown : float = 1.5
 var remaining_dashes : int = 1
 var fall_speed_scalar : float = 1.0
 ## for use with cameras
-
-## need to get rid of, but its here for now -w-
-var x_input : float = 1
 
 ## jump info
 var jumped : bool = false
@@ -70,58 +73,54 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("dash") and !dash_on_cooldown:
 		current_state_update(Player_State.dashed)
 	
-	
 	## this controls the momentum rn, idk if itll be necessary
-	var velocity_weight : float = delta * acceleration
+	## need a slight refactor here, momentum doesn't reallllly show in current gameplay
+	## 
 	
-	## acceleration needs to be scaled by the current combo and deceleration timer thing whenever i do that
-	velocity.x = lerp(velocity.x, x_input * max_speed, velocity_weight)
-	
-	current_state_behavior(current_state)
+	current_state_behavior(current_state, delta)
 	move_and_slide()
 
 #region State Machine
 
 func current_state_update(new_state : Player_State):
+	if current_state != new_state:
+		current_state = new_state
+		print(current_state)
+		
 	## function exists incase we need individual setter behaviors
-	current_state = new_state
 
 ## This function exists in physics_process
 ## Assigns behaviors to states
-func current_state_behavior(state : Player_State):
+func current_state_behavior(state : Player_State, delta : float):
 	match state:
 		Player_State.neutral:
-			running()
+			#mainly exists for anims
+			forwards_momentum(delta)
 			## basic run
 			pass
 		Player_State.jump_one:
 			jump()
-		Player_State.run_one:
-			# run on stage 2
-			pass
-		Player_State.run_two:
-			# run on stage 3
-			pass
+			forwards_momentum(delta)
+			
 		Player_State.launched:
 			# after the lightning, ala castle crashers
 			# set a timer, once you're done bouncing you go to neutral run with some high speed
 			pass
 		Player_State.strapped:
 			pass
-			# before lightning during the charge up
-			# do nothing 
 		Player_State.dashed:
 			dash()
+			forwards_momentum(delta)
 		## update player state exclusively here
 		pass
 
 #endregion State Machine
 
-func running():
-	pass
-
-func forwards_momentum():
-	pass
+func forwards_momentum(delta : float):
+	var velocity_weight : float = delta * acceleration
+	
+	## acceleration needs to be scaled by the current combo and deceleration timer thing whenever i do that
+	velocity.x = lerp(velocity.x, min(max_speed, max_speed_cap), velocity_weight)
 
 #region Dashing
 
@@ -190,7 +189,8 @@ func falling(delta: float):
 		else:
 			## on the floor
 			fall_speed_scalar = 1
-			current_state_update(Player_State.neutral)
+			if current_state != Player_State.strapped:
+				current_state_update(Player_State.neutral)
 			jumped = false
 
 #endregion Jumping
@@ -206,3 +206,33 @@ func enemy_dashed(enemy : Enemy2):
 	pass
 
 #endregion Enemy_Interactions
+
+
+#region life span
+
+func _on_life_timer_timeout() -> void:
+	## decrements life span by 0.5 each time
+	target_life_time -= 0.5
+
+func reset_life_time():
+	## lerp current_life_time to target_life_time
+	
+	#current_life_time = lerpf(current_life_time, target_life_time, )
+	pass
+
+func reset_tween():
+	if life_tween:
+		life_tween.kill()
+	life_tween = create_tween()
+
+func life_time_decrement():
+	## 1.5 here to give a window of repreive even when the player has technically lost
+	reset_tween()
+	life_tween.tween_property(self, "current_life_time", target_life_time, 1.5)
+	#print("done ! !")
+
+func game_over_check():
+	if current_life_time == 0:
+		print("GAME OVER")
+
+#endregion life span

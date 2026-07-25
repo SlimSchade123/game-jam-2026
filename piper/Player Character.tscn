@@ -33,5 +33,9 @@ one_shot = true
 [node name="Fall_Delay_Timer" type="Timer" parent="." unique_id=1358787671]
 one_shot = true
 
+[node name="Life_Timer" type="Timer" parent="." unique_id=1074868581]
+wait_time = 0.05
+
 [connection signal="timeout" from="Dash_Timer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="Fall_Delay_Timer" to="." method="_on_fall_delay_timer_timeout"]
+[connection signal="timeout" from="Life_Timer" to="." method="_on_life_timer_timeout"]
