@@ -19,14 +19,19 @@ func _process(delta: float) -> void:
 func _on_left_button_pressed() -> void:
 	if Stats.coins_collected > upgrade_cost:
 		print("Can Upgrade")
-		
+		Stats.upgrade_max_speed += 100
+		queue_free()
 		
 	pass # Replace with function body.
 
 
 func _on_middle_button_pressed() -> void:
+	if Stats.coins_collected > upgrade_cost:
+		print("Can Upgrade")
 	pass # Replace with function body.
 
 
 func _on_right_button_pressed() -> void:
+	if Stats.coins_collected > upgrade_cost:
+		print("Can Upgrade")
 	pass # Replace with function body.
