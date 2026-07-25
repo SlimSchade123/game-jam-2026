@@ -33,4 +33,4 @@ func fade_in():
 	reset_tween()
 	tween.tween_property(transition_shader.material, "shader_parameter/radius", 1.55, 2.4)
 	await tween.finished
-	print("done ! !")
+	#print("done ! !")
