@@ -5,7 +5,12 @@ extends Node
 var total_time : float = 0.0
 var total_distance : float = 0.0
 var volume : float = 0.5
-var coins_collected : int = 0
+var coins_collected : int = 100
+
+# Bar Upgrade Stuffs
+var upgrade_max_speed: float = 0
+var dashes_amount: int = 1
+var liftoff_max: int = 100
 
 signal dashing(is_dashing : bool)
 

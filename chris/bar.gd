@@ -12,5 +12,8 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	
-	pass # Replace with function body.
+	print("Im barring it rn")
+	get_tree().paused = true
+
+func leave_bar() -> void:
+	print("woah im leaving")
