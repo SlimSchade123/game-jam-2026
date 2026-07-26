@@ -18,7 +18,6 @@ func start_spawning_timer():
 	timer.start()
 
 func _ready() -> void:
-	Chris_Singleton.enemy_collided.connect(update_offset)
 	Chris_Singleton.max_speed_changed.connect(update_offset)
 	Chris_Singleton.leave_bar.connect(start_spawning_timer)
 

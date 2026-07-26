@@ -56,7 +56,6 @@ func _process(delta: float) -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Chris_Singleton.enemy_collided.connect(update_offset)
 	Chris_Singleton.max_speed_changed.connect(update_offset)
 
 func update_offset(max_speed: float):
@@ -85,7 +84,6 @@ func assign_info(instance : Enemy2):
 		enemy_index = 0
 	
 	instance.collision_info = enemy_info[enemy_index].duplicate_deep(Resource.DEEP_DUPLICATE_ALL)
-	
 	enemy_index += 1
 
 
