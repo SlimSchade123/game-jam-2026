@@ -1,12 +1,79 @@
 [gd_scene format=3 uid="uid://ddbthi5uvjn4m"]
 
 [ext_resource type="Script" uid="uid://gr74rvv0kex5" path="res://chris/bar_menu.gd" id="1_kbjwy"]
-[ext_resource type="Script" uid="uid://b5uhliwcx3k1x" path="res://chris/bar_left_button.gd" id="2_sj6df"]
-[ext_resource type="Script" uid="uid://blgves3mmgufi" path="res://chris/bar_middle_button.gd" id="3_n4tic"]
-[ext_resource type="Script" uid="uid://cuwodq0timxl5" path="res://chris/bar_right_button.gd" id="4_wl5hd"]
+[ext_resource type="FontFile" uid="uid://cykv7n1iol4wl" path="res://fonts/Jacquard12-Regular.ttf" id="5_uinau"]
 
-[node name="Bar Menu" type="CanvasLayer" unique_id=449125068]
+[sub_resource type="GDScript" id="GDScript_sj6df"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_pressed() -> void:
+	if Stats.coins_collected > 0:
+		Stats.coins_collected -= 50
+		queue_free()
+		print(\"im cryig\")
+"
+
+[sub_resource type="GDScript" id="GDScript_n4tic"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_pressed() -> void:
+	if Stats.coins_collected > 0:
+		Stats.coins_collected -= 50
+		queue_free()
+"
+
+[sub_resource type="GDScript" id="GDScript_wl5hd"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_pressed() -> void:
+	if Stats.coins_collected > 50:
+		Stats.coins_collected -= 50
+		queue_free()
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_wl5hd"]
+font = ExtResource("5_uinau")
+font_size = 60
+
+[node name="Bar Menu" type="CanvasLayer" unique_id=449125068 node_paths=PackedStringArray("coin_label", "left_button", "middle_button", "right_button")]
 script = ExtResource("1_kbjwy")
+coin_label = NodePath("Label")
+left_button = NodePath("Control/Left Button")
+middle_button = NodePath("Control/Middle Button")
+right_button = NodePath("Control/Right Button")
 
 [node name="Panel" type="Panel" parent="." unique_id=650667546]
 offset_right = 1936.0
@@ -26,7 +93,7 @@ offset_top = 95.0
 offset_right = 550.0
 offset_bottom = 445.0
 text = "ligma"
-script = ExtResource("2_sj6df")
+script = SubResource("GDScript_sj6df")
 
 [node name="Middle Button" type="Button" parent="Control" unique_id=286286301]
 layout_mode = 0
@@ -35,7 +102,7 @@ offset_top = 90.0
 offset_right = 1100.0
 offset_bottom = 440.0
 text = "ligma"
-script = ExtResource("3_n4tic")
+script = SubResource("GDScript_n4tic")
 
 [node name="Right Button" type="Button" parent="Control" unique_id=1531488195]
 layout_mode = 0
@@ -44,16 +111,16 @@ offset_top = 90.0
 offset_right = 1650.0
 offset_bottom = 440.0
 text = "ligma"
-script = ExtResource("4_wl5hd")
+script = SubResource("GDScript_wl5hd")
 
 [node name="Label" type="Label" parent="." unique_id=680450121]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_right = 315.0
+offset_bottom = 88.0
 text = "Coins: 000"
+label_settings = SubResource("LabelSettings_wl5hd")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Control/Left Button" to="." method="_on_left_button_pressed"]
-[connection signal="pressed" from="Control/Left Button" to="Control/Left Button" method="_on_pressed"]
 [connection signal="pressed" from="Control/Middle Button" to="." method="_on_middle_button_pressed"]
-[connection signal="pressed" from="Control/Middle Button" to="Control/Middle Button" method="_on_pressed"]
 [connection signal="pressed" from="Control/Right Button" to="." method="_on_right_button_pressed"]
-[connection signal="pressed" from="Control/Right Button" to="Control/Right Button" method="_on_pressed"]
