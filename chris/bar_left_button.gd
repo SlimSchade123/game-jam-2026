@@ -1,4 +1,4 @@
-extends Node2D
+extends Button
 
 
 # Called when the node enters the scene tree for the first time.
@@ -11,11 +11,5 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("Im barring it rn")
-	get_tree().paused = true
-
-
-
-func leave_bar() -> void:
-	print("woah im leaving")
+func _on_pressed() -> void:
+	queue_free()

@@ -69,6 +69,7 @@ position = Vector2(74, 603)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=971042345]
 physics_interpolation_mode = 1
+top_level = true
 position = Vector2(874, 540)
 
 [node name="PhantomCameraHost2" type="Node" parent="Camera2D" unique_id=677974093]

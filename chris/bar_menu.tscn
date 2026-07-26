@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://ddbthi5uvjn4m"]
 
 [ext_resource type="Script" uid="uid://gr74rvv0kex5" path="res://chris/bar_menu.gd" id="1_kbjwy"]
+[ext_resource type="Script" uid="uid://b5uhliwcx3k1x" path="res://chris/bar_left_button.gd" id="2_sj6df"]
+[ext_resource type="Script" uid="uid://blgves3mmgufi" path="res://chris/bar_middle_button.gd" id="3_n4tic"]
+[ext_resource type="Script" uid="uid://cuwodq0timxl5" path="res://chris/bar_right_button.gd" id="4_wl5hd"]
 
 [node name="Bar Menu" type="CanvasLayer" unique_id=449125068]
 script = ExtResource("1_kbjwy")
@@ -19,6 +22,7 @@ offset_top = 95.0
 offset_right = 550.0
 offset_bottom = 445.0
 text = "ligma"
+script = ExtResource("2_sj6df")
 
 [node name="Middle Button" type="Button" parent="Control" unique_id=286286301]
 layout_mode = 0
@@ -27,6 +31,7 @@ offset_top = 90.0
 offset_right = 1100.0
 offset_bottom = 440.0
 text = "ligma"
+script = ExtResource("3_n4tic")
 
 [node name="Right Button" type="Button" parent="Control" unique_id=1531488195]
 layout_mode = 0
@@ -35,7 +40,11 @@ offset_top = 90.0
 offset_right = 1650.0
 offset_bottom = 440.0
 text = "ligma"
+script = ExtResource("4_wl5hd")
 
 [connection signal="pressed" from="Control/Left Button" to="." method="_on_left_button_pressed"]
+[connection signal="pressed" from="Control/Left Button" to="Control/Left Button" method="_on_pressed"]
 [connection signal="pressed" from="Control/Middle Button" to="." method="_on_middle_button_pressed"]
+[connection signal="pressed" from="Control/Middle Button" to="Control/Middle Button" method="_on_pressed"]
 [connection signal="pressed" from="Control/Right Button" to="." method="_on_right_button_pressed"]
+[connection signal="pressed" from="Control/Right Button" to="Control/Right Button" method="_on_pressed"]
