@@ -2589,16 +2589,15 @@ texture = SubResource("GradientTexture2D_b7r16")
 
 [node name="LeftLeg" type="Sprite2D" parent="CharacterContainer/Body" unique_id=1600348863]
 texture_filter = 1
-position = Vector2(82.45489, 10.145479)
-rotation = 0.489574
-scale = Vector2(0.9985703, 0.99986583)
+position = Vector2(82.00002, 12.999947)
+rotation = 1.3089969
+scale = Vector2(0.99856997, 0.99984866)
 texture = ExtResource("1_xfmyo")
 offset = Vector2(0, 2.999999)
 
 [node name="RightLeg" type="Sprite2D" parent="CharacterContainer/Body" unique_id=801626818]
 texture_filter = 1
-position = Vector2(88.16673, 8.183169)
-rotation = 1.0950035
+position = Vector2(88.999985, 12.999948)
 scale = Vector2(0.99985737, 0.99985737)
 texture = ExtResource("2_1wyer")
 offset = Vector2(0, 3)
@@ -2606,69 +2605,69 @@ offset = Vector2(0, 3)
 [node name="RFoot" type="Sprite2D" parent="CharacterContainer/Body" unique_id=1881565240]
 texture_filter = 1
 position = Vector2(89, 20.998674)
-scale = Vector2(0.99981517, 0.99981517)
+scale = Vector2(0.99981546, 0.99981546)
 texture = ExtResource("3_u66b7")
 offset = Vector2(1, 0)
 
 [node name="LFoot" type="Sprite2D" parent="CharacterContainer/Body" unique_id=1392234035]
 texture_filter = 1
-position = Vector2(78.69334, 17.204897)
-rotation = 0.5018939
+position = Vector2(74.273544, 15.070248)
+rotation = 1.3213168
 scale = Vector2(0.9998461, 0.9998461)
 texture = ExtResource("4_54dhq")
 offset = Vector2(1, 0)
 
 [node name="Torso" type="Sprite2D" parent="CharacterContainer/Body" unique_id=202061981]
 texture_filter = 1
-position = Vector2(87, 1.1454945)
+position = Vector2(87, 4)
 scale = Vector2(0.9999299, 0.9999299)
 texture = ExtResource("6_iqf8c")
 offset = Vector2(0, -2)
 
 [node name="LeftFA" type="Sprite2D" parent="CharacterContainer/Body" unique_id=1475747177]
 texture_filter = 1
-position = Vector2(75.62753, -1.8995752)
-rotation = -0.091419995
-scale = Vector2(0.9997095, 0.9997095)
+position = Vector2(68.57304, -3.9380915)
+rotation = 0.7853982
+scale = Vector2(0.99970955, 0.99970955)
 texture = ExtResource("7_aebf1")
 offset = Vector2(3, 4)
 
 [node name="LeftSh" type="Sprite2D" parent="CharacterContainer/Body" unique_id=1169943928]
 texture_filter = 1
-position = Vector2(78.81539, -12.039117)
-rotation = -0.023753561
+position = Vector2(78.999985, -6.000022)
+rotation = 1.0471976
 scale = Vector2(0.9998488, 0.9998488)
 texture = SubResource("CompressedTexture2D_ebxuy")
 offset = Vector2(-1, 6)
 
 [node name="Head" type="Sprite2D" parent="CharacterContainer/Body" unique_id=1729705137]
 texture_filter = 1
-position = Vector2(89.999985, -12.035903)
+position = Vector2(89.999985, -10.812689)
 scale = Vector2(0.9999956, 0.9999956)
 texture = ExtResource("9_3gllf")
 offset = Vector2(-1, 2)
 
 [node name="LeftHand" type="Sprite2D" parent="CharacterContainer/Body" unique_id=1530914159]
 texture_filter = 1
-position = Vector2(81.966354, 1.5352631)
-rotation = -0.28520626
-scale = Vector2(0.9996179, 0.9996179)
+position = Vector2(69.98696, 3.1315317)
+rotation = 0.7853982
+scale = Vector2(0.99961793, 0.99961793)
 texture = ExtResource("8_lm3p5")
 offset = Vector2(4, 0)
 
 [node name="RightFA" type="Sprite2D" parent="CharacterContainer/Body" unique_id=1735740492]
 show_behind_parent = true
 texture_filter = 1
-position = Vector2(88.722404, -2.3236227)
-rotation = 2.094395
+position = Vector2(94.92752, 3.8744144)
+rotation = 0.78539807
 texture = ExtResource("9_1wyer")
 offset = Vector2(0.8630867, -1.012558)
 
 [node name="RightHand" type="Sprite2D" parent="CharacterContainer/Body" unique_id=664003536]
 texture_filter = 1
-position = Vector2(89.14215, 2.912788)
-rotation = 0.7853982
-scale = Vector2(0.99986005, 0.99986005)
+position = Vector2(100.09414, 4.824257)
+rotation = -0.52359885
+scale = Vector2(0.9998601, 0.9998601)
 texture = ExtResource("5_xp6pm")
 offset = Vector2(4.0220184, -0.68452024)
 
