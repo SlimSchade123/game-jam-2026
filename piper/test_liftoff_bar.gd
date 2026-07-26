@@ -7,7 +7,7 @@ extends ProgressBar
 @onready var lightning_timer: Timer = $"Lightning Timer"
 #@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var charging_audio: AudioStreamPlayer = $Charging_Audio
-@onready var music: AudioStreamPlayer = $Music
+@onready var music: AudioStreamPlayer = %Music
 
 var alternating : bool = false
 var initial_press : bool = false
