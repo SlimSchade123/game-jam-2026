@@ -10,12 +10,6 @@ var bar_scene = preload("res://chris/bar_menu.tscn")
 func _ready() -> void:
 	Chris_Singleton.leave_bar.connect(leave_bar)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	var instance = bar_scene.instantiate()
 	add_child(instance)
@@ -29,4 +23,3 @@ func leave_bar() -> void:
 
 func _on_timer_timeout() -> void:
 	queue_free()
-	pass # Replace with function body.
