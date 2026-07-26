@@ -268,6 +268,7 @@ lookahead_time = Vector2(0.01, 0.01)
 lookahead_acceleration = 0.0
 lookahead_deceleration = 0.0
 dead_zone_width = 0.05
+draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="Path2D" type="Path2D" parent="." unique_id=1153276700]

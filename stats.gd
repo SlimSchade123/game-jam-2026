@@ -20,6 +20,16 @@ signal bar_entered
 signal bar_exited
 
 
+func reset():
+	total_time = 0.0
+	total_distance = 0.0
+	volume = 0.5
+	coins_collected = 100
+	speed = 0
+	upgrade_max_speed = 0
+	dashes_amount = 1
+	liftoff_max = 100
+
 signal launch(strength : float)
 ##exists to remove warnings -w-
 func bucket():

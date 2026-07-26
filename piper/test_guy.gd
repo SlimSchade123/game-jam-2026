@@ -5,6 +5,7 @@ extends CharacterBody2D
 
 @onready var frank_vis: Frank_Anims = %Frank_Vis
 
+const LOSE_SCREEN = preload("uid://cu0q7c1cijina")
 
 @onready var scream: AudioStreamPlayer = $scream
 
@@ -101,6 +102,9 @@ func _physics_process(delta: float) -> void:
 	## 
 	
 	if Stats.speed < 250:
+		var loser := LOSE_SCREEN.instantiate()
+		add_child(loser)
+		Stats.reset()
 		print("dead !!")
 	
 	current_state_behavior(current_state, delta)

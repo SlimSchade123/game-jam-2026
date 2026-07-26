@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bpmmfl53n6r8j" path="res://chris/circle_magic.gd" id="1_l0cpa"]
 [ext_resource type="FontFile" uid="uid://d2t1ay6sebb57" path="res://chris/LavishlyYours-Regular.ttf" id="2_mg7qv"]
+[ext_resource type="Texture2D" uid="uid://buks6s8rf3yqq" path="res://art assets/pixilart-drawing.png" id="2_omun6"]
 [ext_resource type="FontFile" uid="uid://cykv7n1iol4wl" path="res://fonts/Jacquard12-Regular.ttf" id="3_omun6"]
+[ext_resource type="Texture2D" uid="uid://ju2v0t6o38bn" path="res://art assets/frank.png" id="3_ugq2f"]
 [ext_resource type="Script" uid="uid://dy4gow4ornwr3" path="res://chris/exit_button.gd" id="4_ugq2f"]
 
 [sub_resource type="Gradient" id="Gradient_venpk"]
@@ -14,6 +16,10 @@ gradient = SubResource("Gradient_venpk")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2um0"]
+atlas = ExtResource("2_omun6")
+region = Rect2(26.503521, 0, 46.305447, 87.71124)
 
 [sub_resource type="Theme" id="Theme_qgl5c"]
 default_font = ExtResource("2_mg7qv")
@@ -32,6 +38,7 @@ offset_right = 1931.0
 offset_bottom = 1061.0
 
 [node name="CircleMagic" type="Control" parent="Control" unique_id=2026190166 node_paths=PackedStringArray("circles")]
+modulate = Color(0.20080861, 0.20080861, 0.20080861, 1)
 anchors_preset = 0
 offset_left = 560.0
 offset_top = 221.0
@@ -65,12 +72,24 @@ position = Vector2(444, 327)
 scale = Vector2(8, 6)
 texture = SubResource("GradientTexture2D_venpk")
 
+[node name="Sprite2D" type="Sprite2D" parent="Control" unique_id=396422969]
+texture_filter = 1
+position = Vector2(967, 379)
+scale = Vector2(10.970079, 10.970079)
+texture = SubResource("AtlasTexture_h2um0")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Control" unique_id=1325271152]
+texture_filter = 1
+position = Vector2(967, 841)
+scale = Vector2(6.3915343, 6.3915343)
+texture = ExtResource("3_ugq2f")
+
 [node name="YOUWIN" type="Label" parent="Control" unique_id=164370949]
 layout_mode = 0
 offset_left = -44.0
-offset_top = 59.0
+offset_top = -200.0
 offset_right = 1917.0
-offset_bottom = 1019.0
+offset_bottom = 760.0
 theme = SubResource("Theme_qgl5c")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "You Lose"
