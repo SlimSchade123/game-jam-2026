@@ -1,6 +1,8 @@
 extends Node
 @onready var spawn_timer: Timer = $"Spawn Timer"
 
+@export var timer : Timer
+const bar_prefab = preload("res://chris/bar.tscn")
 
 ## base prefab used for making new enemies
 @export var enemy_info : Array[enemy_collision_info]
@@ -13,9 +15,44 @@ var spawn_position : float = 4500
 var stored_offset : float = 0
 var spawn_offset : float = 1200
 
+var spawn_distance = [25_000, 50_000, 100_000, 200_000]
+var spawn_tier = 0
+const win_screen = preload("res://chris/win_screen.tscn")
+
 ## scalar for interval between enemies per layer
 ## 1.0 should be layer 3, fiddle for each layer instance
 @export var spawn_rate : float = 1.0
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("debug_win"):
+		print("wowie")
+		var instance = win_screen.instantiate()
+		add_child(instance)
+
+func spawn_bar():
+	
+	if Stats.total_distance > spawn_distance[spawn_tier]:
+		
+		timer.stop()
+		if spawn_tier == 3:
+			print("OMG YOU WON")
+			var instance = win_screen.instantiate()
+			add_child(instance)
+		
+		else:
+			print("Oh im spawning it rn ;()")
+			
+			var instance = bar_prefab.instantiate().duplicate()
+			instance.global_position = Vector2(spawn_distance[spawn_tier] + (spawn_offset * 2), 650)
+			add_child(instance)
+			spawn_tier += 1
+
+
+func _process(delta: float) -> void:
+	spawn_bar()
+	pass
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

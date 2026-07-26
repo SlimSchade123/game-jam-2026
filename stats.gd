@@ -16,6 +16,9 @@ var liftoff_max: int = 100
 signal dashing(is_dashing : bool)
 signal change_cam_target
 signal enemy_killed
+signal bar_entered
+signal bar_exited
+
 
 signal launch(strength : float)
 ##exists to remove warnings -w-

@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://bj2vci116c21k"]
+[gd_scene format=3 uid="uid://cu0q7c1cijina"]
 
-[ext_resource type="FontFile" uid="uid://d2t1ay6sebb57" path="res://chris/LavishlyYours-Regular.ttf" id="1_0w80r"]
-[ext_resource type="Script" uid="uid://bpmmfl53n6r8j" path="res://chris/circle_magic.gd" id="1_5npjh"]
-[ext_resource type="FontFile" uid="uid://cykv7n1iol4wl" path="res://fonts/Jacquard12-Regular.ttf" id="2_venpk"]
-[ext_resource type="Script" uid="uid://dy4gow4ornwr3" path="res://chris/exit_button.gd" id="4_hnv81"]
+[ext_resource type="Script" uid="uid://bpmmfl53n6r8j" path="res://chris/circle_magic.gd" id="1_l0cpa"]
+[ext_resource type="FontFile" uid="uid://d2t1ay6sebb57" path="res://chris/LavishlyYours-Regular.ttf" id="2_mg7qv"]
+[ext_resource type="FontFile" uid="uid://cykv7n1iol4wl" path="res://fonts/Jacquard12-Regular.ttf" id="3_omun6"]
+[ext_resource type="Script" uid="uid://dy4gow4ornwr3" path="res://chris/exit_button.gd" id="4_ugq2f"]
 
 [sub_resource type="Gradient" id="Gradient_venpk"]
 offsets = PackedFloat32Array(0.376, 0.464, 0.684, 0.732)
@@ -16,11 +16,11 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 1)
 
 [sub_resource type="Theme" id="Theme_qgl5c"]
-default_font = ExtResource("1_0w80r")
-default_font_size = 600
+default_font = ExtResource("2_mg7qv")
+default_font_size = 540
 
 [sub_resource type="Theme" id="Theme_venpk"]
-default_font = ExtResource("2_venpk")
+default_font = ExtResource("3_omun6")
 default_font_size = 60
 
 [node name="WinScreen" type="CanvasLayer" unique_id=1900241897]
@@ -37,7 +37,7 @@ offset_left = 560.0
 offset_top = 221.0
 offset_right = 1436.0
 offset_bottom = 828.0
-script = ExtResource("1_5npjh")
+script = ExtResource("1_l0cpa")
 circles = [NodePath("Sprite2D4"), NodePath("Sprite2D3"), NodePath("Sprite2D2"), NodePath("Sprite2D1_5"), NodePath("Sprite2D1")]
 
 [node name="Sprite2D1" type="Sprite2D" parent="Control/CircleMagic" unique_id=1489864294]
@@ -67,13 +67,13 @@ texture = SubResource("GradientTexture2D_venpk")
 
 [node name="YOUWIN" type="Label" parent="Control" unique_id=164370949]
 layout_mode = 0
-offset_left = 47.0
-offset_top = 57.0
-offset_right = 1867.0
-offset_bottom = 1017.0
+offset_left = -44.0
+offset_top = 59.0
+offset_right = 1917.0
+offset_bottom = 1019.0
 theme = SubResource("Theme_qgl5c")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "The End"
+text = "You Lose"
 horizontal_alignment = 1
 
 [node name="ExitButton" type="Button" parent="Control" unique_id=15748357]
@@ -87,6 +87,6 @@ offset_right = -289.6991
 offset_bottom = -19.963013
 theme = SubResource("Theme_venpk")
 text = "Main Menu"
-script = ExtResource("4_hnv81")
+script = ExtResource("4_ugq2f")
 
 [connection signal="pressed" from="Control/ExitButton" to="Control/CircleMagic" method="_on_exit_button_pressed"]

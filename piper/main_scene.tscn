@@ -290,8 +290,9 @@ texture = SubResource("GradientTexture2D_xtnmv")
 [node name="Pause Menu" parent="." unique_id=1172234929 instance=ExtResource("7_riw4a")]
 visible = false
 
-[node name="Enemy Spawner" type="Node2D" parent="." unique_id=1881632308]
+[node name="Enemy Spawner" type="Node2D" parent="." unique_id=1881632308 node_paths=PackedStringArray("timer")]
 script = ExtResource("9_acxxj")
+timer = NodePath("Spawn Timer")
 enemy_info = Array[ExtResource("10_ewouk")]([SubResource("Resource_acxxj"), SubResource("Resource_ewouk"), SubResource("Resource_u1jhx"), SubResource("Resource_pn3pg")])
 
 [node name="Spawn Timer" type="Timer" parent="Enemy Spawner" unique_id=1937430127]

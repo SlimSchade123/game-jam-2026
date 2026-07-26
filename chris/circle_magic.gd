@@ -20,3 +20,7 @@ func new_circle(circle : Sprite2D):
 		big_circle.scale = small_circle_size
 		big_circle.get_parent().move_child(big_circle, len(circles) )
 		circles.push_front(big_circle)
+
+
+func _on_exit_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://piper/main_menu.tscn")

@@ -1,40 +1,16 @@
 extends Node
 
 var enemy = preload("res://chris/enemy.tscn")
-const bar_prefab = preload("res://chris/bar.tscn")
-const win_screen = preload("res://chris/win_screen.tscn")
+
 
 var spawn_position : float = 4500
 var spawn_offset : float = 1200
 
-var spawn_distance = [25_000, 50_000, 100_000, 200_000]
-var spawn_tier = 0
+
 
 @export var timer : Timer
 
 #Bar Shiii
-func spawn_bar():
-	
-	if Stats.total_distance > spawn_distance[spawn_tier]:
-		
-		timer.stop()
-		if spawn_tier == 3:
-			print("OMG YOU WON")
-			var instance = win_screen.instantiate()
-			add_child(instance)
-		
-		else:
-			print("Oh im spawning it rn ;()")
-			
-			var instance = bar_prefab.instantiate().duplicate()
-			instance.global_position = Vector2(spawn_distance[spawn_tier] + (spawn_offset * 2), 650)
-			add_child(instance)
-			spawn_tier += 1
-
-
-func _process(delta: float) -> void:
-	spawn_bar()
-	pass
 
 
 # Called when the node enters the scene tree for the first time.

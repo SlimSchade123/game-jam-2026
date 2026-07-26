@@ -13,12 +13,14 @@ func _ready() -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	var instance = bar_scene.instantiate()
 	add_child(instance)
+	Stats.bar_entered.emit()
 	
 
 func leave_bar() -> void:
 	print("woah im leaving")
 	wall.queue_free()
 	timer.start()
+	Stats.bar_exited.emit()
 
 
 func _on_timer_timeout() -> void:
