@@ -42,26 +42,31 @@ offset_top = 221.0
 offset_right = 1436.0
 offset_bottom = 828.0
 script = ExtResource("1_5npjh")
-circles = [NodePath("Sprite2D4"), NodePath("Sprite2D3"), NodePath("Sprite2D2"), NodePath("Sprite2D1")]
+circles = [NodePath("Sprite2D4"), NodePath("Sprite2D3"), NodePath("Sprite2D2"), NodePath("Sprite2D1_5"), NodePath("Sprite2D1")]
 
 [node name="Sprite2D1" type="Sprite2D" parent="Control/CircleMagic" unique_id=1489864294]
 position = Vector2(444, 327)
-scale = Vector2(29.375, 22.226)
+scale = Vector2(30, 22)
+texture = SubResource("GradientTexture2D_venpk")
+
+[node name="Sprite2D1_5" type="Sprite2D" parent="Control/CircleMagic" unique_id=1353422220]
+position = Vector2(444, 327)
+scale = Vector2(35.5, 26.5)
 texture = SubResource("GradientTexture2D_venpk")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Control/CircleMagic" unique_id=1214154087]
 position = Vector2(444, 327)
-scale = Vector2(22.79, 17.234)
+scale = Vector2(19, 15)
 texture = SubResource("GradientTexture2D_venpk")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Control/CircleMagic" unique_id=1906242082]
 position = Vector2(444, 327)
-scale = Vector2(14.875, 11.21875)
+scale = Vector2(13.5, 10.5)
 texture = SubResource("GradientTexture2D_venpk")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Control/CircleMagic" unique_id=1460624840]
 position = Vector2(444, 327)
-scale = Vector2(8.41, 6.354)
+scale = Vector2(8, 6)
 texture = SubResource("GradientTexture2D_venpk")
 
 [node name="YOUWIN" type="Label" parent="Control" unique_id=164370949]
