@@ -2,6 +2,7 @@ extends Node
 
 var enemy = preload("res://chris/enemy.tscn")
 const bar_prefab = preload("res://chris/bar.tscn")
+const win_screen = preload("res://chris/win_screen.tscn")
 
 var spawn_position : float = 4500
 var spawn_offset : float = 1200
@@ -21,6 +22,8 @@ func spawn_bar():
 		spawn_tier += 1
 		if spawn_tier == 3:
 			print("OMG YOU WON")
+			win_screen.instantiate()
+			
 		else:
 			var instance = bar_prefab.instantiate().duplicate()
 			instance.global_position = Vector2(spawn_distance[spawn_tier-1] + (spawn_offset * 2), 650)
