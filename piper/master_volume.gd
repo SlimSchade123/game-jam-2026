@@ -6,6 +6,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	master_slider.value = Stats.volume
+	AudioServer.set_bus_volume_db(0, linear_to_db(master_slider.value))
 	update_text()
 
 func _on_master_slider_drag_ended(_value_changed: bool) -> void:

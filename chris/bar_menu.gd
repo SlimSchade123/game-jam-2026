@@ -47,3 +47,8 @@ func _on_right_button_pressed() -> void:
 		
 		coin_label.text = str("Coins: " , Stats.coins_collected)
 		right_button.queue_free()
+
+
+func _on_exit_button_pressed() -> void:
+	Chris_Singleton.leave_bar.emit()
+	queue_free()

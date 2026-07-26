@@ -14,7 +14,7 @@ var spawn_tier = 0
 #Bar Shiii
 func spawn_bar():
 	if Stats.total_distance > spawn_distance[spawn_tier]:
-		var instance = bar_prefab.instantiate()
+		var instance = bar_prefab.instantiate().duplicate()
 		instance.global_position = Vector2(spawn_distance[spawn_tier] + (spawn_offset * 2), 650)
 		add_child(instance)
 		#print("Oh im spawning it rn ;()")
