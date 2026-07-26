@@ -64,13 +64,17 @@ func _on_pressed() -> void:
 		queue_free()
 "
 
+[sub_resource type="Theme" id="Theme_sj6df"]
+default_font = ExtResource("5_uinau")
+default_font_size = 60
+
 [sub_resource type="LabelSettings" id="LabelSettings_wl5hd"]
 font = ExtResource("5_uinau")
 font_size = 60
 
 [node name="Bar Menu" type="CanvasLayer" unique_id=449125068 node_paths=PackedStringArray("coin_label", "left_button", "middle_button", "right_button")]
 script = ExtResource("1_kbjwy")
-coin_label = NodePath("Label")
+coin_label = NodePath("Control/Label")
 left_button = NodePath("Control/Left Button")
 middle_button = NodePath("Control/Middle Button")
 right_button = NodePath("Control/Right Button")
@@ -113,9 +117,20 @@ offset_bottom = 440.0
 text = "ligma"
 script = SubResource("GDScript_wl5hd")
 
-[node name="Label" type="Label" parent="." unique_id=680450121]
+[node name="Exit Button" type="Button" parent="Control" unique_id=1249667509]
+layout_mode = 0
+offset_left = 1791.0
+offset_top = 24.0
+offset_right = 1901.0
+offset_bottom = 97.0
+theme = SubResource("Theme_sj6df")
+text = "X"
+
+[node name="Label" type="Label" parent="Control" unique_id=680450121]
+layout_mode = 0
+offset_top = 7.0
 offset_right = 315.0
-offset_bottom = 88.0
+offset_bottom = 95.0
 text = "Coins: 000"
 label_settings = SubResource("LabelSettings_wl5hd")
 horizontal_alignment = 1
@@ -124,3 +139,4 @@ vertical_alignment = 1
 [connection signal="pressed" from="Control/Left Button" to="." method="_on_left_button_pressed"]
 [connection signal="pressed" from="Control/Middle Button" to="." method="_on_middle_button_pressed"]
 [connection signal="pressed" from="Control/Right Button" to="." method="_on_right_button_pressed"]
+[connection signal="pressed" from="Control/Exit Button" to="." method="_on_exit_button_pressed"]
