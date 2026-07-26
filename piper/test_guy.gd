@@ -64,7 +64,7 @@ func _ready() -> void:
 	#spawn_offset = Stats.total_distance - stored_offset
 	#stored_offset = Stats.total_distance
 	Chris_Singleton.enemy_collided.connect(enemy_collided)
-	rotation_initial_tween()
+	#rotation_initial_tween()
 
 func post_catapult():
 	## set starting speed here
@@ -279,9 +279,10 @@ func reset_rot():
 		rot_tween.kill()
 	rot_tween = create_tween()
 
-func rotation_initial_tween():
-	frank_vis.rotation = initial_rotation
-	rot_tween.tween_property(frank_vis, "rotation", 0, 1)
+#func rotation_initial_tween():
+	#frank_vis.rotation = initial_rotation
+	#rot_tween.tween_property(frank_vis, "rotation", 0, 1)
+	#frank_vis.rotation
 
 func life_time_decrement():
 	## 1.5 here to give a window of repreive even when the player has technically lost
