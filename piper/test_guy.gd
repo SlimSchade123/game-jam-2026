@@ -57,6 +57,13 @@ func _ready() -> void:
 	start_position = position
 	Chris_Singleton.enemy_collided.connect(enemy_collided)
 
+func post_catapult():
+	## set starting speed here
+	## range from like, 400 and 1200 for max speed
+	## if the catapult returns like, sub 15%
+	## 
+	pass
+
 func enemy_collided(info : enemy_collision_info) -> void:
 	enemy_dashed(info.enemy_instance)
 

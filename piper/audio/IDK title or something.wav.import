@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cibx6dh6jkhgd"
+path="res://.godot/imported/IDK title or something.wav-b411cc93a4be2e541b94b6ea662e7968.sample"
+
+[deps]
+
+source_file="res://piper/audio/IDK title or something.wav"
+dest_files=["res://.godot/imported/IDK title or something.wav-b411cc93a4be2e541b94b6ea662e7968.sample"]
+
+[params]
+
+force/8_bit=true
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
