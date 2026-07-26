@@ -2,9 +2,15 @@
 
 [ext_resource type="Script" uid="uid://dtmm7hg2hmt18" path="res://piper/time_debugger.gd" id="1_cngij"]
 [ext_resource type="Script" uid="uid://c1pc8qq2wvciq" path="res://piper/distance.gd" id="2_62pxu"]
+[ext_resource type="Script" uid="uid://cybmctgq8kl0d" path="res://piper/tutorial.gd" id="3_wt5oy"]
+[ext_resource type="FontFile" uid="uid://cykv7n1iol4wl" path="res://fonts/Jacquard12-Regular.ttf" id="3_xjr6w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ll7g7"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_wt5oy"]
+default_font = ExtResource("3_xjr6w")
+default_font_size = 100
 
 [node name="Screen Effects" type="CanvasLayer" unique_id=129136169]
 
@@ -51,4 +57,20 @@ script = ExtResource("2_62pxu")
 [node name="Timer" type="Timer" parent="Label2" unique_id=2146983379]
 autostart = true
 
+[node name="Label3" type="Label" parent="." unique_id=1414892821]
+offset_left = 756.0
+offset_top = 899.0
+offset_right = 923.0
+offset_bottom = 1000.0
+theme = SubResource("Theme_wt5oy")
+theme_override_colors/font_color = Color(0.77757245, 0.82243896, 0.8307716, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+horizontal_alignment = 1
+script = ExtResource("3_wt5oy")
+
+[node name="Timer" type="Timer" parent="Label3" unique_id=1635971551]
+wait_time = 4.0
+
 [connection signal="timeout" from="Label2/Timer" to="Label2" method="_on_timer_timeout"]
+[connection signal="timeout" from="Label3/Timer" to="Label3" method="_on_timer_timeout"]
