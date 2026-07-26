@@ -11,6 +11,7 @@ func _on_timer_timeout() -> void:
 	
 	## check the current total distance
 	## compare to total distance stored from last second
-	print("dist per second: ", Stats.total_distance - stored_dist)
+	Stats.speed = Stats.total_distance - stored_dist
+	print("dist per second: ", Stats.speed)
 	text = str(time_text, Stats.total_distance - stored_dist)
 	stored_dist = Stats.total_distance

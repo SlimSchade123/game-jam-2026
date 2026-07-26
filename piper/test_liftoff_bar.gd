@@ -53,5 +53,6 @@ func _on_lightning_timer_timeout() -> void:
 		charging_audio.play()
 		lightning_timer.start(10)
 	else:
+		## signal to stats here that the cannon has started
 		#audio_stream_player.stream = load()
 		music.play()

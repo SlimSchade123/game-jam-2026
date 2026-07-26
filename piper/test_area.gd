@@ -21,12 +21,6 @@ func properties():
 func _on_body_entered(_body: Node2D) -> void:
 	Chris_Singleton.enemy_collided.emit(collision_info)
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("left"):
-		
-		death(self)
-
-
 func death(instance : Enemy2):
 	if instance == self:
 		print("BLOWING UP: ", instance)
