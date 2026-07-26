@@ -40,7 +40,7 @@ func _on_right_button_pressed() -> void:
 	if Stats.coins_collected >= upgrade_cost:
 		Stats.liftoff_max -= 10
 		Stats.coins_collected -= upgrade_cost
-		
+
 		coin_label.text = str("Coins: " , Stats.coins_collected)
 		right_button.queue_free()
 
