@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_6nxg0"]
 [ext_resource type="PackedScene" uid="uid://ct1ep45qasr1h" path="res://piper/pause_menu.tscn" id="7_kyulc"]
 [ext_resource type="Script" uid="uid://4ibqycwm6mna" path="res://enemy_spawner.gd" id="9_thobl"]
-[ext_resource type="Script" uid="uid://bisyaorgyk8cj" path="res://chris/bar.gd" id="11_v40qf"]
+[ext_resource type="Script" uid="uid://ceqgsm6mm0srl" path="res://chris/bar_spawner.gd" id="10_thobl"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ygfeb"]
 
@@ -33,9 +33,6 @@ width = 1920
 height = 256
 fill_to = Vector2(1, 1)
 repeat = 1
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4b7j8"]
-size = Vector2(28, 569)
 
 [node name="Main Scene" type="Node2D" unique_id=13203674]
 
@@ -95,21 +92,14 @@ texture = SubResource("GradientTexture2D_xtnmv")
 
 [node name="Pause Menu" parent="." unique_id=1172234929 instance=ExtResource("7_kyulc")]
 
-[node name="Enemy Spawner" type="Node2D" parent="." unique_id=170221083]
+[node name="Enemy Spawner" type="Node2D" parent="." unique_id=170221083 node_paths=PackedStringArray("timer")]
 script = ExtResource("9_thobl")
+timer = NodePath("Spawn Timer")
 
 [node name="Spawn Timer" type="Timer" parent="Enemy Spawner" unique_id=1333893468]
 autostart = true
 
-[node name="Bar" type="Node2D" parent="." unique_id=153212781]
-position = Vector2(3000, 650)
-script = ExtResource("11_v40qf")
-
-[node name="Area2D" type="Area2D" parent="Bar" unique_id=1427812131]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bar/Area2D" unique_id=17661291]
-position = Vector2(-4, -217.5)
-shape = SubResource("RectangleShape2D_4b7j8")
+[node name="Bar Spawner" type="Node2D" parent="." unique_id=362847323]
+script = ExtResource("10_thobl")
 
 [connection signal="timeout" from="Enemy Spawner/Spawn Timer" to="Enemy Spawner" method="_on_timer_timeout"]
-[connection signal="body_entered" from="Bar/Area2D" to="Bar" method="_on_area_2d_body_entered"]

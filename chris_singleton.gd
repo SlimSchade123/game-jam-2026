@@ -4,6 +4,7 @@ signal enemy_collided(info: enemy_collision_info)
 signal enemy_killed(target: Enemy2)
 signal max_speed_changed(max_speed: float)
 
+
 var enemies_spawned : int = 0
 
 func new_enemy():
