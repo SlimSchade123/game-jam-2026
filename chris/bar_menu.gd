@@ -19,10 +19,6 @@ var upgrade_tier : int = 0
 func _ready() -> void:
 	coin_label.text = str("Coins: " , Stats.coins_collected)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 #Increase Max Speed
 func _on_left_button_pressed() -> void:
 	if Stats.coins_collected >= upgrade_cost:
