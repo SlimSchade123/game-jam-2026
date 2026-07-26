@@ -2574,32 +2574,32 @@ position = Vector2(-87, 2)
 
 [node name="LeftLeg" type="Sprite2D" parent="CharacterContainer/Body" unique_id=1600348863]
 texture_filter = 1
-position = Vector2(82.000015, 11.999977)
-rotation = 0.7853982
-scale = Vector2(0.9986165, 0.99984014)
+position = Vector2(82.00004, 13.922492)
+rotation = 1.9552884
+scale = Vector2(0.99858135, 0.9998456)
 texture = ExtResource("1_xfmyo")
 offset = Vector2(0, 2.999999)
 
 [node name="RightLeg" type="Sprite2D" parent="CharacterContainer/Body" unique_id=801626818]
 texture_filter = 1
-position = Vector2(87, 13.999971)
-rotation = 0.5235988
-scale = Vector2(0.9998334, 0.9998334)
+position = Vector2(88.99998, 11.922501)
+rotation = 0.024562053
+scale = Vector2(0.99985296, 0.99985296)
 texture = ExtResource("2_1wyer")
 offset = Vector2(0, 3)
 
 [node name="RFoot" type="Sprite2D" parent="CharacterContainer/Body" unique_id=1881565240]
 texture_filter = 1
 position = Vector2(89, 20.998674)
-scale = Vector2(0.999833, 0.999833)
+scale = Vector2(0.99986243, 0.99986243)
 texture = ExtResource("3_u66b7")
 offset = Vector2(1, 0)
 
 [node name="LFoot" type="Sprite2D" parent="CharacterContainer/Body" unique_id=1392234035]
 texture_filter = 1
-position = Vector2(76.34403, 17.655956)
-rotation = 0.52359885
-scale = Vector2(0.9998417, 0.9998417)
+position = Vector2(74.58536, 10.922279)
+rotation = 1.6934891
+scale = Vector2(0.9998366, 0.9998366)
 texture = ExtResource("4_54dhq")
 offset = Vector2(1, 0)
 
@@ -2608,32 +2608,32 @@ unique_name_in_owner = true
 
 [node name="RightFA" type="Sprite2D" parent="CharacterContainer/Body/Normal_Pos" unique_id=1735740492]
 texture_filter = 1
-position = Vector2(96.1023, -0.102592945)
-rotation = 2.0943952
-scale = Vector2(0.9998389, 0.9998389)
+position = Vector2(91.51653, 4.553529)
+rotation = 1.6843166
+scale = Vector2(0.9998517, 0.9998517)
 texture = ExtResource("9_1wyer")
 offset = Vector2(0.8630867, -1.012558)
 
 [node name="RightHand" type="Sprite2D" parent="CharacterContainer/Body/Normal_Pos" unique_id=664003536]
 texture_filter = 1
-position = Vector2(96.522026, 5.133656)
-rotation = 0.7853982
-scale = Vector2(0.99984235, 0.99984235)
+position = Vector2(93.98902, 9.188224)
+rotation = 0.37531966
+scale = Vector2(0.9998583, 0.9998583)
 texture = ExtResource("5_xp6pm")
 offset = Vector2(4.0220184, -0.68452024)
 
 [node name="Torso" type="Sprite2D" parent="CharacterContainer/Body" unique_id=202061981]
 texture_filter = 1
-position = Vector2(87, 4)
+position = Vector2(87, 4.9225616)
 scale = Vector2(0.99992764, 0.99992764)
 texture = ExtResource("6_iqf8c")
 offset = Vector2(0, -2)
 
 [node name="LeftFA" type="Sprite2D" parent="CharacterContainer/Body" unique_id=1475747177]
 texture_filter = 1
-position = Vector2(74.00045, -4.0006704)
-rotation = 0.7853982
-scale = Vector2(0.9996902, 0.9996902)
+position = Vector2(71.81725, -0.24674368)
+rotation = 0.2614129
+scale = Vector2(0.9996821, 0.9996821)
 texture = ExtResource("9_xp6pm")
 offset = Vector2(3, 4)
 
@@ -2642,24 +2642,24 @@ unique_name_in_owner = true
 
 [node name="LeftSh" type="Sprite2D" parent="CharacterContainer/Body" unique_id=1169943928]
 texture_filter = 1
-position = Vector2(77.00002, -8.999963)
-rotation = 0.2617994
-scale = Vector2(0.9998373, 0.9998373)
+position = Vector2(78.96355, -8.113885)
+rotation = 0.40905425
+scale = Vector2(0.9998677, 0.9998677)
 texture = ExtResource("10_iqf8c")
 offset = Vector2(-1, 6)
 
 [node name="Head" type="Sprite2D" parent="CharacterContainer/Body" unique_id=1729705137]
 texture_filter = 1
-position = Vector2(89.99999, -12.99995)
+position = Vector2(89.99998, -8.077325)
 scale = Vector2(0.999998, 0.999998)
 texture = ExtResource("9_3gllf")
 offset = Vector2(-1, 2)
 
 [node name="LeftHand" type="Sprite2D" parent="CharacterContainer/Body" unique_id=1530914159]
 texture_filter = 1
-position = Vector2(74.70734, 3.775158)
-rotation = 0.7853982
-scale = Vector2(0.99962384, 0.99962384)
+position = Vector2(76.57801, 5.1662045)
+rotation = 0.14745875
+scale = Vector2(0.99962014, 0.99962014)
 texture = ExtResource("12_aebf1")
 offset = Vector2(4, 0)
 
@@ -2678,7 +2678,7 @@ rest = Transform2D(1, 0, 0, 1, 309.99997, -240)
 
 [node name="LeftLeg" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Torso" unique_id=897409376]
 position = Vector2(-50.00003, 69.99999)
-scale = Vector2(0.99985456, 0.99985456)
+scale = Vector2(0.9998427, 0.9998427)
 rest = Transform2D(1, 0, 0, 1, -50.00003, 69.99999)
 
 [node name="LeftFoot" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Torso/LeftLeg" unique_id=1030711904]
@@ -2700,7 +2700,7 @@ update_scale = false
 
 [node name="RightLeg" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Torso" unique_id=1841549405]
 position = Vector2(19.999998, 69.99998)
-scale = Vector2(0.99984926, 0.99984926)
+scale = Vector2(0.99983525, 0.99983525)
 rest = Transform2D(1, 0, 0, 1, 19.999998, 69.99998)
 
 [node name="RightFoot" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Torso/RightLeg" unique_id=29378899]
@@ -2735,18 +2735,18 @@ update_scale = false
 
 [node name="LeftArm" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Torso" unique_id=729658182]
 position = Vector2(-99.99999, -120)
-scale = Vector2(0.9998533, 0.9998533)
+scale = Vector2(0.99983805, 0.99983805)
 rest = Transform2D(1, 0, 0, 1, -99.99999, -120)
 
 [node name="FALeft" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Torso/LeftArm" unique_id=1409293137]
 position = Vector2(-34.28202, 100.62179)
 rotation = -0.2617994
-scale = Vector2(0.9998539, 0.9998539)
+scale = Vector2(0.99983287, 0.99983287)
 rest = Transform2D(1, 0, 0, 1, -29.999996, 109.999985)
 
 [node name="LeftHand" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Torso/LeftArm/FALeft" unique_id=1698694502]
 position = Vector2(59.999992, 40)
-scale = Vector2(0.99985284, 0.99985284)
+scale = Vector2(0.99982905, 0.99982905)
 rest = Transform2D(1, 0, 0, 1, 59.999992, 50)
 auto_calculate_length_and_angle = false
 length = 85.75
@@ -2766,7 +2766,7 @@ update_scale = false
 
 [node name="RightArm" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Torso" unique_id=1193536657]
 position = Vector2(79.99999, -40)
-scale = Vector2(0.99985945, 0.99985945)
+scale = Vector2(0.9998433, 0.9998433)
 rest = Transform2D(1, 0, 0, 1, 79.99999, -40)
 
 [node name="RightFA" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Torso/RightArm" unique_id=928520542]

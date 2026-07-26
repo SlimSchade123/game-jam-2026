@@ -18,6 +18,7 @@ func dash():
 
 func run():
 	reset_arms()
+	#frank_anims
 	frank_anims.play("Frank_Running")
 	frank_anims.speed_scale = 12
 

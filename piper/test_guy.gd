@@ -5,6 +5,11 @@ extends CharacterBody2D
 
 @onready var frank_vis: Frank_Anims = %Frank_Vis
 
+
+@onready var scream: AudioStreamPlayer = $scream
+
+var initial_rotation : float = 0
+var rot_tween : Tween
 var life_tween : Tween
 var target_life_time : float = 20
 var current_life_time : float = 20
@@ -59,6 +64,7 @@ func _ready() -> void:
 	#spawn_offset = Stats.total_distance - stored_offset
 	#stored_offset = Stats.total_distance
 	Chris_Singleton.enemy_collided.connect(enemy_collided)
+	rotation_initial_tween()
 
 func post_catapult():
 	## set starting speed here
@@ -111,7 +117,7 @@ func current_state_behavior(state : Player_State, delta : float):
 	match state:
 		Player_State.neutral:
 			#mainly exists for anims
-			frank_vis.run()
+			#frank_vis.run()
 			forwards_momentum(delta)
 			## basic run
 			pass
@@ -162,6 +168,9 @@ func dash():
 		dash_on_cooldown = true
 		dash_timer.start(dash_length)
 		fall_delay_timer.start(dash_fall_length)
+		
+		scream.pitch_scale = randf_range(0.8, 1.2)
+		scream.play()
 
 
 func enemy_killed():
@@ -170,6 +179,7 @@ func enemy_killed():
 func _on_dash_timer_timeout() -> void:
 	if is_dashing:
 		Stats.dashing.emit(false)
+		frank_vis.run()
 		current_state_update(Player_State.neutral)
 		## turn me normal
 		modulate = Color(0.785, 0.785, 0.785, 1.0)
@@ -216,11 +226,16 @@ func falling(delta: float):
 		
 		if not is_on_floor():
 			velocity += cust_grav * delta * fall_speed_scalar
+			if velocity.y < 0 : frank_vis.fall()
+			
 		else:
 			## on the floor
 			fall_speed_scalar = 1
 			if current_state != Player_State.strapped:
 				current_state_update(Player_State.neutral)
+				#frank_vis.run()
+			if jumped:
+				frank_vis.run()
 			jumped = false
 
 #endregion Jumping
@@ -258,6 +273,15 @@ func reset_tween():
 	if life_tween:
 		life_tween.kill()
 	life_tween = create_tween()
+
+func reset_rot():
+	if rot_tween:
+		rot_tween.kill()
+	rot_tween = create_tween()
+
+func rotation_initial_tween():
+	frank_vis.rotation = initial_rotation
+	rot_tween.tween_property(frank_vis, "rotation", 0, 1)
 
 func life_time_decrement():
 	## 1.5 here to give a window of repreive even when the player has technically lost
