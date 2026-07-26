@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg6vl4nq68al0"
-path="res://.godot/imported/BEEEEERRRRR-leftleg.png-47630695bcd60643847fadb1d59297a3.ctex"
+uid="uid://cl50xbasdduj8"
+path="res://.godot/imported/rightleg.png-56f702fe825408965f2a761cc895644d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sorsha/Colored_Frank/BEEEEERRRRR-leftleg.png"
-dest_files=["res://.godot/imported/BEEEEERRRRR-leftleg.png-47630695bcd60643847fadb1d59297a3.ctex"]
+source_file="res://sorsha/Frank_Playable/FrankColored/rightleg.png"
+dest_files=["res://.godot/imported/rightleg.png-56f702fe825408965f2a761cc895644d.ctex"]
 
 [params]
 

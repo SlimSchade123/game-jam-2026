@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0h4to1bhhgcm"
-path="res://.godot/imported/Frank_Torso.png-e15010b7d1f371694ec28dcd2f07c5b5.ctex"
+uid="uid://ia08x0pt3qrp"
+path="res://.godot/imported/LeftFA.png-cc3e06fa3aae48d490d499bacb4f2f3e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sorsha/Frank_Assets/Frank_Torso.png"
-dest_files=["res://.godot/imported/Frank_Torso.png-e15010b7d1f371694ec28dcd2f07c5b5.ctex"]
+source_file="res://sorsha/Frank_Playable/FrankColored/LeftFA.png"
+dest_files=["res://.godot/imported/LeftFA.png-cc3e06fa3aae48d490d499bacb4f2f3e.ctex"]
 
 [params]
 

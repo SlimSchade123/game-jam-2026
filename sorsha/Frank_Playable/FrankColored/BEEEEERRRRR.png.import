@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4liy3sq7tlw3"
-path="res://.godot/imported/Frank_Right_Hand.png-8f53af3c3883ba78dc010708dee72437.ctex"
+uid="uid://cectso2o8lp4y"
+path="res://.godot/imported/BEEEEERRRRR.png-170f291b4bf66c779cc5472a451897da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sorsha/Frank_Assets/Frank_Right_Hand.png"
-dest_files=["res://.godot/imported/Frank_Right_Hand.png-8f53af3c3883ba78dc010708dee72437.ctex"]
+source_file="res://sorsha/Frank_Playable/FrankColored/BEEEEERRRRR.png"
+dest_files=["res://.godot/imported/BEEEEERRRRR.png-170f291b4bf66c779cc5472a451897da.ctex"]
 
 [params]
 

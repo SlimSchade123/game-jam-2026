@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yjgyp20h0gui"
-path="res://.godot/imported/Frank_Left_Hand.png-f6458823fd4c38e311a831f476ac700b.ctex"
+uid="uid://b61dixsvg278f"
+path="res://.godot/imported/RightDash.png-fff0ee2b75886fd3861596ead3f60837.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sorsha/Frank_Assets/Frank_Left_Hand.png"
-dest_files=["res://.godot/imported/Frank_Left_Hand.png-f6458823fd4c38e311a831f476ac700b.ctex"]
+source_file="res://sorsha/Frank_Playable/FrankColored/RightDash.png"
+dest_files=["res://.godot/imported/RightDash.png-fff0ee2b75886fd3861596ead3f60837.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cg0vxpsfbr4x6"
-path="res://.godot/imported/BEEEEERRRRR-ligma.png-8b52cd415485e43f586d360d3210c09f.ctex"
+uid="uid://dfc8ev2ib30ju"
+path="res://.godot/imported/DashHead.png-44f9f6ff70ce1c994eafdb7080ac540e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sorsha/Colored_Frank/BEEEEERRRRR-ligma.png"
-dest_files=["res://.godot/imported/BEEEEERRRRR-ligma.png-8b52cd415485e43f586d360d3210c09f.ctex"]
+source_file="res://sorsha/Frank_Playable/FrankColored/DashHead.png"
+dest_files=["res://.godot/imported/DashHead.png-44f9f6ff70ce1c994eafdb7080ac540e.ctex"]
 
 [params]
 

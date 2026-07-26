@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://us2fmegwf8t4"
-path="res://.godot/imported/BEEEEERRRRR-sum.png-87581a4ee57b4eb3af799f24fbb5fed3.ctex"
+uid="uid://cyr2tdtmtj6k4"
+path="res://.godot/imported/LeftShold.png-1e2c2409caee4eb637fcf752b773fbfc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sorsha/Colored_Frank/BEEEEERRRRR-sum.png"
-dest_files=["res://.godot/imported/BEEEEERRRRR-sum.png-87581a4ee57b4eb3af799f24fbb5fed3.ctex"]
+source_file="res://sorsha/Frank_Playable/FrankColored/LeftShold.png"
+dest_files=["res://.godot/imported/LeftShold.png-1e2c2409caee4eb637fcf752b773fbfc.ctex"]
 
 [params]
 
