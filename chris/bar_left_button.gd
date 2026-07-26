@@ -12,4 +12,6 @@ func _process(delta: float) -> void:
 
 
 func _on_pressed() -> void:
-	queue_free()
+	if Stats.coins_collected >= 50:
+		queue_free()
+		print("im cryig")

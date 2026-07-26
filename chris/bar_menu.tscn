@@ -8,6 +8,10 @@
 [node name="Bar Menu" type="CanvasLayer" unique_id=449125068]
 script = ExtResource("1_kbjwy")
 
+[node name="Panel" type="Panel" parent="." unique_id=650667546]
+offset_right = 1936.0
+offset_bottom = 1135.0
+
 [node name="Control" type="Control" parent="." unique_id=1369622345]
 layout_mode = 3
 anchor_right = 0.998
@@ -41,6 +45,11 @@ offset_right = 1650.0
 offset_bottom = 440.0
 text = "ligma"
 script = ExtResource("4_wl5hd")
+
+[node name="Label" type="Label" parent="." unique_id=680450121]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Coins: 000"
 
 [connection signal="pressed" from="Control/Left Button" to="." method="_on_left_button_pressed"]
 [connection signal="pressed" from="Control/Left Button" to="Control/Left Button" method="_on_pressed"]
