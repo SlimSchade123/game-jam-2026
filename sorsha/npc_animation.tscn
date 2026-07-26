@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c4a1ml3vbaosy"]
 
 [ext_resource type="Texture2D" uid="uid://brwqnnvno68lp" path="res://sorsha/johndoe/johndoe-ligma.png" id="1_8ooyp"]
+[ext_resource type="Script" uid="uid://bjowddtppwyjl" path="res://sorsha/npc_animation.gd" id="1_n4xkh"]
 [ext_resource type="Texture2D" uid="uid://beojquyypw5je" path="res://sorsha/johndoe/johndoe-foot.png" id="2_n4xkh"]
 [ext_resource type="Texture2D" uid="uid://batpqksbxefhq" path="res://sorsha/johndoe/johndoe-foorightt.png" id="3_tbsf2"]
 [ext_resource type="Texture2D" uid="uid://cjum51h74gh75" path="res://sorsha/johndoe/johndoe-briefcase.png" id="4_wpta2"]
@@ -649,7 +650,7 @@ tracks/51/keys = {
 [sub_resource type="Animation" id="Animation_8ooyp"]
 resource_name = "Idle"
 length = 4.7
-loop_mode = 1
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -2443,6 +2444,7 @@ _data = {
 }
 
 [node name="NPC_ANIMATION" type="Node2D" unique_id=2119713200]
+script = ExtResource("1_n4xkh")
 
 [node name="Body" type="Node2D" parent="." unique_id=985553354]
 
@@ -2455,39 +2457,42 @@ texture = SubResource("GradientTexture2D_b7r16")
 [node name="LLeg" type="Sprite2D" parent="Body" unique_id=1732068954]
 texture_filter = 1
 position = Vector2(-3, 4)
+rotation = 0.78539807
+scale = Vector2(0.9999998, 0.9999998)
 texture = ExtResource("1_8ooyp")
 offset = Vector2(-1, 7)
 
 [node name="LFoot" type="Sprite2D" parent="Body" unique_id=1424376646]
 texture_filter = 1
-position = Vector2(-4.322566, 20.053453)
-rotation = -0.06663989
+position = Vector2(-15.22792, 14.447681)
+rotation = 0.785398
+scale = Vector2(0.9999997, 0.9999997)
 texture = ExtResource("2_n4xkh")
 offset = Vector2(-1.0000005, 1.3046417)
 
 [node name="LArm" type="Sprite2D" parent="Body" unique_id=1258815114]
 texture_filter = 1
-position = Vector2(-7, -6)
+position = Vector2(-7, -8)
 texture = ExtResource("5_s8pmc")
 offset = Vector2(-1, 5)
 
 [node name="RArm" type="Sprite2D" parent="Body" unique_id=914499508]
 texture_filter = 1
-position = Vector2(4, -5.9999995)
+position = Vector2(4, -8)
 texture = ExtResource("6_aoys5")
 offset = Vector2(2, 6)
 
 [node name="RHand" type="Sprite2D" parent="Body" unique_id=1151673893]
 texture_filter = 1
-position = Vector2(6.7071085, 5.1213207)
+position = Vector2(6.7071085, 3.12132)
 scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("9_tjsw7")
 offset = Vector2(-4.7683716e-07, 2.2389004)
 
 [node name="LHand" type="Sprite2D" parent="Body" unique_id=1952007501]
 texture_filter = 1
-position = Vector2(-8, 6)
-rotation = -0.26179922
+position = Vector2(-8.000001, 4)
+rotation = -0.2617992
 scale = Vector2(0.99999994, -0.99999994)
 texture = ExtResource("11_7sy8y")
 offset = Vector2(-0.8965771, -1.6844649)
@@ -2518,24 +2523,24 @@ offset = Vector2(0, 2)
 
 [node name="Case" type="Sprite2D" parent="Body" unique_id=975985404]
 texture_filter = 1
-position = Vector2(8.000002, 15.999998)
-scale = Vector2(0.9999996, 0.9999996)
+position = Vector2(8.000002, 13.999998)
+scale = Vector2(0.9999995, 0.9999995)
 texture = ExtResource("4_wpta2")
 offset = Vector2(0, -1)
 
 [node name="Head" type="Sprite2D" parent="Body" unique_id=301759305]
 texture_filter = 1
 position = Vector2(-2, -14)
-rotation = -0.039477564
+rotation = 0.26179934
 scale = Vector2(0.9999998, 0.9999998)
 texture = ExtResource("10_gtifx")
 offset = Vector2(0, -1)
 
 [node name="Hat" type="Sprite2D" parent="Body" unique_id=1744499302]
 texture_filter = 1
-position = Vector2(-1.9999998, -20)
-rotation = -0.039477512
-scale = Vector2(0.9999996, 0.9999996)
+position = Vector2(-0.21956062, -19.729752)
+rotation = 0.2617994
+scale = Vector2(0.9999995, 0.9999995)
 texture = ExtResource("12_iblf0")
 
 [node name="Node2D" type="Node2D" parent="Body" unique_id=1873892274]
@@ -2588,7 +2593,7 @@ bone_angle = 0.0
 [node name="Case" type="Bone2D" parent="Body/Node2D/Skeleton2D/Torso/RArm/RHand" unique_id=220832678]
 position = Vector2(-9.835949, -12.863134)
 rotation = -0.5235988
-scale = Vector2(0.9999997, 0.9999997)
+scale = Vector2(0.99999964, 0.99999964)
 rest = Transform2D(0.9659258, 0.25881904, -0.25881904, 0.9659258, 0.5869894, -6.054375)
 auto_calculate_length_and_angle = false
 length = 3.0
@@ -2611,6 +2616,7 @@ remote_path = NodePath("../../../../../RArm")
 [node name="LeftLeg" type="Bone2D" parent="Body/Node2D/Skeleton2D/Torso" unique_id=1331923422]
 position = Vector2(-1, 6)
 rotation = 1.5707964
+scale = Vector2(0.9999998, 0.9999998)
 rest = Transform2D(-4.371139e-08, 1, -1, -4.371139e-08, -1, 6)
 
 [node name="LFoot" type="Bone2D" parent="Body/Node2D/Skeleton2D/Torso/LeftLeg" unique_id=1878344094]
@@ -2686,5 +2692,7 @@ remote_path = NodePath("../../../../../Neck")
 remote_path = NodePath("../../../../Torso")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=958642287]
+unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_tbsf2")
+autoplay = &"Idle"
 speed_scale = 10.0

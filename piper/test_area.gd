@@ -1,7 +1,9 @@
 class_name Enemy2
 extends Area2D
+@onready var npc_animation: Npc_Anims = $NPC_ANIMATION
 
 @export var collision_info : enemy_collision_info
+@onready var bye_bye_timer: Timer = $"bye bye timer"
 
 func _ready() -> void:
 	Chris_Singleton.enemy_killed.connect(death)
@@ -19,10 +21,15 @@ func properties():
 	pass
 
 func _on_body_entered(_body: Node2D) -> void:
+	npc_animation.pushed()
 	Chris_Singleton.enemy_collided.emit(collision_info)
 
 func death(instance : Enemy2):
 	if instance == self:
-		#Stats.enemy_killed
-		print("BLOWING UP: ", instance)
-		queue_free()
+		npc_animation.killed()
+		bye_bye_timer.start(5)
+
+
+
+func _on_bye_bye_timer_timeout() -> void:
+	queue_free()

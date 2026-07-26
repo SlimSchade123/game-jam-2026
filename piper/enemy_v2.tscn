@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cnul3m7rjkvet" path="res://piper/test_area.gd" id="1_qgsqw"]
 [ext_resource type="Script" uid="uid://cyfru73cwhd8w" path="res://chris/Resources/enemy_collision_info.gd" id="2_vfr16"]
 [ext_resource type="Texture2D" uid="uid://cshsxgop68dvk" path="res://piper/icon1.png" id="3_72ox4"]
+[ext_resource type="PackedScene" uid="uid://c4a1ml3vbaosy" path="res://sorsha/npc_animation.tscn" id="4_vfr16"]
 
 [sub_resource type="Resource" id="Resource_qgsqw"]
 script = ExtResource("2_vfr16")
@@ -19,7 +20,14 @@ collision_info = SubResource("Resource_qgsqw")
 shape = SubResource("RectangleShape2D_ygfeb")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1544058295]
+visible = false
 scale = Vector2(7.67, 7.67)
 texture = ExtResource("3_72ox4")
 
+[node name="NPC_ANIMATION" parent="." unique_id=2119713200 instance=ExtResource("4_vfr16")]
+scale = Vector2(5.653467, 5.653467)
+
+[node name="bye bye timer" type="Timer" parent="." unique_id=1792161659]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="bye bye timer" to="." method="_on_bye_bye_timer_timeout"]
