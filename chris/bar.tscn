@@ -1,15 +1,10 @@
 [gd_scene format=3 uid="uid://cjoecuf6jensp"]
 
 [ext_resource type="Script" uid="uid://bisyaorgyk8cj" path="res://chris/bar.gd" id="1_msd7t"]
+[ext_resource type="Texture2D" uid="uid://debcwneg64t24" path="res://art assets/BarBackGround.png" id="2_pr8h5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4b7j8"]
 size = Vector2(28, 569)
-
-[sub_resource type="Gradient" id="Gradient_msd7t"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_dg0xg"]
-gradient = SubResource("Gradient_msd7t")
-width = 257
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dg0xg"]
 size = Vector2(18, 566.5)
@@ -24,9 +19,8 @@ position = Vector2(-4, -217.5)
 shape = SubResource("RectangleShape2D_4b7j8")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1554213410]
-position = Vector2(-3.5, -218.87498)
-scale = Vector2(0.11328124, 568.25006)
-texture = SubResource("GradientTexture1D_dg0xg")
+position = Vector2(-3.5, -154)
+texture = ExtResource("2_pr8h5")
 
 [node name="Wall" type="StaticBody2D" parent="." unique_id=1451645629]
 

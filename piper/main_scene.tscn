@@ -129,6 +129,13 @@ height = 256
 fill_to = Vector2(1, 1)
 repeat = 1
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0ft22"]
+friction = 0.1
+bounce = 0.9
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h2um0"]
+radius = 88.814415
+
 [sub_resource type="Resource" id="Resource_acxxj"]
 script = ExtResource("10_ewouk")
 metadata/_custom_type_script = "uid://cyfru73cwhd8w"
@@ -144,13 +151,6 @@ metadata/_custom_type_script = "uid://cyfru73cwhd8w"
 [sub_resource type="Resource" id="Resource_pn3pg"]
 script = ExtResource("10_ewouk")
 metadata/_custom_type_script = "uid://cyfru73cwhd8w"
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0ft22"]
-friction = 0.1
-bounce = 0.9
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_h2um0"]
-radius = 88.814415
 
 [node name="Main Scene" type="Node2D" unique_id=13203674]
 
@@ -291,29 +291,6 @@ texture = SubResource("GradientTexture2D_xtnmv")
 [node name="Pause Menu" parent="." unique_id=1172234929 instance=ExtResource("7_riw4a")]
 visible = false
 
-[node name="Enemy Spawner" type="Node2D" parent="." unique_id=1881632308 node_paths=PackedStringArray("timer")]
-script = ExtResource("9_acxxj")
-timer = NodePath("Spawn Timer")
-enemy_info = Array[ExtResource("10_ewouk")]([SubResource("Resource_acxxj"), SubResource("Resource_ewouk"), SubResource("Resource_u1jhx"), SubResource("Resource_pn3pg")])
-
-[node name="Spawn Timer" type="Timer" parent="Enemy Spawner" unique_id=1937430127]
-autostart = true
-
-[node name="Node2D" type="Node2D" parent="." unique_id=704087291]
-position = Vector2(2710, -365)
-
-[node name="Area2D" parent="Node2D" unique_id=2079184939 instance=ExtResource("11_u1jhx")]
-
-[node name="Area2D2" parent="Node2D" unique_id=1720025548 instance=ExtResource("11_u1jhx")]
-position = Vector2(1893, 0)
-collision_info = ExtResource("12_pn3pg")
-
-[node name="Node2D2" type="Node2D" parent="." unique_id=857680014]
-
-[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1379030141]
-unique_name_in_owner = true
-stream = ExtResource("15_58ab3")
-
 [node name="Launcher" type="Node2D" parent="." unique_id=901257161]
 position = Vector2(-1228, 0)
 script = ExtResource("16_6j23n")
@@ -337,7 +314,30 @@ one_shot = true
 position = Vector2(0, -9.999999)
 scale = Vector2(4.432818, 4.432818)
 
+[node name="Enemy Spawner" type="Node2D" parent="." unique_id=1881632308 node_paths=PackedStringArray("timer")]
+script = ExtResource("9_acxxj")
+timer = NodePath("Spawn Timer")
+enemy_info = Array[ExtResource("10_ewouk")]([SubResource("Resource_acxxj"), SubResource("Resource_ewouk"), SubResource("Resource_u1jhx"), SubResource("Resource_pn3pg")])
+
+[node name="Spawn Timer" type="Timer" parent="Enemy Spawner" unique_id=1937430127]
+autostart = true
+
+[node name="Node2D" type="Node2D" parent="." unique_id=704087291]
+position = Vector2(2710, -365)
+
+[node name="Area2D" parent="Node2D" unique_id=2079184939 instance=ExtResource("11_u1jhx")]
+
+[node name="Area2D2" parent="Node2D" unique_id=1720025548 instance=ExtResource("11_u1jhx")]
+position = Vector2(1893, 0)
+collision_info = ExtResource("12_pn3pg")
+
+[node name="Node2D2" type="Node2D" parent="." unique_id=857680014]
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1379030141]
+unique_name_in_owner = true
+stream = ExtResource("15_58ab3")
+
 [connection signal="timeout" from="CanvasLayer/Panel/ProgressBar/Lightning Timer" to="CanvasLayer/Panel/ProgressBar" method="_on_lightning_timer_timeout"]
-[connection signal="timeout" from="Enemy Spawner/Spawn Timer" to="Enemy Spawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="Launcher/Fakenstein/To_Frank" to="Launcher" method="_on_to_frank_timeout"]
 [connection signal="timeout" from="Launcher/Fakenstein/Start" to="Launcher" method="_on_start_timeout"]
+[connection signal="timeout" from="Enemy Spawner/Spawn Timer" to="Enemy Spawner" method="_on_timer_timeout"]

@@ -64,6 +64,7 @@ var current_meter_duration : = 20
 var meter_duration : float = 20
 
 func _ready() -> void:
+	Stats.player_spawned = true
 	start_position = position
 	#spawn_offset = Stats.total_distance - stored_offset
 	#stored_offset = Stats.total_distance
@@ -83,6 +84,9 @@ func enemy_collided(info : enemy_collision_info) -> void:
 	enemy_dashed(info.enemy_instance)
 
 func _physics_process(delta: float) -> void:
+	Stats.player_position_x = global_position.x
+	#print("global p position: ", Stats.player_position_x)
+	
 	if current_state == Player_State.dead:
 		return
 	
@@ -102,11 +106,13 @@ func _physics_process(delta: float) -> void:
 	## need a slight refactor here, momentum doesn't reallllly show in current gameplay
 	## 
 	
-	if velocity.x < 250 and can_die:
+	if current_life_time < 3.5 and can_die and !is_drinking:
+		print("current life_time:", current_life_time)
+		current_state_update(Player_State.dead)
 		var loser := LOSE_SCREEN.instantiate()
 		add_child(loser)
 		Stats.reset()
-		print("dead !!")
+		#print("dead !!")
 	
 	current_state_behavior(current_state, delta)
 	move_and_slide()

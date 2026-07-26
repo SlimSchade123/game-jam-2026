@@ -10,7 +10,7 @@ var bar_scene = preload("res://chris/bar_menu.tscn")
 func _ready() -> void:
 	Chris_Singleton.leave_bar.connect(leave_bar)
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(_body: Node2D) -> void:
 	var instance = bar_scene.instantiate()
 	add_child(instance)
 	Stats.bar_entered.emit()

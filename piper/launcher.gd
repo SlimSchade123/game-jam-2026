@@ -11,7 +11,7 @@ var can_frank : bool = false
 func _ready() -> void:
 	Stats.launch.connect(launch)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if fakenstein.linear_velocity.x <= 750 and can_frank:
 		spawn_player()
 	

@@ -39,3 +39,8 @@ func _on_bye_bye_timer_timeout() -> void:
 
 func _on_help_dude_lol_timeout() -> void:
 	npc_animation.normal()
+
+
+func _on_kills_self_timeout() -> void:
+	queue_free()
+	pass # Replace with function body.

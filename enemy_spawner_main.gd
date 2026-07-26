@@ -31,7 +31,7 @@ func _input(event: InputEvent) -> void:
 
 func spawn_bar():
 	
-	if Stats.total_distance > spawn_distance[spawn_tier]:
+	if Stats.player_position_x > spawn_distance[spawn_tier]:
 		
 		timer.stop()
 		if spawn_tier == 3:
@@ -48,7 +48,7 @@ func spawn_bar():
 			spawn_tier += 1
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	spawn_bar()
 	pass
 
@@ -71,6 +71,7 @@ func update_offset(max_speed: float):
 	#print("Spawn Offset: ", spawn_offset)
 
 func spawn_enemy(position: Vector2) -> void:
+	print("spawned at: ", position)
 	Chris_Singleton.new_enemy()
 	## update to go through a list of resources, and spawn the new enemies as they come in
 	var instance : Enemy2 = enemy_ref.instantiate()
@@ -88,5 +89,11 @@ func assign_info(instance : Enemy2):
 
 
 func _on_timer_timeout() -> void:
-	spawn_position += spawn_offset * spawn_rate
+	## need the players current global_position
+	spawn_position = Stats.player_position_x + clampf( Stats.speed * randf_range(1.5, 3), 1200, 6000)
+	## need the players current speed
+	## clamp between a range 
+	## done ! !! s
+	timer.start()
+	#spawn_position += spawn_offset * spawn_rate
 	spawn_enemy(Vector2(spawn_position, 650))
