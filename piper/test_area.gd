@@ -4,10 +4,12 @@ extends Area2D
 
 @export var collision_info : enemy_collision_info
 @onready var bye_bye_timer: Timer = $"bye bye timer"
+@onready var help_dude_lol: Timer = $"help dude LOL"
 
 func _ready() -> void:
 	Chris_Singleton.enemy_killed.connect(death)
 	new_instance()
+	
 
 func new_instance():
 	## updating info of collision info 
@@ -33,3 +35,7 @@ func death(instance : Enemy2):
 
 func _on_bye_bye_timer_timeout() -> void:
 	queue_free()
+
+
+func _on_help_dude_lol_timeout() -> void:
+	npc_animation.normal()

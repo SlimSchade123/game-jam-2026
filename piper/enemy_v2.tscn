@@ -10,13 +10,14 @@ script = ExtResource("2_vfr16")
 metadata/_custom_type_script = "uid://cyfru73cwhd8w"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ygfeb"]
-size = Vector2(500, 500)
+size = Vector2(106, 182)
 
 [node name="Area2D" type="Area2D" unique_id=2079184939]
 script = ExtResource("1_qgsqw")
 collision_info = SubResource("Resource_qgsqw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=951337598]
+position = Vector2(-4, 50)
 shape = SubResource("RectangleShape2D_ygfeb")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1544058295]
@@ -29,5 +30,11 @@ scale = Vector2(5.653467, 5.653467)
 
 [node name="bye bye timer" type="Timer" parent="." unique_id=1792161659]
 
+[node name="help dude LOL" type="Timer" parent="." unique_id=305789628]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="bye bye timer" to="." method="_on_bye_bye_timer_timeout"]
+[connection signal="timeout" from="help dude LOL" to="." method="_on_help_dude_lol_timeout"]

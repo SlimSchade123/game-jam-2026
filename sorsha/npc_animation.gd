@@ -4,6 +4,10 @@ extends Node2D
 
 func _ready() -> void:
 	animation_player.play("Idle")
+	print("playing idle")
+
+func normal():
+	animation_player.play("Idle")
 
 func killed():
 	animation_player.speed_scale = 10
