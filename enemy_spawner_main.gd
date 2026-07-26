@@ -1,7 +1,6 @@
 extends Node
 @onready var spawn_timer: Timer = $"Spawn Timer"
 
-@export var timer : Timer
 const bar_prefab = preload("res://chris/bar.tscn")
 
 ## base prefab used for making new enemies
@@ -33,7 +32,7 @@ func spawn_bar():
 	
 	if Stats.player_position_x > spawn_distance[spawn_tier]:
 		
-		timer.stop()
+		spawn_timer.stop()
 		if spawn_tier == 3:
 			print("OMG YOU WON")
 			var instance = win_screen.instantiate()
@@ -44,6 +43,7 @@ func spawn_bar():
 			
 			var instance = bar_prefab.instantiate().duplicate()
 			instance.global_position = Vector2(spawn_distance[spawn_tier] + (spawn_offset * 2), 650)
+			#instance.
 			add_child(instance)
 			spawn_tier += 1
 
@@ -52,11 +52,10 @@ func _process(_delta: float) -> void:
 	spawn_bar()
 	pass
 
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Chris_Singleton.max_speed_changed.connect(update_offset)
+	Stats.bar_exited.connect(restart_timer)
 
 func update_offset(max_speed: float):
 	## need to parse max speed from enemy info
@@ -88,12 +87,16 @@ func assign_info(instance : Enemy2):
 	enemy_index += 1
 
 
+func restart_timer():
+	print("timer restarted")
+	spawn_timer.start()
+
 func _on_timer_timeout() -> void:
 	## need the players current global_position
 	spawn_position = Stats.player_position_x + clampf( Stats.speed * randf_range(1.5, 3), 1200, 6000)
 	## need the players current speed
 	## clamp between a range 
 	## done ! !! s
-	timer.start()
+	spawn_timer.start()
 	#spawn_position += spawn_offset * spawn_rate
 	spawn_enemy(Vector2(spawn_position, 650))
