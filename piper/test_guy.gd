@@ -8,6 +8,8 @@ extends CharacterBody2D
 
 @onready var scream: AudioStreamPlayer = $scream
 
+var is_drinking : bool = false
+
 var initial_rotation : float = 0
 var rot_tween : Tween
 var life_tween : Tween
@@ -64,6 +66,8 @@ func _ready() -> void:
 	#spawn_offset = Stats.total_distance - stored_offset
 	#stored_offset = Stats.total_distance
 	Chris_Singleton.enemy_collided.connect(enemy_collided)
+	Stats.bar_entered.connect(start_drinking)
+	Stats.bar_exited.connect(end_drinking)
 	#rotation_initial_tween()
 
 func post_catapult():
@@ -257,10 +261,20 @@ func enemy_dashed(enemy : Enemy2):
 
 #region life span
 
+func start_drinking():
+	is_drinking = true
+
+func end_drinking():
+	reset_life_time()
+	is_drinking = false
+
 func _on_life_timer_timeout() -> void:
+	
 	## decrements life span by 0.5 each time
-	target_life_time -= 0.75
-	life_time_decrement()
+	
+	if !is_drinking:
+		target_life_time -= 0.75
+		life_time_decrement()
 
 func reset_life_time():
 	target_life_time = max_life_time
