@@ -127,6 +127,7 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.0129745, 1.0278615)
 theme_override_styles/panel = SubResource("StyleBoxFlat_4b7j8")
 
 [node name="Area2D" parent="Control/Panel" unique_id=2079184939 instance=ExtResource("4_uinau")]

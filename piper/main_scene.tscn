@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://cykv7n1iol4wl" path="res://fonts/Jacquard12-Regular.ttf" id="3_lltea"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_we7aq"]
 [ext_resource type="Script" uid="uid://dy54m75y5087d" path="res://piper/cam_controls.gd" id="5_duolu"]
+[ext_resource type="Texture2D" uid="uid://cvfvx104g2bod" path="res://sorsha/Extra_Assets/Button_Up.png" id="6_0a2le"]
 [ext_resource type="PackedScene" uid="uid://ct1ep45qasr1h" path="res://piper/pause_menu.tscn" id="7_riw4a"]
 [ext_resource type="Script" uid="uid://dvn8wanqm3smv" path="res://enemy_spawner_main.gd" id="9_acxxj"]
 [ext_resource type="Script" uid="uid://cyfru73cwhd8w" path="res://chris/Resources/enemy_collision_info.gd" id="10_ewouk"]
@@ -225,6 +226,19 @@ pitch_scale = 1.18
 bus = &"Sound Effects"
 
 [node name="Lightning Audio" type="AudioStreamPlayer" parent="CanvasLayer/Panel/ProgressBar" unique_id=293004635]
+
+[node name="Right" type="Sprite2D" parent="CanvasLayer/Panel" unique_id=1761037769]
+texture_filter = 1
+position = Vector2(894, -86)
+scale = Vector2(3.0627818, 3.0627818)
+texture = ExtResource("6_0a2le")
+
+[node name="Left" type="Sprite2D" parent="CanvasLayer/Panel" unique_id=1808349788]
+texture_filter = 1
+position = Vector2(-181, -86)
+rotation = 3.1415927
+scale = Vector2(3.063, -3.063)
+texture = ExtResource("6_0a2le")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1914173087]
 libraries/ = SubResource("AnimationLibrary_a2ld0")
