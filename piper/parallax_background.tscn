@@ -1,102 +1,443 @@
 [gd_scene format=3 uid="uid://cd4btkjx7mi8t"]
 
-[sub_resource type="Gradient" id="Gradient_7aq22"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.37413925, 0.37413928, 0.37413922, 1)
+[ext_resource type="Texture2D" uid="uid://b1pdwwrupva7u" path="res://art assets/hous/pxArt_2.png" id="1_2h6rp"]
+[ext_resource type="Texture2D" uid="uid://c5segc0s3l4sx" path="res://art assets/hous/pxArt_1.png" id="2_viq1m"]
+[ext_resource type="Texture2D" uid="uid://vwpbx5a0sm1b" path="res://art assets/hous/pxArt_9.png" id="3_c5nd5"]
+[ext_resource type="Texture2D" uid="uid://fwr70n87band" path="res://art assets/hous/pxArt_7.png" id="3_n1xtc"]
+[ext_resource type="Texture2D" uid="uid://cnl3v0r2ysk3u" path="res://art assets/hous/pxArt_4.png" id="4_0imck"]
+[ext_resource type="Texture2D" uid="uid://qgnn4wsswjpb" path="res://art assets/hous/pxArt_5.png" id="4_b8rhl"]
+[ext_resource type="Texture2D" uid="uid://41opronrq02f" path="res://art assets/hous/pxArt_6.png" id="4_kandm"]
+[ext_resource type="Texture2D" uid="uid://dij2uljiq35d" path="res://art assets/hous/pxArt.png" id="7_0imck"]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ygfeb"]
-gradient = SubResource("Gradient_7aq22")
-fill_to = Vector2(1, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5nd5"]
+atlas = ExtResource("4_0imck")
+region = Rect2(0, 0, 440, 157.56801)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdunv"]
+atlas = ExtResource("3_n1xtc")
+region = Rect2(163, 0, 188, 306)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxeid"]
+atlas = ExtResource("4_b8rhl")
+region = Rect2(106, 92, 236, 297)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lulrp"]
+atlas = ExtResource("2_viq1m")
+region = Rect2(0, 0, 244, 947)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytuo5"]
+atlas = ExtResource("3_c5nd5")
+region = Rect2(44, 117, 156, 299)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wuqd8"]
+atlas = ExtResource("2_viq1m")
+region = Rect2(71, 640, 515, 331)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vt5mr"]
+atlas = ExtResource("4_kandm")
+region = Rect2(58, 112, 72, 89)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ft22"]
+atlas = ExtResource("2_viq1m")
+region = Rect2(0, 167, 643, 845)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2um0"]
+atlas = ExtResource("2_viq1m")
+region = Rect2(0, 0, 643, 679)
 
 [node name="Parallax Background" type="Node2D" unique_id=1412724324]
 
 [node name="Far Bg" type="Parallax2D" parent="." unique_id=1605011196]
 modulate = Color(0.24985075, 0.24985075, 0.24985075, 1)
 scroll_scale = Vector2(0.2, 0.2)
-scroll_offset = Vector2(-540, 813)
-repeat_size = Vector2(1080, 0)
+scroll_offset = Vector2(-537, 1067)
+repeat_size = Vector2(4000, 0)
 repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Far Bg" unique_id=1232785631]
+visible = false
 position = Vector2(0, -184.50327)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
-
-[node name="Sprite2D3" type="Sprite2D" parent="Far Bg" unique_id=1068939874]
-position = Vector2(293.99997, -184.50327)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
+texture = ExtResource("4_kandm")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Far Bg" unique_id=86439867]
-position = Vector2(592, -184.50327)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
+position = Vector2(844, -183)
+texture = ExtResource("4_kandm")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Far Bg" unique_id=1625087436]
+position = Vector2(62, -183)
+texture = ExtResource("4_kandm")
+
+[node name="Sprite2D19" type="Sprite2D" parent="Far Bg" unique_id=682292225]
+position = Vector2(62, -505)
+texture = ExtResource("4_kandm")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Far Bg" unique_id=1068939874]
+position = Vector2(427, -258.99997)
+texture = ExtResource("4_b8rhl")
 
 [node name="Sprite2D5" type="Sprite2D" parent="Far Bg" unique_id=494845985]
-position = Vector2(842, -184.50327)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
+position = Vector2(1238, -269)
+texture = ExtResource("3_c5nd5")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Far Bg" unique_id=1772188618]
+position = Vector2(1578, -269)
+texture = ExtResource("3_c5nd5")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Far Bg" unique_id=1712550538]
+position = Vector2(1238, -737)
+texture = ExtResource("3_c5nd5")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Far Bg" unique_id=1466217668]
+position = Vector2(1578, -737)
+texture = ExtResource("3_c5nd5")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Far Bg" unique_id=1059421788]
+position = Vector2(1406.0001, -1078)
+scale = Vector2(1.7749735, 1.7749735)
+texture = SubResource("AtlasTexture_c5nd5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Far Bg" unique_id=1268698955]
+visible = false
+position = Vector2(0, -184.50327)
+texture = ExtResource("4_kandm")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Far Bg" unique_id=377591699]
+position = Vector2(3027.5, -183)
+texture = ExtResource("4_kandm")
+
+[node name="Sprite2D12" type="Sprite2D" parent="Far Bg" unique_id=1185370041]
+position = Vector2(1994.5, -183)
+texture = ExtResource("4_kandm")
+
+[node name="Sprite2D13" type="Sprite2D" parent="Far Bg" unique_id=1112470203]
+position = Vector2(2610.5, -258.99997)
+texture = ExtResource("4_b8rhl")
+
+[node name="Sprite2D14" type="Sprite2D" parent="Far Bg" unique_id=448913100]
+position = Vector2(3421.5, -269)
+texture = ExtResource("3_c5nd5")
+
+[node name="Sprite2D15" type="Sprite2D" parent="Far Bg" unique_id=694763284]
+position = Vector2(3761.5, -269)
+texture = ExtResource("3_c5nd5")
+
+[node name="Sprite2D16" type="Sprite2D" parent="Far Bg" unique_id=1271101802]
+position = Vector2(3421.5, -737)
+texture = ExtResource("3_c5nd5")
+
+[node name="Sprite2D17" type="Sprite2D" parent="Far Bg" unique_id=465554744]
+position = Vector2(3761.5, -737)
+texture = ExtResource("3_c5nd5")
+
+[node name="Sprite2D18" type="Sprite2D" parent="Far Bg" unique_id=1815171349]
+position = Vector2(3589.5, -1078)
+scale = Vector2(1.7749735, 1.7749735)
+texture = SubResource("AtlasTexture_c5nd5")
+
+[node name="Node2D2" type="Node2D" parent="Far Bg" unique_id=1738996067]
+position = Vector2(2490.5, -120)
+
+[node name="Sprite2D5" type="Sprite2D" parent="Far Bg/Node2D2" unique_id=1379634104]
+position = Vector2(-31, -163)
+scale = Vector2(1.1907082, 1.1907082)
+texture = ExtResource("3_n1xtc")
+
+[node name="Node2D" type="Node2D" parent="Far Bg/Node2D2" unique_id=99091561]
+
+[node name="Sprite2D3" type="Sprite2D" parent="Far Bg/Node2D2/Node2D" unique_id=790405830]
+position = Vector2(-270.1859, 5.9999995)
+rotation = 3.1415927
+scale = Vector2(0.881, -0.8805089)
+texture = SubResource("AtlasTexture_hdunv")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Far Bg/Node2D2/Node2D" unique_id=327408280]
+position = Vector2(-270.1859, -209)
+rotation = -3.1415925
+scale = Vector2(0.881, -0.8805089)
+texture = SubResource("AtlasTexture_hdunv")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Far Bg/Node2D2/Node2D" unique_id=1938682541]
+position = Vector2(-270.1859, -400.2821)
+rotation = -3.1415925
+scale = Vector2(0.881, -0.8805089)
+texture = SubResource("AtlasTexture_hdunv")
+
+[node name="Node2D2" type="Node2D" parent="Far Bg/Node2D2" unique_id=631232078]
+
+[node name="Sprite2D5" type="Sprite2D" parent="Far Bg/Node2D2/Node2D2" unique_id=470097309]
+position = Vector2(218.76782, 2.9999695)
+scale = Vector2(0.8805089, 0.8805089)
+texture = SubResource("AtlasTexture_hdunv")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Far Bg/Node2D2/Node2D2" unique_id=1846668069]
+position = Vector2(218.76782, -206.00003)
+scale = Vector2(0.8805089, 0.8805089)
+texture = SubResource("AtlasTexture_hdunv")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Far Bg/Node2D2/Node2D2" unique_id=371247038]
+position = Vector2(218.76782, -397.28214)
+scale = Vector2(0.8805089, 0.8805089)
+texture = SubResource("AtlasTexture_hdunv")
+
+[node name="Node2D3" type="Node2D" parent="Far Bg/Node2D2" unique_id=513911657]
+
+[node name="Sprite2D" type="Sprite2D" parent="Far Bg/Node2D2/Node2D3" unique_id=1556555902]
+position = Vector2(-35, -422)
+scale = Vector2(1.3952869, 1.3952869)
+texture = SubResource("AtlasTexture_fxeid")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Far Bg/Node2D2/Node2D3" unique_id=296474060]
+position = Vector2(-248, -423)
+scale = Vector2(0.48795345, 0.48795345)
+texture = SubResource("AtlasTexture_lulrp")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Far Bg/Node2D2/Node2D3" unique_id=1413502535]
+position = Vector2(184, -423)
+scale = Vector2(-0.488, 0.488)
+texture = SubResource("AtlasTexture_lulrp")
+
+[node name="Node2D4" type="Node2D" parent="Far Bg/Node2D2" unique_id=1416437274]
+
+[node name="Sprite2D2" type="Sprite2D" parent="Far Bg/Node2D2/Node2D4" unique_id=236263662]
+position = Vector2(87, -20)
+scale = Vector2(0.61164635, 0.61164635)
+texture = SubResource("AtlasTexture_ytuo5")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Far Bg/Node2D2/Node2D4" unique_id=403010406]
+position = Vector2(-31, -20)
+scale = Vector2(0.9052381, 0.61164635)
+texture = SubResource("AtlasTexture_ytuo5")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Far Bg/Node2D2/Node2D4" unique_id=1057200269]
+position = Vector2(-149, -20.558838)
+scale = Vector2(0.61164635, 0.61164635)
+texture = SubResource("AtlasTexture_ytuo5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Far Bg/Node2D2/Node2D4" unique_id=264118954]
+position = Vector2(-29, -163)
+scale = Vector2(0.691578, 0.33944637)
+texture = SubResource("AtlasTexture_wuqd8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Far Bg/Node2D2" unique_id=2036723157]
+modulate = Color(0.48178947, 0.48178947, 0.48178947, 1)
+position = Vector2(-37.999996, -884)
+scale = Vector2(0.5431258, 0.5431258)
+texture = ExtResource("2_viq1m")
 
 [node name="Close Bg" type="Parallax2D" parent="." unique_id=993371309]
 modulate = Color(0.5802277, 0.58022773, 0.58022773, 1)
 scroll_scale = Vector2(0.4, 0.4)
 scroll_offset = Vector2(-540, 968)
-repeat_size = Vector2(1080, 0)
+repeat_size = Vector2(4000, 0)
 repeat_times = 3
 
-[node name="Sprite2D" type="Sprite2D" parent="Close Bg" unique_id=1317178349]
-position = Vector2(0, -238.99998)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
+[node name="Clock Building" type="Node2D" parent="Close Bg" unique_id=704029830]
 
-[node name="Sprite2D2" type="Sprite2D" parent="Close Bg" unique_id=1465775656]
-position = Vector2(287.99997, -238.99998)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
+[node name="Sprite2D" type="Sprite2D" parent="Close Bg/Clock Building" unique_id=1317178349]
+position = Vector2(0, -89)
+texture = ExtResource("4_kandm")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Close Bg/Clock Building" unique_id=482513328]
+position = Vector2(-116, -148)
+texture = SubResource("AtlasTexture_vt5mr")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Close Bg/Clock Building" unique_id=1074758976]
+position = Vector2(-116, -50)
+texture = SubResource("AtlasTexture_vt5mr")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Close Bg/Clock Building" unique_id=32819664]
+position = Vector2(-198, -50)
+texture = SubResource("AtlasTexture_vt5mr")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Close Bg/Clock Building" unique_id=1624732028]
+position = Vector2(-116, 39.5)
+texture = SubResource("AtlasTexture_vt5mr")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Close Bg/Clock Building" unique_id=1094041736]
+position = Vector2(-198, 39.5)
+texture = SubResource("AtlasTexture_vt5mr")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Close Bg/Clock Building" unique_id=730955188]
+position = Vector2(-19, -147)
+texture = SubResource("AtlasTexture_vt5mr")
+
+[node name="Sprite2D12" type="Sprite2D" parent="Close Bg/Clock Building" unique_id=660962968]
+position = Vector2(81, -150)
+texture = SubResource("AtlasTexture_vt5mr")
+
+[node name="Sprite2D13" type="Sprite2D" parent="Close Bg/Clock Building" unique_id=1745998818]
+position = Vector2(179, -150)
+texture = SubResource("AtlasTexture_vt5mr")
+
+[node name="Sprite2D14" type="Sprite2D" parent="Close Bg/Clock Building" unique_id=342193276]
+position = Vector2(185, -42)
+texture = SubResource("AtlasTexture_vt5mr")
+
+[node name="Sprite2D15" type="Sprite2D" parent="Close Bg/Clock Building" unique_id=467234068]
+position = Vector2(86, -48)
+texture = SubResource("AtlasTexture_vt5mr")
+
+[node name="Sprite2D16" type="Sprite2D" parent="Close Bg/Clock Building" unique_id=1732079472]
+position = Vector2(-15, -54)
+texture = SubResource("AtlasTexture_vt5mr")
+
+[node name="Sprite2D17" type="Sprite2D" parent="Close Bg/Clock Building" unique_id=1579756314]
+position = Vector2(0, -378)
+texture = ExtResource("4_kandm")
+
+[node name="Sprite2D18" type="Sprite2D" parent="Close Bg/Clock Building" unique_id=7481505]
+position = Vector2(-116, -437)
+texture = SubResource("AtlasTexture_vt5mr")
+
+[node name="Sprite2D19" type="Sprite2D" parent="Close Bg/Clock Building" unique_id=385587104]
+position = Vector2(-116, -339)
+texture = SubResource("AtlasTexture_vt5mr")
+
+[node name="Sprite2D20" type="Sprite2D" parent="Close Bg/Clock Building" unique_id=1169660706]
+position = Vector2(-198, -339)
+texture = SubResource("AtlasTexture_vt5mr")
+
+[node name="Sprite2D21" type="Sprite2D" parent="Close Bg/Clock Building" unique_id=1692704012]
+position = Vector2(-116, -249.5)
+texture = SubResource("AtlasTexture_vt5mr")
+
+[node name="Sprite2D22" type="Sprite2D" parent="Close Bg/Clock Building" unique_id=738071818]
+position = Vector2(-198, -249.5)
+texture = SubResource("AtlasTexture_vt5mr")
+
+[node name="Sprite2D23" type="Sprite2D" parent="Close Bg/Clock Building" unique_id=249280430]
+position = Vector2(-19, -436)
+texture = SubResource("AtlasTexture_vt5mr")
+
+[node name="Sprite2D24" type="Sprite2D" parent="Close Bg/Clock Building" unique_id=935630410]
+position = Vector2(81, -439)
+texture = SubResource("AtlasTexture_vt5mr")
+
+[node name="Sprite2D25" type="Sprite2D" parent="Close Bg/Clock Building" unique_id=1441096668]
+position = Vector2(179, -439)
+texture = SubResource("AtlasTexture_vt5mr")
+
+[node name="Sprite2D26" type="Sprite2D" parent="Close Bg/Clock Building" unique_id=1958382821]
+position = Vector2(185, -331)
+texture = SubResource("AtlasTexture_vt5mr")
+
+[node name="Sprite2D27" type="Sprite2D" parent="Close Bg/Clock Building" unique_id=1532384960]
+position = Vector2(86, -337)
+texture = SubResource("AtlasTexture_vt5mr")
+
+[node name="Sprite2D28" type="Sprite2D" parent="Close Bg/Clock Building" unique_id=256444834]
+position = Vector2(-15, -343)
+texture = SubResource("AtlasTexture_vt5mr")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Close Bg" unique_id=2017782114]
-position = Vector2(641, -238.99998)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
+position = Vector2(575, -118)
+texture = ExtResource("7_0imck")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Close Bg" unique_id=2025832321]
+position = Vector2(1560, -82)
+texture = ExtResource("4_kandm")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Close Bg" unique_id=190962608]
+position = Vector2(1169, -539)
+texture = ExtResource("4_kandm")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Close Bg" unique_id=414559484]
-position = Vector2(1037, -238.99998)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
+position = Vector2(1037, -128.99998)
+texture = ExtResource("3_n1xtc")
 
-[node name="Sprite2D5" type="Sprite2D" parent="Close Bg" unique_id=1572245718]
-position = Vector2(1503, -212.99995)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
+[node name="Sprite2D5" type="Sprite2D" parent="Close Bg" unique_id=112689720]
+position = Vector2(1292, -128.99998)
+texture = ExtResource("3_n1xtc")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Close Bg" unique_id=1473639552]
+position = Vector2(1292, -384)
+texture = ExtResource("3_n1xtc")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Close Bg" unique_id=1014668067]
+position = Vector2(1038, -384)
+texture = ExtResource("3_n1xtc")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Close Bg" unique_id=1940547405]
+position = Vector2(1749, -145)
+texture = ExtResource("4_b8rhl")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Close Bg" unique_id=698822670]
+position = Vector2(1749, -274)
+texture = ExtResource("4_b8rhl")
 
 [node name="Mid Bg" type="Parallax2D" parent="." unique_id=71576020]
-scale = Vector2(2.5600007, 1)
 scroll_scale = Vector2(0.6, 0.6)
 scroll_offset = Vector2(-2224.8008, 1087)
-repeat_size = Vector2(1080, 0)
+repeat_size = Vector2(2000, 0)
 repeat_times = 3
 
-[node name="Sprite2D" type="Sprite2D" parent="Mid Bg" unique_id=347367033]
-position = Vector2(0, -238.99998)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
-
 [node name="Sprite2D2" type="Sprite2D" parent="Mid Bg" unique_id=2085861205]
-position = Vector2(287.99997, -238.99998)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
-
-[node name="Sprite2D3" type="Sprite2D" parent="Mid Bg" unique_id=1264503123]
-position = Vector2(641, -238.99998)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
+modulate = Color(0.52906674, 0.5290667, 0.5290667, 1)
+position = Vector2(241.80078, -230)
+scale = Vector2(0.8404448, 0.8404448)
+texture = ExtResource("1_2h6rp")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Mid Bg" unique_id=152352602]
-position = Vector2(1037, -238.99998)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
+position = Vector2(1127.8008, -288)
+texture = ExtResource("4_b8rhl")
 
-[node name="Sprite2D5" type="Sprite2D" parent="Mid Bg" unique_id=466596425]
-position = Vector2(1503, -212.99995)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
+[node name="Node2D" type="Node2D" parent="Mid Bg" unique_id=270813554]
+
+[node name="Sprite2D" type="Sprite2D" parent="Mid Bg/Node2D" unique_id=347367033]
+position = Vector2(0, -195.31024)
+scale = Vector2(0.4821495, 0.4821495)
+texture = SubResource("AtlasTexture_0ft22")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Mid Bg/Node2D" unique_id=1960399019]
+position = Vector2(1.8007813, -545.31024)
+scale = Vector2(0.4821495, 0.4821495)
+texture = SubResource("AtlasTexture_h2um0")
+
+[node name="Node2D2" type="Node2D" parent="Mid Bg" unique_id=1448004683]
+position = Vector2(590.8008, -139)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Mid Bg/Node2D2" unique_id=1264503123]
+position = Vector2(-155.186, 0)
+scale = Vector2(-0.881, 0.8805089)
+texture = SubResource("AtlasTexture_hdunv")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Mid Bg/Node2D2" unique_id=1468870213]
+scale = Vector2(0.8805089, 0.8805089)
+texture = SubResource("AtlasTexture_hdunv")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Mid Bg/Node2D2" unique_id=1179028026]
+position = Vector2(-155.186, -209)
+rotation = 3.1415927
+scale = Vector2(0.881, -0.8805089)
+texture = SubResource("AtlasTexture_hdunv")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Mid Bg/Node2D2" unique_id=389724977]
+position = Vector2(0, -209)
+scale = Vector2(0.8805089, 0.8805089)
+texture = SubResource("AtlasTexture_hdunv")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Mid Bg/Node2D2" unique_id=194384546]
+position = Vector2(-155.186, -209)
+rotation = 3.1415927
+scale = Vector2(0.881, -0.8805089)
+texture = SubResource("AtlasTexture_hdunv")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Mid Bg/Node2D2" unique_id=1841526534]
+position = Vector2(0, -209)
+scale = Vector2(0.8805089, 0.8805089)
+texture = SubResource("AtlasTexture_hdunv")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Mid Bg/Node2D2" unique_id=1793655137]
+position = Vector2(-155.186, -400.2821)
+rotation = 3.1415927
+scale = Vector2(0.881, -0.8805089)
+texture = SubResource("AtlasTexture_hdunv")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Mid Bg/Node2D2" unique_id=227121438]
+position = Vector2(0, -400.2821)
+scale = Vector2(0.8805089, 0.8805089)
+texture = SubResource("AtlasTexture_hdunv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Mid Bg/Node2D2" unique_id=1428581225]
+position = Vector2(913, -137)
+texture = ExtResource("3_c5nd5")

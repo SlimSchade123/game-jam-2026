@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://4rscnq415aft"]
 
 [ext_resource type="Script" uid="uid://cdp78wb7wfav8" path="res://piper/test_guy.gd" id="1_py502"]
+[ext_resource type="PackedScene" uid="uid://cybivky8kmctk" path="res://sorsha/test_animation.tscn" id="2_t8754"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ygfeb"]
-radius = 33.0
-height = 76.0
+radius = 68.0
+height = 152.95
 
 [sub_resource type="Gradient" id="Gradient_2lwh2"]
 offsets = PackedFloat32Array(1)
@@ -19,10 +20,11 @@ script = ExtResource("1_py502")
 current_state = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=975430459]
-position = Vector2(0, -38)
+position = Vector2(0, -78)
 shape = SubResource("CapsuleShape2D_ygfeb")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=79177287]
+visible = false
 position = Vector2(0, -38)
 scale = Vector2(1.0984263, 1.1908623)
 texture = SubResource("GradientTexture2D_xuhh7")
@@ -37,6 +39,11 @@ one_shot = true
 [node name="Life_Timer" type="Timer" parent="." unique_id=1074868581]
 wait_time = 0.5
 autostart = true
+
+[node name="Frank_Vis" parent="." unique_id=2034324420 instance=ExtResource("2_t8754")]
+unique_name_in_owner = true
+position = Vector2(2.9999998, -98)
+scale = Vector2(4.432818, 4.432818)
 
 [connection signal="timeout" from="Dash_Timer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="Fall_Delay_Timer" to="." method="_on_fall_delay_timer_timeout"]

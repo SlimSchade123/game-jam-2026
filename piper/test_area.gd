@@ -23,5 +23,6 @@ func _on_body_entered(_body: Node2D) -> void:
 
 func death(instance : Enemy2):
 	if instance == self:
+		#Stats.enemy_killed
 		print("BLOWING UP: ", instance)
 		queue_free()

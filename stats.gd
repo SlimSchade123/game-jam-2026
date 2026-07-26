@@ -15,7 +15,12 @@ var liftoff_max: int = 100
 
 signal dashing(is_dashing : bool)
 signal change_cam_target
+signal enemy_killed
 
+signal launch(strength : float)
 ##exists to remove warnings -w-
 func bucket():
 	dashing.emit()
+	launch.emit()
+	change_cam_target.emit()
+	enemy_killed.emit()

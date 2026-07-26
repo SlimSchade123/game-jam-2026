@@ -8,6 +8,7 @@ extends ProgressBar
 #@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var charging_audio: AudioStreamPlayer = $Charging_Audio
 @onready var music: AudioStreamPlayer = %Music
+@onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 
 var alternating : bool = false
 var initial_press : bool = false
@@ -16,7 +17,7 @@ var input_dir : Vector2
 var is_charging : bool = false
 
 func _ready() -> void:
-	lightning_timer.start(5.0)
+	lightning_timer.start(3.0)
 
 ##left is false right is true
 func _input(event: InputEvent) -> void:
@@ -55,4 +56,9 @@ func _on_lightning_timer_timeout() -> void:
 	else:
 		## signal to stats here that the cannon has started
 		#audio_stream_player.stream = load()
+		launch()
 		music.play()
+
+func launch():
+	Stats.launch.emit(value)
+	animation_player.play_backwards("fade_in")

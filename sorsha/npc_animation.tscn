@@ -2447,6 +2447,7 @@ _data = {
 [node name="Body" type="Node2D" parent="." unique_id=985553354]
 
 [node name="bg" type="Sprite2D" parent="Body" unique_id=1723928231]
+visible = false
 texture_filter = 1
 scale = Vector2(1000, 1000)
 texture = SubResource("GradientTexture2D_b7r16")
@@ -2454,42 +2455,40 @@ texture = SubResource("GradientTexture2D_b7r16")
 [node name="LLeg" type="Sprite2D" parent="Body" unique_id=1732068954]
 texture_filter = 1
 position = Vector2(-3, 4)
-rotation = 0.73025644
-scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("1_8ooyp")
 offset = Vector2(-1, 7)
 
 [node name="LFoot" type="Sprite2D" parent="Body" unique_id=1424376646]
 texture_filter = 1
-position = Vector2(-14.641745, 15.10162)
-rotation = 0.721066
+position = Vector2(-4.322566, 20.053453)
+rotation = -0.06663989
 texture = ExtResource("2_n4xkh")
 offset = Vector2(-1.0000005, 1.3046417)
 
 [node name="LArm" type="Sprite2D" parent="Body" unique_id=1258815114]
 texture_filter = 1
-position = Vector2(-7, -7.973384)
+position = Vector2(-7, -6)
 texture = ExtResource("5_s8pmc")
 offset = Vector2(-1, 5)
 
 [node name="RArm" type="Sprite2D" parent="Body" unique_id=914499508]
 texture_filter = 1
-position = Vector2(4, -7.973384)
+position = Vector2(4, -5.9999995)
 texture = ExtResource("6_aoys5")
 offset = Vector2(2, 6)
 
 [node name="RHand" type="Sprite2D" parent="Body" unique_id=1151673893]
 texture_filter = 1
-position = Vector2(6.7071085, 3.147936)
+position = Vector2(6.7071085, 5.1213207)
 scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("9_tjsw7")
 offset = Vector2(-4.7683716e-07, 2.2389004)
 
 [node name="LHand" type="Sprite2D" parent="Body" unique_id=1952007501]
 texture_filter = 1
-position = Vector2(-8, 4.026616)
+position = Vector2(-8, 6)
 rotation = -0.26179922
-scale = Vector2(1, -1)
+scale = Vector2(0.99999994, -0.99999994)
 texture = ExtResource("11_7sy8y")
 offset = Vector2(-0.8965771, -1.6844649)
 
@@ -2519,7 +2518,7 @@ offset = Vector2(0, 2)
 
 [node name="Case" type="Sprite2D" parent="Body" unique_id=975985404]
 texture_filter = 1
-position = Vector2(8.000002, 14.026614)
+position = Vector2(8.000002, 15.999998)
 scale = Vector2(0.9999996, 0.9999996)
 texture = ExtResource("4_wpta2")
 offset = Vector2(0, -1)
@@ -2527,21 +2526,22 @@ offset = Vector2(0, -1)
 [node name="Head" type="Sprite2D" parent="Body" unique_id=301759305]
 texture_filter = 1
 position = Vector2(-2, -14)
-rotation = 0.114281386
-scale = Vector2(0.9999999, 0.9999999)
+rotation = -0.039477564
+scale = Vector2(0.9999998, 0.9999998)
 texture = ExtResource("10_gtifx")
 offset = Vector2(0, -1)
 
 [node name="Hat" type="Sprite2D" parent="Body" unique_id=1744499302]
 texture_filter = 1
-position = Vector2(-1.0810764, -19.929214)
-rotation = 0.1142815
-scale = Vector2(0.99999964, 0.99999964)
+position = Vector2(-1.9999998, -20)
+rotation = -0.039477512
+scale = Vector2(0.9999996, 0.9999996)
 texture = ExtResource("12_iblf0")
 
 [node name="Node2D" type="Node2D" parent="Body" unique_id=1873892274]
 
 [node name="Skeleton2D" type="Skeleton2D" parent="Body/Node2D" unique_id=2045718127]
+visible = false
 
 [node name="Torso" type="Bone2D" parent="Body/Node2D/Skeleton2D" unique_id=404290954]
 position = Vector2(-2, -2)
@@ -2555,6 +2555,7 @@ rest = Transform2D(1.1924881e-08, 1, -1, 1.1924881e-08, -5, -4)
 [node name="Hand" type="Bone2D" parent="Body/Node2D/Skeleton2D/Torso/LeftAtm" unique_id=1477397342]
 position = Vector2(11.313708, 1.4142153)
 rotation = 0.2617994
+scale = Vector2(0.9999999, 0.9999999)
 rest = Transform2D(1, 0, 0, 1, 12.000002, 1.999999)
 auto_calculate_length_and_angle = false
 length = 5.0

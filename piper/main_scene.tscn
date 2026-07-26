@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://bn62q6coy8es0"]
 
+[ext_resource type="Texture2D" uid="uid://defbv3di1gip7" path="res://piper/pxArt.png" id="1_fpqvx"]
 [ext_resource type="PackedScene" uid="uid://b0e8d70lbcvjr" path="res://piper/screen_effects.tscn" id="1_we7aq"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_ny3h3"]
 [ext_resource type="PackedScene" uid="uid://cd4btkjx7mi8t" path="res://piper/parallax_background.tscn" id="2_riw4a"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_2lwh2"]
+[ext_resource type="FontFile" uid="uid://cykv7n1iol4wl" path="res://fonts/Jacquard12-Regular.ttf" id="3_lltea"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_we7aq"]
 [ext_resource type="Script" uid="uid://dy54m75y5087d" path="res://piper/cam_controls.gd" id="5_duolu"]
 [ext_resource type="PackedScene" uid="uid://ct1ep45qasr1h" path="res://piper/pause_menu.tscn" id="7_riw4a"]
@@ -15,6 +17,94 @@
 [ext_resource type="AudioStream" uid="uid://c71slatgatvt2" path="res://piper/audio/charging.ogg" id="14_auff7"]
 [ext_resource type="AudioStream" uid="uid://cvbcdcixv7ge0" path="res://piper/audio/trimmed_chip_bach_2.wav" id="15_58ab3"]
 [ext_resource type="Script" uid="uid://8rw4fv0r4l4f" path="res://piper/launcher.gd" id="16_6j23n"]
+[ext_resource type="PackedScene" uid="uid://cybivky8kmctk" path="res://sorsha/test_animation.tscn" id="16_fpqvx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0a2le"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_left = 20.0
+expand_margin_top = 20.0
+expand_margin_right = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bgvil"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jfil1"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_lltea"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0a2le"]
+resource_name = "fade_in"
+length = 3.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a2ld0"]
+_data = {
+&"RESET": SubResource("Animation_lltea"),
+&"fade_in": SubResource("Animation_0a2le")
+}
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ygfeb"]
 
@@ -55,31 +145,93 @@ metadata/_custom_type_script = "uid://cyfru73cwhd8w"
 script = ExtResource("10_ewouk")
 metadata/_custom_type_script = "uid://cyfru73cwhd8w"
 
-[sub_resource type="Gradient" id="Gradient_jn1qv"]
-colors = PackedColorArray(0, 0, 0, 1, 0, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_h2um0"]
-gradient = SubResource("Gradient_jn1qv")
-width = 225
-height = 800
-fill_to = Vector2(1, 1)
-
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0ft22"]
-bounce = 0.6
+friction = 0.1
+bounce = 0.9
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h2um0"]
-radius = 45.2
-
-[sub_resource type="Gradient" id="Gradient_6j23n"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_0ft22"]
-gradient = SubResource("Gradient_6j23n")
+radius = 88.814415
 
 [node name="Main Scene" type="Node2D" unique_id=13203674]
 
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=2137575035]
+scroll_scale = Vector2(0.1, 0.1)
+repeat_size = Vector2(3200, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1881477489]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_fpqvx")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 6400, 2560)
+
 [node name="Screen Effects" parent="." unique_id=129136169 instance=ExtResource("1_we7aq")]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1310488883]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=1677820708]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 57.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/normal_font = ExtResource("3_lltea")
+theme_override_font_sizes/normal_font_size = 128
+bbcode_enabled = true
+text = "[shake rate=20.0 level=5 connected=1]Get Ready To 
+Mash[/shake]
+"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="Panel" type="PanelContainer" parent="CanvasLayer" unique_id=874260339]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -354.0
+offset_top = -17.5
+offset_right = 354.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0a2le")
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Panel" unique_id=691061310]
+custom_minimum_size = Vector2(700, 50)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_bgvil")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jfil1")
+show_percentage = false
+script = ExtResource("13_jn1qv")
+
+[node name="Lightning Timer" type="Timer" parent="CanvasLayer/Panel/ProgressBar" unique_id=1169511825]
+one_shot = true
+
+[node name="Charging_Audio" type="AudioStreamPlayer" parent="CanvasLayer/Panel/ProgressBar" unique_id=105098728]
+stream = ExtResource("14_auff7")
+pitch_scale = 1.18
+bus = &"Sound Effects"
+
+[node name="Lightning Audio" type="AudioStreamPlayer" parent="CanvasLayer/Panel/ProgressBar" unique_id=293004635]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1914173087]
+libraries/ = SubResource("AnimationLibrary_a2ld0")
+autoplay = &"fade_in"
+
 [node name="Parallax Background" parent="." unique_id=1412724324 instance=ExtResource("2_riw4a")]
+position = Vector2(23, -43)
 
 [node name="Floor Collision" type="StaticBody2D" parent="." unique_id=257303055]
 position = Vector2(0, 722)
@@ -90,7 +242,7 @@ shape = SubResource("WorldBoundaryShape2D_ygfeb")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=971042345]
 physics_interpolation_mode = 1
 top_level = true
-position = Vector2(874, 540)
+position = Vector2(0, 540)
 
 [node name="PhantomCameraHost2" type="Node" parent="Camera2D" unique_id=677974093]
 process_priority = 300
@@ -104,7 +256,7 @@ current_pcam = NodePath("Run Camera")
 
 [node name="Run Camera" type="Node2D" parent="Cam Controller" unique_id=944693704 node_paths=PackedStringArray("follow_target", "follow_path")]
 top_level = true
-position = Vector2(875, 540)
+position = Vector2(0, 540)
 script = ExtResource("3_2lwh2")
 priority = 1
 follow_mode = 4
@@ -156,68 +308,34 @@ collision_info = ExtResource("12_pn3pg")
 
 [node name="Node2D2" type="Node2D" parent="." unique_id=857680014]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Node2D2" unique_id=1310488883]
-visible = false
-
-[node name="Lightning Rod" type="Sprite2D" parent="Node2D2/CanvasLayer" unique_id=1898205245]
-position = Vector2(337, 547)
-texture = SubResource("GradientTexture2D_h2um0")
-
-[node name="ProgressBar" type="ProgressBar" parent="Node2D2/CanvasLayer/Lightning Rod" unique_id=691061310]
-custom_minimum_size = Vector2(700, 0)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -126.5
-offset_top = -48.0
-offset_right = 573.5
-offset_bottom = -21.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -1.5707964
-script = ExtResource("13_jn1qv")
-
-[node name="Lightning Timer" type="Timer" parent="Node2D2/CanvasLayer/Lightning Rod/ProgressBar" unique_id=1169511825]
-one_shot = true
-
-[node name="Charging_Audio" type="AudioStreamPlayer" parent="Node2D2/CanvasLayer/Lightning Rod/ProgressBar" unique_id=105098728]
-stream = ExtResource("14_auff7")
-pitch_scale = 1.18
-bus = &"Sound Effects"
-
-[node name="Lightning Audio" type="AudioStreamPlayer" parent="Node2D2/CanvasLayer/Lightning Rod/ProgressBar" unique_id=293004635]
-
-[node name="Label" type="Label" parent="Node2D2/CanvasLayer" unique_id=1452686538]
-offset_left = 494.0
-offset_top = 233.0
-offset_right = 718.0
-offset_bottom = 334.0
-text = "Use WASD or the arrow keys.
-
-Jump with Space or Z
-Action with Shift or Xw"
-
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1379030141]
 unique_name_in_owner = true
 stream = ExtResource("15_58ab3")
 
 [node name="Launcher" type="Node2D" parent="." unique_id=901257161]
+position = Vector2(-1228, 0)
 script = ExtResource("16_6j23n")
 
 [node name="Fakenstein" type="RigidBody2D" parent="Launcher" unique_id=949714319]
 unique_name_in_owner = true
 position = Vector2(75, 566)
 physics_material_override = SubResource("PhysicsMaterial_0ft22")
+gravity_scale = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Launcher/Fakenstein" unique_id=1538593178]
 shape = SubResource("CircleShape2D_h2um0")
 
-[node name="Sprite2D" type="Sprite2D" parent="Launcher/Fakenstein" unique_id=307335124]
-texture = SubResource("GradientTexture2D_0ft22")
+[node name="To_Frank" type="Timer" parent="Launcher/Fakenstein" unique_id=1615651087]
+one_shot = true
 
-[node name="Timer" type="Timer" parent="Launcher/Fakenstein" unique_id=1615651087]
+[node name="Start" type="Timer" parent="Launcher/Fakenstein" unique_id=87310495]
+one_shot = true
 
+[node name="TestAnimation" parent="Launcher/Fakenstein" unique_id=2034324420 instance=ExtResource("16_fpqvx")]
+position = Vector2(0, -9.999999)
+scale = Vector2(4.432818, 4.432818)
+
+[connection signal="timeout" from="CanvasLayer/Panel/ProgressBar/Lightning Timer" to="CanvasLayer/Panel/ProgressBar" method="_on_lightning_timer_timeout"]
 [connection signal="timeout" from="Enemy Spawner/Spawn Timer" to="Enemy Spawner" method="_on_timer_timeout"]
-[connection signal="timeout" from="Node2D2/CanvasLayer/Lightning Rod/ProgressBar/Lightning Timer" to="Node2D2/CanvasLayer/Lightning Rod/ProgressBar" method="_on_lightning_timer_timeout"]
+[connection signal="timeout" from="Launcher/Fakenstein/To_Frank" to="Launcher" method="_on_to_frank_timeout"]
+[connection signal="timeout" from="Launcher/Fakenstein/Start" to="Launcher" method="_on_start_timeout"]

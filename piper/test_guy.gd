@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var dash_timer: Timer = $Dash_Timer
 @onready var fall_delay_timer: Timer = $Fall_Delay_Timer
 
+@onready var frank_vis: Frank_Anims = %Frank_Vis
 
 var life_tween : Tween
 var target_life_time : float = 20
@@ -110,6 +111,7 @@ func current_state_behavior(state : Player_State, delta : float):
 	match state:
 		Player_State.neutral:
 			#mainly exists for anims
+			frank_vis.run()
 			forwards_momentum(delta)
 			## basic run
 			pass
@@ -140,7 +142,7 @@ func death():
 
 func forwards_momentum(delta : float):
 	var velocity_weight : float = delta * (acceleration * max(0, (current_life_time / max_life_time)))
-	print("lifetime ratio:", max(0, (current_life_time / max_life_time)))
+	#print("lifetime ratio:", max(0, (current_life_time / max_life_time)))
 	var target_speed : float = max_speed * max(0, (current_life_time / max_life_time))
 	## acceleration needs to be scaled by the current combo and deceleration timer thing whenever i do that
 	velocity.x = lerp(velocity.x, min(target_speed, max_speed_cap), velocity_weight)
@@ -150,6 +152,7 @@ func forwards_momentum(delta : float):
 func dash():
 	## turn me red
 	if !is_dashing:
+		frank_vis.dash()
 		fall_delay = true
 		is_dashing = true
 		fall_speed_scalar = 0.4
@@ -195,6 +198,7 @@ func jump():
 	if !jumped:
 		velocity.y = jump_velocity
 		jumped = true
+		frank_vis.jump()
 	## jump should happen super super quickly
 	## jump should stall if input continues to be held, dampening gravity at the peak of the jump
 	## once jump is finished, gravity should add exponentially until grounded.
@@ -228,6 +232,7 @@ func enemy_dashed(enemy : Enemy2):
 	if is_dashing:
 		print("Enemy instance: ", enemy)
 		Chris_Singleton.enemy_killed.emit(enemy)
+		enemy_killed()
 		reset_life_time()
 		pass
 	pass

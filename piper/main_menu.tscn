@@ -9,24 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://c6yke5xhaamny" path="res://piper/slide_tab.png" id="6_w1fw6"]
 [ext_resource type="Shader" uid="uid://jmx4rjld7o2b" path="res://piper/double_dither.gdshader" id="8_8bfff"]
 [ext_resource type="AudioStream" uid="uid://cibx6dh6jkhgd" path="res://piper/audio/IDK title or something.wav" id="9_8bfff"]
-
-[sub_resource type="Gradient" id="Gradient_uogpq"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_gq0y6"]
-gradient = SubResource("Gradient_uogpq")
-width = 1920
-height = 1080
-fill_from = Vector2(0.5, 0.6000001)
-fill_to = Vector2(0.5, 0.8)
-metadata/_snap_enabled = true
-
-[sub_resource type="Gradient" id="Gradient_7aq22"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.37413925, 0.37413928, 0.37413922, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ygfeb"]
-gradient = SubResource("Gradient_7aq22")
-fill_to = Vector2(1, 1)
+[ext_resource type="Texture2D" uid="uid://defbv3di1gip7" path="res://piper/pxArt.png" id="10_axtsw"]
+[ext_resource type="PackedScene" uid="uid://cd4btkjx7mi8t" path="res://piper/parallax_background.tscn" id="10_t3bix"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ygfeb"]
 bg_color = Color(0, 0, 0, 1)
@@ -88,108 +72,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Parallax Background" type="Node2D" parent="." unique_id=1412724324]
-
-[node name="Parallax2D" type="Parallax2D" parent="Parallax Background" unique_id=1614058585]
-scroll_scale = Vector2(0.2, 0.2)
-scroll_offset = Vector2(1920, 540)
-repeat_size = Vector2(1920, 0)
-repeat_times = 3
-
-[node name="Sprite2D" type="Sprite2D" parent="Parallax Background/Parallax2D" unique_id=316621993]
-texture = SubResource("GradientTexture2D_gq0y6")
-
-[node name="Far Bg" type="Parallax2D" parent="Parallax Background" unique_id=1605011196]
-modulate = Color(0.24985075, 0.24985075, 0.24985075, 1)
-scroll_scale = Vector2(0.2, 0.2)
-scroll_offset = Vector2(-540, 813)
-repeat_size = Vector2(1080, 0)
-repeat_times = 3
-
-[node name="Sprite2D" type="Sprite2D" parent="Parallax Background/Far Bg" unique_id=1232785631]
-position = Vector2(0, -184.50327)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
-
-[node name="Sprite2D3" type="Sprite2D" parent="Parallax Background/Far Bg" unique_id=1068939874]
-position = Vector2(293.99997, -184.50327)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
-
-[node name="Sprite2D4" type="Sprite2D" parent="Parallax Background/Far Bg" unique_id=86439867]
-position = Vector2(592, -184.50327)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
-
-[node name="Sprite2D5" type="Sprite2D" parent="Parallax Background/Far Bg" unique_id=494845985]
-position = Vector2(842, -184.50327)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
-
-[node name="Close Bg" type="Parallax2D" parent="Parallax Background" unique_id=993371309]
-modulate = Color(0.5802277, 0.58022773, 0.58022773, 1)
-scroll_scale = Vector2(0.4, 0.4)
-scroll_offset = Vector2(-540, 968)
-repeat_size = Vector2(1080, 0)
-repeat_times = 3
-
-[node name="Sprite2D" type="Sprite2D" parent="Parallax Background/Close Bg" unique_id=1317178349]
-position = Vector2(0, -238.99998)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Parallax Background/Close Bg" unique_id=1465775656]
-position = Vector2(287.99997, -238.99998)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
-
-[node name="Sprite2D3" type="Sprite2D" parent="Parallax Background/Close Bg" unique_id=2017782114]
-position = Vector2(641, -238.99998)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
-
-[node name="Sprite2D4" type="Sprite2D" parent="Parallax Background/Close Bg" unique_id=414559484]
-position = Vector2(1037, -238.99998)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
-
-[node name="Sprite2D5" type="Sprite2D" parent="Parallax Background/Close Bg" unique_id=1572245718]
-position = Vector2(1503, -212.99995)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
-
-[node name="Mid Bg" type="Parallax2D" parent="Parallax Background" unique_id=71576020]
-scale = Vector2(2.5600007, 1)
-scroll_scale = Vector2(0.6, 0.6)
-scroll_offset = Vector2(-2224.8008, 1087)
-repeat_size = Vector2(1080, 0)
-repeat_times = 3
-
-[node name="Sprite2D" type="Sprite2D" parent="Parallax Background/Mid Bg" unique_id=347367033]
-position = Vector2(0, -238.99998)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Parallax Background/Mid Bg" unique_id=2085861205]
-position = Vector2(287.99997, -238.99998)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
-
-[node name="Sprite2D3" type="Sprite2D" parent="Parallax Background/Mid Bg" unique_id=1264503123]
-position = Vector2(641, -238.99998)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
-
-[node name="Sprite2D4" type="Sprite2D" parent="Parallax Background/Mid Bg" unique_id=152352602]
-position = Vector2(1037, -238.99998)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
-
-[node name="Sprite2D5" type="Sprite2D" parent="Parallax Background/Mid Bg" unique_id=466596425]
-position = Vector2(1503, -212.99995)
-scale = Vector2(2.159633, 7.5155225)
-texture = SubResource("GradientTexture2D_ygfeb")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1743119828]
 script = ExtResource("1_r0j6v")
@@ -458,6 +340,22 @@ script = ExtResource("2_uogpq")
 stream = ExtResource("9_8bfff")
 autoplay = true
 bus = &"Music"
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1712207876]
+scroll_scale = Vector2(0.1, 0.1)
+repeat_size = Vector2(3200, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=392457692]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_axtsw")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 6400, 2560)
+
+[node name="Parallax Background2" parent="." unique_id=282503002 instance=ExtResource("10_t3bix")]
+position = Vector2(0, 15)
 
 [connection signal="pressed" from="CanvasLayer/Offsetter/Main Menu Root/VBoxContainer/Panel/Button" to="CanvasLayer" method="_on_play_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Offsetter/Main Menu Root/VBoxContainer/Panel2/Button" to="CanvasLayer" method="_on_button_pressed"]
