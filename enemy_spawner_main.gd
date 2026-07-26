@@ -59,16 +59,16 @@ func _ready() -> void:
 	Chris_Singleton.enemy_collided.connect(update_offset)
 	Chris_Singleton.max_speed_changed.connect(update_offset)
 
-func update_offset(_enemy_stats: enemy_collision_info):
+func update_offset(max_speed: float):
 	## need to parse max speed from enemy info
 	## default offset is 1200, use that as lower bounds potentially
 	## upper bounds should be double 1200, so 2400
 	
 	#	text = str(time_text, Stats.total_distance - stored_dist)
 	#	stored_dist = Stats.total_distance
-	spawn_offset = Stats.total_distance - stored_offset
-	stored_offset = Stats.total_distance
-	spawn_offset = maxf(stored_offset, 1200) ## either every 1200, minimum, or whatever the current max speed is
+	
+	
+	spawn_offset = maxf(max_speed * randf_range(0.8, 3), 1200)
 	#print("Spawn Offset: ", spawn_offset)
 
 func spawn_enemy(position: Vector2) -> void:
