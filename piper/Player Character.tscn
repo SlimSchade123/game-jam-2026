@@ -16,6 +16,7 @@ fill_to = Vector2(0, 1)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=207930097]
 script = ExtResource("1_py502")
+current_state = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=975430459]
 position = Vector2(0, -38)
@@ -34,7 +35,8 @@ one_shot = true
 one_shot = true
 
 [node name="Life_Timer" type="Timer" parent="." unique_id=1074868581]
-wait_time = 0.05
+wait_time = 0.5
+autostart = true
 
 [connection signal="timeout" from="Dash_Timer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="Fall_Delay_Timer" to="." method="_on_fall_delay_timer_timeout"]

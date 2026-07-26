@@ -8,6 +8,7 @@ var tween : Tween
 
 func _ready() -> void:
 	Stats.dashing.connect(adjust_pcam)
+	Stats.change_cam_target.connect(change_target)
 
 func adjust_pcam(is_dashing : bool):
 	## sets the offset 
@@ -29,3 +30,6 @@ func tween_offset():
 	reset_tween()
 	tween.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK)
 	tween.tween_property(current_pcam, "follow_offset", target_offset, target_length)
+
+func change_target(target : Node2D):
+	current_pcam.follow_target = target

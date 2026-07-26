@@ -7,7 +7,7 @@ extends CharacterBody2D
 var life_tween : Tween
 var target_life_time : float = 20
 var current_life_time : float = 20
-
+var max_life_time : float = 20 ## the other two reference this chud
 ## Speed max should come in tiers
 ## Each area should act as a 'reset'
 ## Where you're put back to your normal speed
@@ -21,7 +21,7 @@ var min_speed_cap : float = 800
 var max_speed : float = 1200.0
 const cust_grav : Vector2 =  Vector2(0, 3000.0)
 # basic physics junk
-const acceleration : float = 12.5
+const acceleration : float = 10
 #const friction : float = 4.5
 #var motion : Vector2 = Vector2.ZERO
 
@@ -29,7 +29,7 @@ const acceleration : float = 12.5
 var stored_velocity : Vector2 
 var start_position : Vector2 = Vector2.ZERO
 
-enum Player_State { neutral = 0, run_one = 1, run_two = 2, jump_one = 3, jump_two = 4, strapped = 5, launched = 6, cutscene = 7, dashed = 8}
+enum Player_State { neutral = 0, run_one = 1, run_two = 2, jump_one = 3, jump_two = 4, strapped = 5, launched = 6, cutscene = 7, dashed = 8, dead = 9}
 @export var current_state : Player_State = Player_State.strapped
 
 ## anything pertaining to the dash
@@ -47,7 +47,7 @@ var fall_speed_scalar : float = 1.0
 ## jump info
 var jumped : bool = false
 const jump_velocity : float = -1150
-
+var speed : float 
 # speed meter info
 # variants for upgrades
 var current_meter_duration : = 20
@@ -55,6 +55,8 @@ var meter_duration : float = 20
 
 func _ready() -> void:
 	start_position = position
+	#spawn_offset = Stats.total_distance - stored_offset
+	#stored_offset = Stats.total_distance
 	Chris_Singleton.enemy_collided.connect(enemy_collided)
 
 func post_catapult():
@@ -68,6 +70,9 @@ func enemy_collided(info : enemy_collision_info) -> void:
 	enemy_dashed(info.enemy_instance)
 
 func _physics_process(delta: float) -> void:
+	if current_state == Player_State.dead:
+		return
+	
 	Stats.total_distance = absf(start_position.x - position.x) 
 	
 	falling(delta)
@@ -83,6 +88,9 @@ func _physics_process(delta: float) -> void:
 	## this controls the momentum rn, idk if itll be necessary
 	## need a slight refactor here, momentum doesn't reallllly show in current gameplay
 	## 
+	
+	if Stats.speed < 250:
+		print("dead !!")
 	
 	current_state_behavior(current_state, delta)
 	move_and_slide()
@@ -118,16 +126,24 @@ func current_state_behavior(state : Player_State, delta : float):
 		Player_State.dashed:
 			dash()
 			forwards_momentum(delta)
+		Player_State.dead:
+			death()
 		## update player state exclusively here
 		pass
+
+func death():
+	# gama over
+	print("game over !! !")
+	pass
 
 #endregion State Machine
 
 func forwards_momentum(delta : float):
-	var velocity_weight : float = delta * acceleration
-	
+	var velocity_weight : float = delta * (acceleration * max(0, (current_life_time / max_life_time)))
+	print("lifetime ratio:", max(0, (current_life_time / max_life_time)))
+	var target_speed : float = max_speed * max(0, (current_life_time / max_life_time))
 	## acceleration needs to be scaled by the current combo and deceleration timer thing whenever i do that
-	velocity.x = lerp(velocity.x, min(max_speed, max_speed_cap), velocity_weight)
+	velocity.x = lerp(velocity.x, min(target_speed, max_speed_cap), velocity_weight)
 
 #region Dashing
 
@@ -139,11 +155,14 @@ func dash():
 		fall_speed_scalar = 0.4
 		Stats.dashing.emit(true)
 		modulate = Color(0.0, 0.816, 1.0, 1.0)
-		max_speed = max_speed * 1.2
+		
 		dash_on_cooldown = true
 		dash_timer.start(dash_length)
 		fall_delay_timer.start(dash_fall_length)
 
+
+func enemy_killed():
+	max_speed = max_speed * 1.2
 
 func _on_dash_timer_timeout() -> void:
 	if is_dashing:
@@ -209,6 +228,7 @@ func enemy_dashed(enemy : Enemy2):
 	if is_dashing:
 		print("Enemy instance: ", enemy)
 		Chris_Singleton.enemy_killed.emit(enemy)
+		reset_life_time()
 		pass
 	pass
 
@@ -219,9 +239,11 @@ func enemy_dashed(enemy : Enemy2):
 
 func _on_life_timer_timeout() -> void:
 	## decrements life span by 0.5 each time
-	target_life_time -= 0.5
+	target_life_time -= 0.75
+	life_time_decrement()
 
 func reset_life_time():
+	target_life_time = max_life_time
 	## lerp current_life_time to target_life_time
 	
 	#current_life_time = lerpf(current_life_time, target_life_time, )
