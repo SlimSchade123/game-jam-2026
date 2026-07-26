@@ -16,9 +16,8 @@ func spawn_bar():
 	if Stats.total_distance > spawn_distance[spawn_tier]:
 		var instance = bar_prefab.instantiate()
 		instance.global_position = Vector2(spawn_distance[spawn_tier] + (spawn_offset * 2), 650)
-		
 		add_child(instance)
-		print("Oh im spawning it rn ;()")
+		#print("Oh im spawning it rn ;()")
 		
 		timer.stop()
 		spawn_tier += 1
@@ -30,9 +29,13 @@ func _process(delta: float) -> void:
 
 
 # Called when the node enters the scene tree for the first time.
+func start_spawning_timer():
+	timer.start()
+
 func _ready() -> void:
 	Chris_Singleton.enemy_collided.connect(update_offset)
 	Chris_Singleton.max_speed_changed.connect(update_offset)
+	Chris_Singleton.leave_bar.connect(start_spawning_timer)
 
 func update_offset(max_speed: float):
 	spawn_offset = max_speed

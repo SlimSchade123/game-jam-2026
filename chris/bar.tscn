@@ -11,6 +11,9 @@ size = Vector2(28, 569)
 gradient = SubResource("Gradient_msd7t")
 width = 257
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dg0xg"]
+size = Vector2(18, 566.5)
+
 [node name="Bar" type="Node2D" unique_id=595797658]
 script = ExtResource("1_msd7t")
 
@@ -24,5 +27,11 @@ shape = SubResource("RectangleShape2D_4b7j8")
 position = Vector2(-3.5, -218.87498)
 scale = Vector2(0.11328124, 568.25006)
 texture = SubResource("GradientTexture1D_dg0xg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1451645629]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2052578499]
+position = Vector2(24, -215.75)
+shape = SubResource("RectangleShape2D_dg0xg")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

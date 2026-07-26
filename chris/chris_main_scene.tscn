@@ -9,7 +9,6 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_6nxg0"]
 [ext_resource type="PackedScene" uid="uid://ct1ep45qasr1h" path="res://piper/pause_menu.tscn" id="7_kyulc"]
 [ext_resource type="Script" uid="uid://4ibqycwm6mna" path="res://enemy_spawner.gd" id="9_thobl"]
-[ext_resource type="Script" uid="uid://ceqgsm6mm0srl" path="res://chris/bar_spawner.gd" id="10_thobl"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ygfeb"]
 
@@ -98,8 +97,5 @@ timer = NodePath("Spawn Timer")
 
 [node name="Spawn Timer" type="Timer" parent="Enemy Spawner" unique_id=1333893468]
 autostart = true
-
-[node name="Bar Spawner" type="Node2D" parent="." unique_id=362847323]
-script = ExtResource("10_thobl")
 
 [connection signal="timeout" from="Enemy Spawner/Spawn Timer" to="Enemy Spawner" method="_on_timer_timeout"]
