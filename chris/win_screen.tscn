@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://bj2vci116c21k"]
+
+[ext_resource type="FontFile" uid="uid://d2t1ay6sebb57" path="res://chris/LavishlyYours-Regular.ttf" id="1_0w80r"]
+[ext_resource type="Script" uid="uid://bpmmfl53n6r8j" path="res://chris/circle_magic.gd" id="1_5npjh"]
+[ext_resource type="FontFile" uid="uid://cykv7n1iol4wl" path="res://fonts/Jacquard12-Regular.ttf" id="2_venpk"]
+
+[sub_resource type="Gradient" id="Gradient_venpk"]
+offsets = PackedFloat32Array(0.376, 0.464, 0.684, 0.732)
+colors = PackedColorArray(0.4377627, 0.43776298, 0.4377629, 1, 0.30446228, 0.30446222, 0.30446234, 1, 0.1159513, 0.1159513, 0.11595124, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_venpk"]
+gradient = SubResource("Gradient_venpk")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Theme" id="Theme_qgl5c"]
+default_font = ExtResource("1_0w80r")
+default_font_size = 600
+
+[sub_resource type="Theme" id="Theme_venpk"]
+default_font = ExtResource("2_venpk")
+default_font_size = 60
+
+[node name="WinScreen" type="Control" unique_id=1910251007]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="." unique_id=1542127483]
+anchors_preset = 0
+offset_right = 1931.0
+offset_bottom = 1061.0
+
+[node name="CircleMagic" type="Control" parent="Control" unique_id=2026190166 node_paths=PackedStringArray("circles")]
+anchors_preset = 0
+offset_left = 560.0
+offset_top = 221.0
+offset_right = 1436.0
+offset_bottom = 828.0
+script = ExtResource("1_5npjh")
+circles = [NodePath("Sprite2D4"), NodePath("Sprite2D3"), NodePath("Sprite2D2"), NodePath("Sprite2D1")]
+
+[node name="Sprite2D1" type="Sprite2D" parent="Control/CircleMagic" unique_id=1489864294]
+position = Vector2(444, 327)
+scale = Vector2(29.375, 22.226)
+texture = SubResource("GradientTexture2D_venpk")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Control/CircleMagic" unique_id=1214154087]
+position = Vector2(444, 327)
+scale = Vector2(22.79, 17.234)
+texture = SubResource("GradientTexture2D_venpk")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Control/CircleMagic" unique_id=1906242082]
+position = Vector2(444, 327)
+scale = Vector2(14.875, 11.21875)
+texture = SubResource("GradientTexture2D_venpk")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Control/CircleMagic" unique_id=1460624840]
+position = Vector2(444, 327)
+scale = Vector2(8.41, 6.354)
+texture = SubResource("GradientTexture2D_venpk")
+
+[node name="YOUWIN" type="Label" parent="Control" unique_id=164370949]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 57.0
+offset_right = 1867.0
+offset_bottom = 1017.0
+theme = SubResource("Theme_qgl5c")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "The End"
+horizontal_alignment = 1
+
+[node name="ExitButton" type="Button" parent="Control" unique_id=15748357]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.72900003
+anchor_bottom = 0.98300004
+offset_left = 787.0
+offset_top = 928.0
+offset_right = -289.6991
+offset_bottom = -19.963013
+theme = SubResource("Theme_venpk")
+text = "Main Menu"
