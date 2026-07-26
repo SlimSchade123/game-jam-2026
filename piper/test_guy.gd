@@ -10,6 +10,7 @@ const LOSE_SCREEN = preload("uid://cu0q7c1cijina")
 @onready var scream: AudioStreamPlayer = $scream
 
 var is_drinking : bool = false
+var can_die : bool = false
 
 var initial_rotation : float = 0
 var rot_tween : Tween
@@ -101,7 +102,7 @@ func _physics_process(delta: float) -> void:
 	## need a slight refactor here, momentum doesn't reallllly show in current gameplay
 	## 
 	
-	if Stats.speed < 250:
+	if velocity.x < 250 and can_die:
 		var loser := LOSE_SCREEN.instantiate()
 		add_child(loser)
 		Stats.reset()
@@ -313,3 +314,8 @@ func game_over_check():
 		print("GAME OVER")
 
 #endregion life span
+
+
+func _on_grace_period_timeout() -> void:
+	can_die = true
+	pass # Replace with function body.
